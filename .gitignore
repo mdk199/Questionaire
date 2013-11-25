@@ -8,3 +8,5 @@ config/database.yml
 log/development.log
 
 tmp/pids/passenger.3000.pid.lock
+
+*.pid
