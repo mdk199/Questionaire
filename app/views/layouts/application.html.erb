@@ -7,8 +7,9 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+<%= show_alert(alert) %>
+<%= show_notice(notice) %>
 
 <%= yield %>
-
 </body>
 </html>
