@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131125141621) do
+ActiveRecord::Schema.define(:version => 20131127093702) do
 
   create_table "answers", :force => true do |t|
     t.text     "answer"
@@ -23,6 +23,22 @@ ActiveRecord::Schema.define(:version => 20131125141621) do
     t.boolean  "flagged",                   :default => false
   end
 
+  create_table "documents", :force => true do |t|
+    t.integer "documentable_id"
+    t.string  "documentable_type"
+    t.binary  "document"
+  end
+
+  create_table "expertises", :force => true do |t|
+    t.integer "user_id"
+    t.string  "expertise"
+  end
+
+  create_table "interests", :force => true do |t|
+    t.integer "user_id"
+    t.string  "interest"
+  end
+
   create_table "questions", :force => true do |t|
     t.text     "question"
     t.text     "tags"
@@ -30,6 +46,20 @@ ActiveRecord::Schema.define(:version => 20131125141621) do
     t.datetime "created_at",                                  :null => false
     t.datetime "updated_at",                                  :null => false
     t.boolean  "flagged",                  :default => false
+  end
+
+  create_table "questions_tags", :force => true do |t|
+    t.integer "questions_id"
+    t.integer "tags_id"
+  end
+
+  create_table "tags", :force => true do |t|
+    t.string "name"
+  end
+
+  create_table "users", :force => true do |t|
+    t.string "name"
+    t.string "password"
   end
 
 end
