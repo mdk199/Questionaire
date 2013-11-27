@@ -11,25 +11,33 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131125141621) do
+ActiveRecord::Schema.define(:version => 20131127085617) do
 
   create_table "answers", :force => true do |t|
-    t.text     "answer"
-    t.string   "owner",       :limit => 50
-    t.datetime "created_at",                                   :null => false
-    t.datetime "updated_at",                                   :null => false
-    t.integer  "question_id"
-    t.boolean  "approved",                  :default => false
-    t.boolean  "flagged",                   :default => false
+    t.text    "answer"
+    t.string  "posted_by"
+    t.integer "question_id"
+  end
+
+  create_table "flags", :force => true do |t|
+    t.integer "flagable_id"
+    t.string  "flagable_type"
+  end
+
+  create_table "points_histories", :force => true do |t|
+    t.integer "user_id"
+    t.integer "points_map_id"
+  end
+
+  create_table "points_maps", :force => true do |t|
+    t.string  "controller"
+    t.string  "action"
+    t.integer "point"
   end
 
   create_table "questions", :force => true do |t|
-    t.text     "question"
-    t.text     "tags"
-    t.string   "owner",      :limit => 50
-    t.datetime "created_at",                                  :null => false
-    t.datetime "updated_at",                                  :null => false
-    t.boolean  "flagged",                  :default => false
+    t.text   "question"
+    t.string "posted_by", :limit => 50
   end
 
 end
