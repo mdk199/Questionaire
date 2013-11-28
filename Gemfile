@@ -7,7 +7,11 @@ gem 'rails', '3.2.14'
 
 gem 'mysql2'
 gem 'devise'
+<<<<<<< HEAD
 gem 'twitter-bootstrap-rails' #, :git => 'git://github.com/seyhunak/twitter-bootstrap-rails.git'
+=======
+gem 'twitter-bootstrap-rails'
+>>>>>>> 6a70a19cf5da0c96f700cdd89d0263e65fe1b941
 
 
 # Gems used only for assets and not required
