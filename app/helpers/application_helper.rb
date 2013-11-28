@@ -1,13 +1,13 @@
 module ApplicationHelper
   def show_alert(alert)
     if alert
-      "<p class='alert'>#{alert}</p>"
+    "#{alert}" 
     end
   end
 
   def show_notice(notice)
     if notice
-      "<p class='notice'>#{notice}</p>"
+   "#{notice}"
     end
   end
 end
