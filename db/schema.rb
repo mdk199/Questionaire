@@ -11,11 +11,11 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131127135831) do
+ActiveRecord::Schema.define(:version => 20131128144941) do
 
   create_table "answers", :force => true do |t|
     t.text    "answer"
-    t.string  "posted_by"
+    t.integer "user_id"
     t.integer "question_id"
   end
 
