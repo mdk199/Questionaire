@@ -8,5 +8,11 @@ config/database.yml
 log/development.log
 
 tmp/pids/passenger.3000.pid.lock
-app/assets/images/main.jpg
+
+tmp/
+tmp/*/
+tmp/*/*/
+tmp/*/*/*/
+tmp/*/*/*/*/
+
 *.pid
