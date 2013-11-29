@@ -1,8 +1,10 @@
 class User < ActiveRecord::Base
   has_many :questions
-  has_many :expertise
-  has_many :interest
-  has_many :points_history
+  has_many :expertises
+  has_many :interests
+  has_many :points_histories
+  has_many :answers
+  has_many :comments
 
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable

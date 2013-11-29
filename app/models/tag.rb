@@ -1,6 +1,6 @@
 class Tag < ActiveRecord::Base
-  has_many :question_tag
-  has_many :question, through: :question_tag
+  has_many :questions_tags
+  has_many :questions, through: :questions_tags
 
   
 end
