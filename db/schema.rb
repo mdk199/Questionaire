@@ -11,12 +11,14 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131128144941) do
+ActiveRecord::Schema.define(:version => 20131129063006) do
 
   create_table "answers", :force => true do |t|
-    t.text    "answer"
-    t.integer "user_id"
-    t.integer "question_id"
+    t.text     "answer"
+    t.integer  "user_id"
+    t.integer  "question_id"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
   end
 
   create_table "documents", :force => true do |t|
@@ -52,8 +54,10 @@ ActiveRecord::Schema.define(:version => 20131128144941) do
   end
 
   create_table "questions", :force => true do |t|
-    t.text    "question"
-    t.integer "user_id"
+    t.text     "question"
+    t.integer  "user_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   create_table "questions_tags", :force => true do |t|
