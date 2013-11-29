@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131129063006) do
+ActiveRecord::Schema.define(:version => 20131129091510) do
 
   create_table "answers", :force => true do |t|
     t.text     "answer"
@@ -22,35 +22,47 @@ ActiveRecord::Schema.define(:version => 20131129063006) do
   end
 
   create_table "documents", :force => true do |t|
-    t.integer "documentable_id"
-    t.string  "documentable_type"
-    t.binary  "document"
+    t.integer  "documentable_id"
+    t.string   "documentable_type"
+    t.binary   "document"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "expertises", :force => true do |t|
-    t.integer "user_id"
-    t.string  "expertise"
+    t.integer  "user_id"
+    t.string   "expertise"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "flags", :force => true do |t|
-    t.integer "flagable_id"
-    t.string  "flagable_type"
+    t.integer  "flagable_id"
+    t.string   "flagable_type"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "interests", :force => true do |t|
-    t.integer "user_id"
-    t.string  "interest"
+    t.integer  "user_id"
+    t.string   "interest"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "points_histories", :force => true do |t|
-    t.integer "user_id"
-    t.integer "points_map_id"
+    t.integer  "user_id"
+    t.integer  "points_map_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "points_maps", :force => true do |t|
-    t.string  "controller"
-    t.string  "action"
-    t.integer "point"
+    t.string   "controller"
+    t.string   "action"
+    t.integer  "point"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "questions", :force => true do |t|
@@ -61,12 +73,16 @@ ActiveRecord::Schema.define(:version => 20131129063006) do
   end
 
   create_table "questions_tags", :force => true do |t|
-    t.integer "questions_id"
-    t.integer "tags_id"
+    t.integer  "questions_id"
+    t.integer  "tags_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "tags", :force => true do |t|
-    t.string "name"
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "users", :force => true do |t|
