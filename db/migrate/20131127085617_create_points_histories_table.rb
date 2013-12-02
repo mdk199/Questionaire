@@ -1,4 +1,4 @@
-class CreatePointsHistoryTable < ActiveRecord::Migration
+class CreatePointsHistoriesTable < ActiveRecord::Migration
   def up
   	create_table :points_histories do |t|
   		t.integer :user_id
