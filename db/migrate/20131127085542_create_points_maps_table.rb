@@ -1,4 +1,4 @@
-class CreatePointsMapTable < ActiveRecord::Migration
+class CreatePointsMapsTable < ActiveRecord::Migration
   def up
   	create_table :points_maps do |t|
   		t.string :controller
