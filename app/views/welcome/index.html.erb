@@ -1,4 +1,3 @@
-<% content_for :main do %>
 <p class="pull-right visible-xs">
   <button type="button" class="btn btn-primary btn-xs" data-toggle="offcanvas">Toggle nav</button>
 </p>
@@ -11,7 +10,11 @@
       <h4 class="panel-title">
         <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
           Your Questions
-        </a></h4>
+        </a>
+      </h4>
+      <span class="add-new">
+        <%= link_to "Create new question", new_question_path %>
+      </span> 
       
     </div>
     <div id="collapseOne" class="panel-collapse collapse in">
@@ -65,8 +68,3 @@
  
 
 </div><!--/row-->
-<% end %>
-<% content_for :contributor do %>
-  Gaurav Soni!! 
-<% end %>
-

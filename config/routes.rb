@@ -1,4 +1,7 @@
 Rorproject::Application.routes.draw do
+  resources :answers
+
+
   devise_for :users
 
   # The priority is based upon order of creation:

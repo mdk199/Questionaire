@@ -5,4 +5,6 @@ class Question < ActiveRecord::Base
   attr_accessible :question, :user_id
   has_many :documents, as: :documentable
   has_many :flags, as: :flagable
+
+  validates_presence_of :question, :user_id
 end

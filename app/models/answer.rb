@@ -5,4 +5,5 @@ class Answer < ActiveRecord::Base
 	has_many :flags, as: :flagable
 	has_many :comments
 	attr_accessible :answer, :user_id, :question_id
+  validates_presence_of :answer, :user_id, :question_id
 end
