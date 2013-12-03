@@ -1,9 +1,8 @@
-
 config/database.yml
 *.log
 log/development.log
-
-tmp/pids/passenger.3000.pid.lock
+tmp
+/pids/passenger.3000.pid.lock
 
 tmp/
 tmp/*/
