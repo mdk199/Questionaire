@@ -1,4 +1,7 @@
 Rorproject::Application.routes.draw do
+  resources :expertises
+
+
   resources :answers
 
 

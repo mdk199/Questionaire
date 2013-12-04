@@ -25,8 +25,9 @@
 
 .add-new{
   float: right !important;
-  margin-top: -20px;
+  margin-top: -16px;
 }
+
 
 .field_with_errors input, .field_with_errors textarea{
   border-color: #b94a48 !important;
