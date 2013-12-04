@@ -1,15 +1,5 @@
 <%= form_for(@expertise) do |f| %>
-  <% if @expertise.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@expertise.errors.count, "error") %> prohibited this expertise from being saved:</h2>
-
-      <ul>
-      <% @expertise.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
+  <%= render "shared/error_messages", :object => @expertise %>
 
   <div class="field">
     <%= f.label :user_id %><br />

@@ -1,15 +1,5 @@
 <%= form_for(@points_map) do |f| %>
-  <% if @points_map.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@points_map.errors.count, "error") %> prohibited this points_map from being saved:</h2>
-
-      <ul>
-      <% @points_map.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
+  <%= render "shared/error_messages", :object => @points_map %>
 
   <div class="field">
     <%= f.label :controller %><br />
