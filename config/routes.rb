@@ -1,4 +1,16 @@
 Rorproject::Application.routes.draw do
+  resources :points_histories
+
+
+  resources :points_maps
+
+
+  resources :flags
+
+
+  resources :comments
+
+
   resources :expertises
 
 

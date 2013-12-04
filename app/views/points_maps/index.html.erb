@@ -1,0 +1,27 @@
+<h1>Listing points_maps</h1>
+
+<table>
+  <tr>
+    <th>Controller</th>
+    <th>Action</th>
+    <th>Point</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @points_maps.each do |points_map| %>
+  <tr>
+    <td><%= points_map.controller %></td>
+    <td><%= points_map.action %></td>
+    <td><%= points_map.point %></td>
+    <td><%= link_to 'Show', points_map %></td>
+    <td><%= link_to 'Edit', edit_points_map_path(points_map) %></td>
+    <td><%= link_to 'Destroy', points_map, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Points map', new_points_map_path %>
