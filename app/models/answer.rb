@@ -1,9 +1,11 @@
 class Answer < ActiveRecord::Base
   # attr_accessible :title, :body
 	belongs_to :question
+	belongs_to :user
 	has_many :documents, as: :documentable
 	has_many :flags, as: :flagable
 	has_many :comments
 	attr_accessible :answer, :user_id, :question_id
-  validates_presence_of :answer, :user_id, :question_id
+  	validates_presence_of :answer, :user, :question
+
 end
