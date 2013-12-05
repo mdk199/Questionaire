@@ -1,19 +1,9 @@
-<%= form_for(@answer) do |f| %>
+<%= form_for [@question, @answer] do |f| %>
   <%= render "shared/error_messages", :object => @answer %>
 
   <div class="field">
     <%= f.label :answer %>
     <%= f.text_area :answer , :rows => 3 %>
-  </div>
-  <div class="field">
-    <%= f.label :question_id %>
-    <%= f.text_field :question_id%>
-   </div>
-
-  <div class="field">
-    <%= f.label :user_id %>
-    <%= f.text_field :user_id%>
-   
   </div>
   <div class="actions">
     <%= f.submit "Submit", :class => "btn btn-primary"%>

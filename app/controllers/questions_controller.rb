@@ -81,4 +81,9 @@ class QuestionsController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+  def answers
+    @answers =  Answer.where("question_id = #{params[:id]}")
+    render "/answers/index"
+  end
 end
