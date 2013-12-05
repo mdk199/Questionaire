@@ -12,18 +12,18 @@ class Answer < ActiveRecord::Base
   	validate :valid_user, :valid_question
 
   	def valid_user
-  		if self.user_id.present?
-	  		unless User.find_by_id(self.user_id).present?
-	  			self.errors.add(:user_id, "not found!")
-	  		end
-	  	end
-  	end
+		if self.user_id.present?
+			unless User.find_by_id(self.user_id).present?
+				self.errors.add(:user_id, "not found!")
+			end
+		end
+	end
 
-  	def valid_question
-  		if self.question_id.present?
-	  		unless Question.find_by_id(self.question_id).present?
-	  			self.errors.add(:question_id, "not found!")
-	  		end
-	  	end
-  	end
+	def valid_question
+		if self.question_id.present?
+			unless Question.find_by_id(self.question_id).present?
+				self.errors.add(:question_id, "not found!")
+			end
+		end
+	end
 end

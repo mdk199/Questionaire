@@ -1,8 +1,8 @@
 class CreateQuestionsTagsTable < ActiveRecord::Migration
   def up
   	create_table :questions_tags do |t|
-  		t.integer :questions_id
-  		t.integer :tags_id
+  		t.integer :question_id
+  		t.integer :tag_id
   	end
   end
 
