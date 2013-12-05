@@ -1,6 +1,8 @@
 <h3>Listing answers</h3>
-
-<table>
+<span class="add-new">
+  <%= link_to 'New Answer', new_answer_path %>
+</span>
+<table  class="table table-hover table-striped">
   <tr>
     <th>Answer</th>
     <th>Question</th>
@@ -15,13 +17,13 @@
     <td><%= answer.answer %></td>
     <td><%= answer.question_id %></td>
     <td><%= answer.user_id %></td>
-    <td><%= link_to 'Show', answer %></td>
-    <td><%= link_to 'Edit', edit_answer_path(answer) %></td>
-    <td><%= link_to 'Destroy', answer, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    <td><h6><%= link_to 'Show', answer %></h6></td>
+    <td><h6><%= link_to 'Edit', edit_answer_path(answer) %></h6></td>
+    <td><h6><%= link_to 'Destroy', answer, method: :delete, data: { confirm: 'Are you sure?' } %></h6></td>
   </tr>
 <% end %>
 </table>
 
 <br />
 
-<%= link_to 'New Answer', new_answer_path %>
+

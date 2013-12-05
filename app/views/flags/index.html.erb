@@ -1,6 +1,8 @@
-<h1>Listing flags</h1>
-
-<table>
+<h3>Listing flags</h3>
+<span class="add-new">
+  <%= link_to 'New Flag', new_flag_path %>
+</span>
+<table  class="table table-hover table-striped">
   <tr>
     <th>Flagable</th>
     <th>Flagable type</th>
@@ -13,13 +15,13 @@
   <tr>
     <td><%= flag.flagable_id %></td>
     <td><%= flag.flagable_type %></td>
-    <td><%= link_to 'Show', flag %></td>
-    <td><%= link_to 'Edit', edit_flag_path(flag) %></td>
-    <td><%= link_to 'Destroy', flag, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    <td><h6><%= link_to 'Show', flag %></h6></td>
+    <td><h6><%= link_to 'Edit', edit_flag_path(flag) %></h6></td>
+    <td><h6><%= link_to 'Destroy', flag, method: :delete, data: { confirm: 'Are you sure?' } %></h6></td>
   </tr>
 <% end %>
 </table>
 
 <br />
 
-<%= link_to 'New Flag', new_flag_path %>
+

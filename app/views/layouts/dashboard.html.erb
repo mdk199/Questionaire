@@ -6,13 +6,16 @@
     <%= render "shared/top_nav" %>
     <div class="container">
       <div class="row row-offcanvas row-offcanvas-right">
-        <div class="col-xs-12 col-sm-9">
+        <div class="col-xs-6 col-sm-2">
+          <h6><a>My Points</a></h6>
+          <h6><%= link_to 'Add Experise', new_expertise_path %></h6>
+          <h6><%= link_to 'Add Interest', new_expertise_path %></h6>
+        </div>
+        <div class="col-xs-6 col-sm-7">
           <%= yield %>
-          <footer>
-            <p>&copy; Sony India Software Center 2013</p>
-          </footer>
+          
         </div><!--/span-->
-        <div class="col-xs-6 col-sm-3 sidebar-offcanvas" id="sidebar" role="navigation">
+        <div class="col-xs-6 col-sm-2 sidebar-offcanvas" id="sidebar" role="navigation">
           <div>
             <p> Top Contributors </p>
             <p>Gaurav Soni!! </p>
@@ -21,6 +24,11 @@
       </div><!--/row-->
       <hr>
     </div><!--/.container-->
+    <div class="container col-xs-6 col-sm-6">
+      <footer>
+            <p>&copy; Sony India Software Center 2013</p>
+      </footer>
+    </div>
     <script>
       $(document).ready(function() {
         $('[data-toggle=offcanvas]').click(function() {
