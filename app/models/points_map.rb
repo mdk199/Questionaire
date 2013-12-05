@@ -1,5 +1,5 @@
 class PointsMap < ActiveRecord::Base
-	has_many :points_history
+	has_many :points_history, :dependent => :destroy
 	attr_accessible :controller, :action, :point
 	validates_presence_of :controller, :action, :point
 end

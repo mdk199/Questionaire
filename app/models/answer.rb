@@ -3,8 +3,8 @@ class Answer < ActiveRecord::Base
 	belongs_to :question
 	belongs_to :user
 	has_many :documents, as: :documentable
-	has_many :flags, as: :flagable
-	has_many :comments
+	has_many :flags, as: :flagable, :dependent => :destroy
+	has_many :comments, :dependent => :destroy
 	attr_accessible :answer, :user_id, :question_id
 	validates :answer, :presence => true
 	validates_presence_of :user_id
