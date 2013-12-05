@@ -1,4 +1,5 @@
 class InterestsController < ApplicationController
+  layout "dashboard"
   # GET /interests
   # GET /interests.json
   def index

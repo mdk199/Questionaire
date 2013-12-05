@@ -1,4 +1,5 @@
 class FlagsController < ApplicationController
+  layout "dashboard"
   # GET /flags
   # GET /flags.json
   def index

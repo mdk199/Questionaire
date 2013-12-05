@@ -1,4 +1,5 @@
 class PointsHistoriesController < ApplicationController
+  layout "dashboard"
   # GET /points_histories
   # GET /points_histories.json
   def index

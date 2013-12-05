@@ -1,4 +1,5 @@
 class PointsMapsController < ApplicationController
+  layout "dashboard"
   # GET /points_maps
   # GET /points_maps.json
   def index

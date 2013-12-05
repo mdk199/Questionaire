@@ -7,9 +7,9 @@
   </div>
   <div class="field">
     <%= f.label :question %><br />
-    <%= f.text_field :question %>
+    <%= f.text_area :question, :rows => 3 %>
   </div>
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit "Submit", :class => "btn btn-primary"%>
   </div>
 <% end %>
