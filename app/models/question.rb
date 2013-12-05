@@ -4,7 +4,7 @@ class Question < ActiveRecord::Base
   attr_accessible :question, :user_id
   has_many :documents, as: :documentable, :dependent => :destroy
   has_many :flags, as: :flagable, :dependent => :destroy
-
+  has_many :answers
   validates_presence_of :question, :user_id
   validate :valid_user
   	def valid_user
