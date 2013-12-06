@@ -20,7 +20,8 @@
         <td><%= question.answers_count %></td>
         <td>
           <%= link_to 'Edit', edit_question_path(question) %> | 
-          <%= link_to 'Destroy', question, method: :delete, data: { confirm: 'Are you sure?' } %>
+          <%= link_to 'Destroy', question, method: :delete, data: { confirm: 'Are you sure?' } %> |
+          <%= link_to 'Answer', %>
         </td>
       </tr>
     <% end %>
