@@ -1,5 +1,5 @@
 class QuestionsController < ApplicationController
-    layout "dashboard"
+  layout "normallayout.html.erb"
   # GET /questions
   # GET /questions.json
   def index

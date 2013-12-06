@@ -1,5 +1,5 @@
 class PointsMapsController < ApplicationController
-  layout "dashboard"
+  layout "normallayout.html.erb"
   # GET /points_maps
   # GET /points_maps.json
   def index

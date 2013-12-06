@@ -1,5 +1,5 @@
 class ExpertisesController < ApplicationController
-    layout "dashboard"
+  layout "normallayout.html.erb"
   # GET /expertises
   # GET /expertises.json
   def index
