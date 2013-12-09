@@ -1,7 +1,7 @@
 <% if object.errors.any? %>
 	<div id="error_explanation" class="alert alert-error">
       <button type="button" class="close" data-dismiss="alert">×</button>
-      <h5><%= pluralize(object.errors.count, "error") %> prohibited this answer from being saved:</h5>
+      <h5><%= pluralize(object.errors.count, "error") %> prohibited from saving this:</h5>
 
       <ul>
       <% object.errors.full_messages.each do |msg| %>

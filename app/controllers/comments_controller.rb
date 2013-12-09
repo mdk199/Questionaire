@@ -1,5 +1,5 @@
 class CommentsController < ApplicationController
-  layout "normallayout.html.erb"
+  layout "main.html.erb"
     # GET /comments
   # GET /comments.json
   def index

@@ -1,5 +1,5 @@
 class PointsHistoriesController < ApplicationController
-  layout "normallayout.html.erb"
+  layout "main.html.erb"
   # GET /points_histories
   # GET /points_histories.json
   def index

@@ -5,28 +5,21 @@
   <%= link_to 'New Question', new_question_path %>
 </span>
 
-<table id="viewgrid">
-  <thead>
+<table class="table table-striped">
     <tr>
       <th>Question</th>
-      <th># of Answers</th>
-      <th>Actions</th>
+      <th style = "width:200px;"># of Answers</th>
+      <th style = "width:200px;">Actions</th>
     </tr>
-  </thead>
-  <tbody>
     <% @questions.each do |question| %>
       <tr>
         <td><%= link_to question.question, question %></td>
         <td><%= question.answers_count %></td>
         <td>
           <%= link_to 'Edit', edit_question_path(question) %> | 
-          <%= link_to 'Destroy', question, method: :delete, data: { confirm: 'Are you sure?' } %> |
+          <%= link_to 'Delete', question, method: :delete, data: { confirm: 'Are you sure?' } %> |
           
         </td>
       </tr>
     <% end %>
-  </tbody>
 </table>
-
-<%= render "shared/datatable_lib" %>
-

@@ -1,5 +1,5 @@
 class FlagsController < ApplicationController
-  layout "normallayout.html.erb"
+  layout "main.html.erb"
   # GET /flags
   # GET /flags.json
   def index

@@ -1,5 +1,5 @@
 class InterestsController < ApplicationController
-  layout "normallayout.html.erb"
+  layout "main.html.erb"
   # GET /interests
   # GET /interests.json
   def index
