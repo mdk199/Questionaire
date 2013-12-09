@@ -4,22 +4,6 @@
 <span class="add-new">
   <%= link_to 'New Question', new_question_path %>
 </span>
-
-<table class="table table-striped">
-    <tr>
-      <th>Question</th>
-      <th style = "width:200px;"># of Answers</th>
-      <th style = "width:200px;">Actions</th>
-    </tr>
-    <% @questions.each do |question| %>
-      <tr>
-        <td><%= link_to question.question, question %></td>
-        <td><%= question.answers_count %></td>
-        <td>
-          <%= link_to 'Edit', edit_question_path(question) %> | 
-          <%= link_to 'Delete', question, method: :delete, data: { confirm: 'Are you sure?' } %> |
-          
-        </td>
-      </tr>
-    <% end %>
-</table>
+ <% @questions.each do |question| %>
+    <%= render 'shared/question_layout', :object=> question%>
+ <% end %> 
