@@ -1,6 +1,6 @@
 class Comment < ActiveRecord::Base
 	belongs_to :user
-	belongs_to :answer
+	belongs_to :answer, counter_cache: true
 	validates_presence_of :comment
 	attr_accessible :answer_id, :comment, :user_id
 	validates_presence_of :user_id

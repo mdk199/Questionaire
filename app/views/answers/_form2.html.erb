@@ -12,9 +12,7 @@
   </div>
 
   <div class="field">
-    <%= f.label :user_id %>
-    <%= f.text_field :user_id, :readonly => "readonly"%>
-    <%= f.hidden_field :user_id %>
+    <%= f.hidden_field :user_id, :value => current_user.id %>
   </div>
   <div class="actions">
     <%= f.submit "Update", :class => "btn btn-primary"%>

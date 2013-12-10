@@ -1,16 +1,14 @@
 <p>
-  <b>Answer:</b>
-  <%= @answer.answer %>
-</p>
-
-<p>
   <b>Question:</b>
   <%= @answer.question_id %>
 </p>
-
+<p>
+  <b>Answer:</b>
+  <%= @answer.answer %>
+</p>
 <p>
   <b>User:</b>
-  <%= @answer.user_id %>
+  <%= current_user.email %>
 </p>
 
 

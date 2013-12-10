@@ -1,11 +1,13 @@
 <%= form_for [@question, @answer] do |f| %>
   <%= render "shared/error_messages", :object => @answer %>
-
   <div class="field">
-    <%= f.label :answer %>
-    <%= f.text_area :answer , :rows => 3 %>
+   	<%= f.hidden_field :user_id, :value => current_user.id %>
+  </div>
+  <div class="field">
+   	<%= f.label :answer %>
+   	<%= f.text_area :answer , :rows => 3 %>
   </div>
   <div class="actions">
-    <%= f.submit "Submit", :class => "btn btn-primary"%>
+   	<%= f.submit "Submit", :class => "btn btn-primary"%>
   </div>
 <% end %>
