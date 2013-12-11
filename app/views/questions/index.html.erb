@@ -1,9 +1,7 @@
 <blockquote>
   <p>Listing Questions</p>
 </blockquote>
-<span class="add-new">
-  <h6><%= link_to 'New Question', new_question_path %></h6>
-</span>
  <% @questions.each do |question| %>
     <%= render 'shared/question_layout', :object=> question%>
+    <br/>
  <% end %> 

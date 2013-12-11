@@ -38,3 +38,12 @@
 .field_with_errors label{
   color: #b94a48 !important;
 }
+
+.panel-heading a{
+  color: white !important;
+  text-decoration: none !important;
+}
+
+input{
+  height: 30px !important;
+}
