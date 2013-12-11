@@ -7,7 +7,7 @@ class Answer < ActiveRecord::Base
 	has_many :comments, :dependent => :destroy
 	attr_accessible :answer, :user_id, :question_id
 	validates :answer, :presence => true
-	validates_presence_of :user_id
+	validates_presence_of :user_id, :message=>"user not present" 
   	validates_presence_of :question_id
   	validate :valid_user, :valid_question
 
