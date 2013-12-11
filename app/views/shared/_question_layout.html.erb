@@ -1,5 +1,5 @@
 <div class="panel-group" id="accordion">
-  <div class="panel panel-primary">
+  <div class="panel panel-info">
     <span class="action_links float-right">
       <%= link_to '', edit_question_path(object), :title => "Edit", :class=>'icon-edit' %> 
       <%= link_to '', object, method: :delete, :title => "Delete", :class=>'icon-remove', data: { confirm: 'Are you sure?' } %>
@@ -12,9 +12,16 @@
     </div>
     <div id="<%= object.id %>" class="panel-collapse collapse">
       <div class="panel-body">
-          <% object.answers.each do |a|%>
-          <%= a.answer %>&nbsp;&nbsp; <%= a.user.email%></br>          
-          <% end %>
+        <% object.answers.each do |a|%>
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <%= a.answer %></br>
+          </div>
+          <div class="panel-body">
+            <i class="icon-user icon-white"></i>&nbsp;&nbsp;<%= a.user.email%>
+          </div>
+        </div>
+        <% end %>
         </br>
         <form role="form">
           <label>Answer </label></br>
