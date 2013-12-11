@@ -17,8 +17,11 @@
       </div>
       <div id="<%= object.id %>" class="panel-collapse collapse">
         <div class="panel-body">
+          <% object.answers.each do|answers|%>
+          <%= answers.answer%><br/>
+          <% end %>
           <form role="form">
-            <label>Answer </label></br>
+            <label>Submit your answer</label></br>
             <textarea class="form-control" rows="3"></textarea>
             <button type="submit" class="btn btn-primary">Submit</button>
           </form>
