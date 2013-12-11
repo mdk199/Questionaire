@@ -39,11 +39,16 @@
   color: #b94a48 !important;
 }
 
-.panel-heading a{
-  color: white !important;
-  text-decoration: none !important;
-}
-
 input{
   height: 30px !important;
+}
+
+.action_links{
+  border-radius: 3px;
+  background-color: white;
+  border-color: black;
+  padding: 5px;
+  max-width: 125px;
+  position: relative;
+  top: 0px;
 }

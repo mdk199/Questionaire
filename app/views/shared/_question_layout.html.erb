@@ -1,12 +1,12 @@
 <div class="panel-group" id="accordion">
   <div class="panel panel-primary">
-    <div class="panel-heading" ref>
-      <div data-toggle="collapse" data-parent="#accordion" href="#<%= object.id %>">
+    <span class="action_links float-right">
+      <%= link_to '', edit_question_path(object), :title => "Edit", :class=>'icon-edit' %> 
+      <%= link_to '', object, method: :delete, :title => "Delete", :class=>'icon-remove', data: { confirm: 'Are you sure?' } %>
+    </span>
+    <div class="panel-heading" data-toggle="collapse" data-parent="#accordion" href="#<%= object.id %>">
+      <div class="span7 panel-title">
         <%= object.question%>
-        <span class="float-right">
-          <%= link_to "", edit_question_path(object), :title => "Edit", :class=>'icon-edit' %> 
-          <%= link_to '', object, method: :delete, :title => "Delete", :class=>'icon-remove', data: { confirm: 'Are you sure?' } %>
-        </span>
       </div>
       <div id="<%= object.id %>" class="panel-collapse collapse">
         <div class="panel-body">
