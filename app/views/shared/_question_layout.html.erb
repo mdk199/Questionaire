@@ -12,6 +12,10 @@
     </div>
     <div id="<%= object.id %>" class="panel-collapse collapse">
       <div class="panel-body">
+          <% object.answers.each do |a|%>
+          <%= a.answer %>&nbsp;&nbsp; <%= a.user.email%></br>          
+          <% end %>
+        </br>
         <form role="form">
           <label>Answer </label></br>
           <textarea class="form-control" rows="3"></textarea>
