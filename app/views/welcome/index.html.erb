@@ -3,18 +3,16 @@
 </p>
 
 <div class="panel-group" id="accordion">
-  <div class="panel panel-default">
-    <div class="panel-heading">
+  <div class="panel panel-primary">
+    <span class="action_links float-right">
+      <%= link_to "See All", questions_path , :class=> "action_links" %>
+    </span>
+    <div class="panel-heading" data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
       <h4 class="panel-title">
-        <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
+        <a >
           Q by You
         </a>
       </h4>
-      <span class="add-new">
-        <%= link_to "See All", questions_path %>
-      </span> 
-      
-      
     </div>
     <div id="collapseOne" class="panel-collapse collapse in">
       <div class="panel-body">
@@ -25,16 +23,16 @@
       </div>
     </div>
   </div>
-  <div class="panel panel-default">
-    <div class="panel-heading">
+  <div class="panel panel-primary">
+    <span class="action_links float-right">
+      <%= link_to "See All", questions_path , :class=> "action_links" %>
+    </span>
+    <div class="panel-heading" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">
       <h4 class="panel-title">
-        <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">
+        <a >
           Q your Expertises
         </a>
       </h4>
-      <span class="add-new">
-        <%= link_to "See All", expertises_path %>
-      </span>
     </div>
     <div id="collapseTwo" class="panel-collapse collapse">
       <div class="panel-body">
@@ -44,16 +42,16 @@
       </div>
     </div>
   </div>
-  <div class="panel panel-default">
-    <div class="panel-heading">
+  <div class="panel panel-primary">
+    <span class="action_links float-right">
+      <%= link_to "See All", questions_path , :class=> "action_links" %>
+    </span>
+    <div class="panel-heading" data-toggle="collapse" data-parent="#accordion" href="#collapseThree">
       <h4 class="panel-title">
-        <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree">
+        <a >
           Q your Interests
         </a>
       </h4>
-      <span class="add-new">
-        <%= link_to "See All", interests_path %>
-      </span>
     </div>
     <div id="collapseThree" class="panel-collapse collapse">
       <div class="panel-body">
