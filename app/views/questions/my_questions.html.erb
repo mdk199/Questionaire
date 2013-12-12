@@ -1,0 +1,7 @@
+<blockquote>
+  <p>My Questions</p>
+</blockquote>
+ <% @questions.each do |question| %>
+    <%= render 'question_layout', :object=> question%>
+    <br/>
+ <% end %> 

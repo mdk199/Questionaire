@@ -3,10 +3,19 @@ class QuestionsController < ApplicationController
   # GET /questions
   # GET /questions.json
   def index
-    @questions = Question.where(:user_id=>current_user.id).find(:all, :include=>"answers")
+    @questions = Question.find(:all, :include=>"answers")
 
     respond_to do |format|
       format.html # index.html.erb
+      format.json { render json: @questions }
+    end
+  end
+
+  def my_questions
+    @questions = Question.where(:user_id=>current_user.id).find(:all, :include=>"answers")
+
+    respond_to do |format|
+      format.html # my_question.html.erb
       format.json { render json: @questions }
     end
   end
@@ -42,7 +51,7 @@ class QuestionsController < ApplicationController
   # POST /questions.json
   def create
     @question = Question.new(params[:question])
-
+  
     respond_to do |format|
       if @question.save
         format.html { redirect_to @question, notice: 'Question was successfully created.' }
