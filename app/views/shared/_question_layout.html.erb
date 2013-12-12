@@ -12,6 +12,8 @@
     </div>
     <div id="<%= object.id %>" class="panel-collapse collapse">
       <div class="panel-body">
+        <h6 class="float-right">Updated At: <%= object.updated_at%></h6>
+      </br></br>
         <% object.answers.each do |a|%>
         <div class="panel panel-default">
           <div class="panel-heading">
