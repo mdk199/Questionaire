@@ -3,7 +3,7 @@ class QuestionsController < ApplicationController
   # GET /questions
   # GET /questions.json
   def index
-    @questions = Question.find(:all, :include=>"answers")
+    @questions = Question.where(:user_id=>current_user.id).find(:all, :include=>"answers")
 
     respond_to do |format|
       format.html # index.html.erb
