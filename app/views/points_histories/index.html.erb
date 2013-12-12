@@ -1,0 +1,27 @@
+<h3>Listing points_histories</h3>
+<span class="add-new">
+  <%= link_to 'New Points history', new_points_history_path %>
+</span>
+<table  class="table table-hover table-striped">
+  <tr>
+    <th>User</th>
+    <th>Points map</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @points_histories.each do |points_history| %>
+  <tr>
+    <td><%= points_history.user_id %></td>
+    <td><%= points_history.points_map_id %></td>
+    <td><h6><%= link_to 'Show', points_history %></h6></td>
+    <td><h6><%= link_to 'Edit', edit_points_history_path(points_history) %></h6></td>
+    <td><h6><%= link_to 'Destroy', points_history, method: :delete, data: { confirm: 'Are you sure?' } %></h6></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+

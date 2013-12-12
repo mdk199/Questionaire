@@ -1,0 +1,19 @@
+<%= form_for(@points_map) do |f| %>
+  <%= render "shared/error_messages", :object => @points_map %>
+
+  <div class="field">
+    <%= f.label :controller %><br />
+    <%= f.text_field :controller %>
+  </div>
+  <div class="field">
+    <%= f.label :action %><br />
+    <%= f.text_field :action %>
+  </div>
+  <div class="field">
+    <%= f.label :point %><br />
+    <%= f.text_field :point %>
+  </div>
+  <div class="actions">
+    <%= f.submit "Submit", :class => "btn btn-primary"%>
+  </div>
+<% end %>

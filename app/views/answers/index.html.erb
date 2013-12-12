@@ -1,0 +1,31 @@
+<blockquote>
+  <p>Listing Answers</p>
+</blockquote>
+<span class="add-new">
+  <%= link_to 'New Answer', new_answer_path %>
+</span>
+<table  class="table table-hover table-striped">
+  <tr>
+    <th>Answer</th>
+    <th>Question</th>
+    <th>User</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @answers.each do |answer| %>
+  <tr>
+    <td><%= answer.answer %></td>
+    <td><%= answer.question_id %></td>
+    <td><%= answer.user_id %></td>
+    <td><h6><%= link_to 'Show', answer %></h6></td>
+    <td><h6><%= link_to 'Edit', edit_answer_path(answer) %></h6></td>
+    <td><h6><%= link_to 'Destroy', answer, method: :delete, data: { confirm: 'Are you sure?' } %></h6></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+

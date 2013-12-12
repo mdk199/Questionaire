@@ -11,16 +11,15 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-
-ActiveRecord::Schema.define(:version => 20131129122045) do
-
+ActiveRecord::Schema.define(:version => 20131206123614) do
 
   create_table "answers", :force => true do |t|
     t.text     "answer"
     t.integer  "user_id"
     t.integer  "question_id"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
+    t.datetime "created_at",                    :null => false
+    t.datetime "updated_at",                    :null => false
+    t.integer  "comments_count", :default => 0
   end
 
   create_table "comments", :force => true do |t|
@@ -78,13 +77,14 @@ ActiveRecord::Schema.define(:version => 20131129122045) do
   create_table "questions", :force => true do |t|
     t.text     "question"
     t.integer  "user_id"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",                   :null => false
+    t.datetime "updated_at",                   :null => false
+    t.integer  "answers_count", :default => 0
   end
 
   create_table "questions_tags", :force => true do |t|
-    t.integer  "questions_id"
-    t.integer  "tags_id"
+    t.integer  "question_id"
+    t.integer  "tag_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -108,6 +108,12 @@ ActiveRecord::Schema.define(:version => 20131129122045) do
     t.string   "last_sign_in_ip"
     t.datetime "created_at",                             :null => false
     t.datetime "updated_at",                             :null => false
+    t.string   "confirmation_token"
+    t.datetime "confirmed_at"
+    t.datetime "confirmation_sent_at"
+    t.string   "first_name"
+    t.string   "last_name"
+    t.string   "unconfirmed_email"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true

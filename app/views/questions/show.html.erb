@@ -1,0 +1,17 @@
+<blockquote>
+  <p>Display Question</p>
+</blockquote>
+
+<p>
+  <b>User:</b>
+  <%= current_user.email %>
+</p>
+
+<p>
+  <b>Question:</b>
+  <%= @question.question %>
+</p>
+
+
+<%= link_to 'Edit', edit_question_path(@question) %> |
+<%= link_to 'Back', questions_path %>

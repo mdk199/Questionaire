@@ -5,7 +5,6 @@ class CreateCommentsTable < ActiveRecord::Migration
   		t.integer :answer_id
   		t.integer :user_id
   		t.timestamps
-
   	end
   end
 

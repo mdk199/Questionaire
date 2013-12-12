@@ -1,0 +1,15 @@
+<%= form_for(@points_history) do |f| %>
+  <%= render "shared/error_messages", :object => @points_history %>
+
+  <div class="field">
+    <%= f.label :user_id %><br />
+    <%= f.text_field :user_id %>
+  </div>
+  <div class="field">
+    <%= f.label :points_map_id %><br />
+    <%= f.text_field :points_map_id %>
+  </div>
+  <div class="actions">
+    <%= f.submit "Submit", :class => "btn btn-primary"%>
+  </div>
+<% end %>

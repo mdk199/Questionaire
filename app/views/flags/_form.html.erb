@@ -1,0 +1,15 @@
+<%= form_for(@flag) do |f| %>
+  <%= render "shared/error_messages", :object => @flag %>
+
+  <div class="field">
+    <%= f.label :flagable_id %><br />
+    <%= f.text_field :flagable_id %>
+  </div>
+  <div class="field">
+    <%= f.label :flagable_type %><br />
+    <%= f.text_field :flagable_type %>
+  </div>
+  <div class="actions">
+    <%= f.submit "Submit", :class => "btn btn-primary"%>
+  </div>
+<% end %>

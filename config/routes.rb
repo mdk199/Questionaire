@@ -1,4 +1,25 @@
 Rorproject::Application.routes.draw do
+  resources :interests
+
+
+  resources :points_histories
+
+
+  resources :points_maps
+
+
+  resources :flags
+
+
+  resources :comments
+
+
+  resources :expertises
+
+
+  resources :answers
+
+
   devise_for :users
 
   # The priority is based upon order of creation:
@@ -13,7 +34,11 @@ Rorproject::Application.routes.draw do
   # This route can be invoked with purchase_url(:id => product.id)
 
   # Sample resource route (maps HTTP verbs to controller actions automatically):
-  resources :questions
+  resources :questions do
+    collection do
+      get 'answers/:id', to: 'questions#answers'
+    end
+  end
 
   # Sample resource route with options:
   #   resources :products do

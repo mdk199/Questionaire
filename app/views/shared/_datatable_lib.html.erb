@@ -1,0 +1,12 @@
+<%= stylesheet_link_tag    "datatables/media/css/jquery.dataTables.css" %>
+<%= javascript_include_tag "datatables/media/js/jquery.dataTables.js" %>
+
+<script type="text/javascript">
+  $(document).ready(function(){
+    $("#viewgrid").dataTable({
+      "bJQueryUI":true,
+      "sPaginationType": "full_numbers",
+      "iDisplayLength": 10
+    });
+  });
+</script>

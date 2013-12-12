@@ -1,0 +1,20 @@
+<%= form_for(@answer) do |f| %>
+  <%= render "shared/error_messages", :object => @answer %>
+
+  <div class="field">
+    <%= f.label :answer %>
+    <%= f.text_area :answer , :rows => 3 %>
+  </div>
+  <div class="field">
+    <%= f.label :question_id %>
+    <%= f.text_field :question_id, :readonly => "readonly"%>
+    <%= f.hidden_field :question_id %>
+  </div>
+
+  <div class="field">
+    <%= f.hidden_field :user_id, :value => current_user.id %>
+  </div>
+  <div class="actions">
+    <%= f.submit "Update", :class => "btn btn-primary"%>
+  </div>
+<% end %>

@@ -1,14 +1,6 @@
-<%= form_for @question do |f| %>
-  <p>
-    <%= f.label :question %>
-    <%= f.text_field :question %>
-  </p>
-  <p>
-    <%= f.label :user_id %>
-    <%= f.text_field :user_id, :value => current_user.email, :disabled => true %>
-    <%= f.hidden_field :user_id, :value => current_user.id %>
-  </p>
-  <p>
-    <%= f.submit :create %>
-  </p>
-<% end %>
+<blockquote>
+  <p>Add Questions</p>
+</blockquote>
+<%= render 'form' %>
+
+<%= link_to 'Back', questions_path %>

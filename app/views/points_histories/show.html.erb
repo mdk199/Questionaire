@@ -1,0 +1,14 @@
+
+<p>
+  <b>User:</b>
+  <%= @points_history.user_id %>
+</p>
+
+<p>
+  <b>Points map:</b>
+  <%= @points_history.points_map_id %>
+</p>
+
+
+<%= link_to 'Edit', edit_points_history_path(@points_history) %> |
+<%= link_to 'Back', points_histories_path %>

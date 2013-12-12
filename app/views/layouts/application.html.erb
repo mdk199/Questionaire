@@ -7,13 +7,8 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-
-<p class = 'alert'> <%= show_alert(alert) %> </p>
-<p class = 'notice'> <%= show_notice(notice) %></p>
-
-
-<%= yield %>
-
-
+  <%= show_alert(alert) %>
+  <%= show_notice(notice) %>
+  <%= yield %>
 </body>
 </html>

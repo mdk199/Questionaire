@@ -1,0 +1,22 @@
+<div class="alert alert-success">
+    <button type="button" class="close" data-dismiss="alert">×</button>
+    <p id="notice"><%= notice %></p>
+</div>
+<p>
+  <b>Controller:</b>
+  <%= @points_map.controller %>
+</p>
+
+<p>
+  <b>Action:</b>
+  <%= @points_map.action %>
+</p>
+
+<p>
+  <b>Point:</b>
+  <%= @points_map.point %>
+</p>
+
+
+<%= link_to 'Edit', edit_points_map_path(@points_map) %> |
+<%= link_to 'Back', points_maps_path %>
