@@ -52,3 +52,7 @@ input{
   position: relative;
   top: 0px;
 }
+.set-height{
+  width: 600px !important;
+  height: 200px !important;
+}

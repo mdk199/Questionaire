@@ -1,6 +1,6 @@
 class Interest < ActiveRecord::Base
   belongs_to :user
-  
+  attr_accessible :interests_attributes
   attr_accessible :user_id, :interest
 
   validates_presence_of :user_id, :interest
