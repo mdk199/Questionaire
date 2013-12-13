@@ -7,6 +7,11 @@
     <div class="panel-heading" data-toggle="collapse" data-parent="#accordion" href="#<%= object.id %>">
       <div class="span7 panel-title">
         <%= object.question%>
+         <h6><i class="icon-tags"></i>
+        <% object.tags.each do |q|%>
+        <%= q.name%> 
+        <%end%>
+        </h6>
       </div>
       <div class="clear"></div>
     </div>
