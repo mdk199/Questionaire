@@ -26,7 +26,7 @@ class InterestsController < ApplicationController
   # GET /interests/new.json
   def new
     i=Interest.find_by_user_id(current_user.id)
-    if i.interest != ""
+    if i.present?
       @interest = Interest.find(i.id)
     else
       @interest = Interest.new

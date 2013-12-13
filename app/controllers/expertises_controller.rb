@@ -26,7 +26,7 @@ class ExpertisesController < ApplicationController
   # GET /expertises/new.json
   def new
     e=Expertise.find_by_user_id(current_user.id)
-    if e.expertise != ""
+    if e.present?
       @expertise = Expertise.find(e.id)
     else
       @expertise = Expertise.new
