@@ -10,10 +10,10 @@ class QuestionsController < ApplicationController
     end
   end
 
-  def all_questions
+  def allquestions
     @questions = Question.find(:all, :include=>"answers")
     respond_to do |format|
-      format.html # my_question.html.erb
+      format.html # all_question.html.erb
       format.json { render json: @questions }
     end
   end
