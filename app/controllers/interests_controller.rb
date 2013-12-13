@@ -25,8 +25,12 @@ class InterestsController < ApplicationController
   # GET /interests/new
   # GET /interests/new.json
   def new
-    @interest = Interest.new
-
+    i=Interest.find_by_user_id(current_user.id)
+    if i.interest != ""
+      @interest = Interest.find(i.id)
+    else
+      @interest = Interest.new
+    end
     respond_to do |format|
       format.html # new.html.erb
       format.json { render json: @interest }

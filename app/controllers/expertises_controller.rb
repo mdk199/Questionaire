@@ -25,8 +25,12 @@ class ExpertisesController < ApplicationController
   # GET /expertises/new
   # GET /expertises/new.json
   def new
-    @expertise = Expertise.new
-
+    e=Expertise.find_by_user_id(current_user.id)
+    if e.expertise != ""
+      @expertise = Expertise.find(e.id)
+    else
+      @expertise = Expertise.new
+    end
     respond_to do |format|
       format.html # new.html.erb
       format.json { render json: @expertise }

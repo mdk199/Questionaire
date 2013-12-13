@@ -1,13 +1,9 @@
 <%= form_for(@interest) do |f| %>
   <%= render "shared/error_messages", :object => @interest %>
-  <div class="field">
-  	<%= f.hidden_field :user_id, :value => current_user.id %>
-  </div>
-  <div class="field">
-    <%= f.label :interest %><br />
-    <%= f.text_field :interest %>
-  </div>
-  <div class="actions">
+  <%= f.hidden_field :user_id, :value => current_user.id %>
+  <%= f.text_area :interest, :id=>"tags", :class=>"set-height"%>
+  <br/>
+  <div class="actions"> 
     <%= f.submit "Submit", :class => "btn btn-primary"%>
   </div>
 <% end %>
