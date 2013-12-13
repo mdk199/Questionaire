@@ -1,17 +1,21 @@
 <div class="panel-group" id="accordion">
   <div class="panel panel-info">
     <span class="action_links float-right">
+      <% if object.user_id == current_user.id %>
       <%= link_to '', edit_question_path(object), :title => "Edit", :class=>'icon-edit' %> 
       <%= link_to '', object, method: :delete, :title => "Delete", :class=>'icon-remove', data: { confirm: 'Are you sure?' } %>
+      <% end %>
     </span>
     <div class="panel-heading" data-toggle="collapse" data-parent="#accordion" href="#<%= object.id %>">
       <div class="span7 panel-title">
         <%= object.question%>
+        <% if object.user_id==current_user.id %>
          <h6><i class="icon-tags"></i>
         <% object.tags.each do |q|%>
         <%= q.name%> &nbsp; &nbsp; 
         <%end%>
         </h6>
+        <%end%>
       </div>
       <div class="clear"></div>
     </div>

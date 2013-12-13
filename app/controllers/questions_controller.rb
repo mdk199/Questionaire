@@ -3,17 +3,15 @@ class QuestionsController < ApplicationController
   # GET /questions
   # GET /questions.json
   def index
-    @questions = Question.find(:all, :include=>"answers")
-
+    @questions = Question.where(:user_id=>current_user.id).find(:all, :include=>"answers")
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @questions }
     end
   end
 
-  def my_questions
-    @questions = Question.where(:user_id=>current_user.id).find(:all, :include=>"answers")
-
+  def all_questions
+    @questions = Question.find(:all, :include=>"answers")
     respond_to do |format|
       format.html # my_question.html.erb
       format.json { render json: @questions }

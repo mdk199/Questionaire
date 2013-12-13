@@ -1,4 +1,7 @@
 Rorproject::Application.routes.draw do
+  resources :profile
+
+ 
   resources :interests
 
 
@@ -22,7 +25,7 @@ Rorproject::Application.routes.draw do
 
   devise_for :users
 
-  match "my_questions" => "questions#my_questions"
+  match "all_questions" => "questions#all_questions"
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
