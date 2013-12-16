@@ -5,7 +5,4 @@
   <%= link_to 'New question', new_question_path %>
 </span>
 </br>
- <% @questions.each do |question| %>
-    <%= render 'question_layout', :object=> question%>
-    <br/>
-<% end %> 
+<%= render :partial => 'question', :collection => @questions, :spacer_template => "shared/item_seperator" %>

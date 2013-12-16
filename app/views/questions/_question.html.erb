@@ -1,0 +1,51 @@
+<div class="panel-group" id="accordion">
+  <div class="panel panel-info">
+    <span class="action_links float-right">
+      <% if question.user_id == current_user.id %>
+      <%= link_to '', edit_question_path(question), :title => "Edit", :class=>'icon-edit' %> 
+      <%= link_to '', question, method: :delete, :title => "Delete", :class=>'icon-remove', data: { confirm: 'Are you sure?' } %>
+      <% end %>
+    </span>
+    <div class="panel-heading" data-toggle="collapse" data-parent="#accordion" href="#<%= question.id %>">
+      <div class="span7 panel-title">
+        <%= question.question%>
+        <% if question.user_id==current_user.id %>
+         <h6><i class="icon-tags"></i>
+        <% question.tags.each do |q|%>
+          <%= q.name%> &nbsp; &nbsp; 
+        <%end%>
+        </h6>
+        <%end%>
+      </div>
+      <div class="clear"></div>
+    </div>
+    <div id="<%= question.id %>" class="panel-collapse collapse">
+      <div class="panel-body">
+        <% question.answers.each do |a|%>
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <i class="icon-user icon-white"></i>&nbsp;&nbsp;<%= a.user.email%>
+          </div>
+          <div class="panel-body">
+            <%= a.answer %></br>
+            <h5><small class="float-right">Updated At: <%= a.updated_at %></small></h5>
+            <p </p>
+          </div>
+        </div>
+      </br>
+        <% end %>
+        <form role="form">
+          <div class="panel panel-success">
+            <div class="panel-heading">
+              Add an Answer
+            </div>
+            <div class="panel-body">
+              <textarea class="form-control" rows="3"></textarea>
+              <button type="submit" class="btn btn-primary">Submit</button>
+            </div>
+          </div>
+        </form>
+      </div>
+   </div>
+  </div>
+</div>

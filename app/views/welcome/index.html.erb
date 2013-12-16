@@ -14,10 +14,7 @@
         <span class="action_links float-right">
           <%= link_to ' See All', questions_path, :title => "See All", :class=>'icon-list' %>
         </span></br></br>
-        <% @questions.each do |question| %>
-          <%= render 'questions/question_layout', :object=> question%>
-        </br>
-        <% end %>
+        <%= render :partial => 'questions/question', :collection => @questions %>
       </div>
       <div class="tab-pane" id="profile">
          <span class="action_links float-right">
@@ -37,10 +34,3 @@
     </script>
    </div>
 </div>
-
-
-
-<div class="row">
- 
-
-</div><!--/row-->
