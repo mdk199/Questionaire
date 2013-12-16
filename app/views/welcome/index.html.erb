@@ -4,57 +4,38 @@
 
 <div class="panel-group" id="accordion">
   <div class="panel panel-primary">
-    <span class="action_links float-right">
-      <%= link_to '  See All', questions_path, :title => "Edit", :class=>'icon-list' %>
-    </span>
-    <div class="panel-heading" data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
-      <h4 class="panel-title">
-        Q by You
-      </h4>
-    </div>
-    <div id="collapseOne" class="panel-collapse collapse in">
-      <div class="panel-body">
-        Q1. dssfsd?</br>
-        Q2. saddda?</br>
-        Q3. sadas dsdsa ?</br>
-        Q4. adasdas dsdsa ?</br>
+    <ul class="nav nav-tabs" id="myTab">
+      <li class="active"><a href="#home" data-toggle="tab">Q by You</a></li>
+      <li><a href="#profile" data-toggle="tab">Q on your Experitise</a></li>
+      <li><a href="#messages" data-toggle="tab">Q on your Interest</a></li>
+    </ul>
+    <div class="tab-content">
+      <div class="tab-pane active" id="home">
+        <span class="action_links float-right">
+          <%= link_to ' See All', questions_path, :title => "See All", :class=>'icon-list' %>
+        </span></br></br>
+        <% @questions.each do |question| %>
+          <%= render 'questions/question_layout', :object=> question%>
+        </br>
+        <% end %>
       </div>
-    </div>
-  </div>
-  <div class="panel panel-primary">
-    <span class="action_links float-right">
-      <%= link_to '  See All', questions_path, :title => "Edit", :class=>'icon-list' %>
-    </span>
-    <div class="panel-heading" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">
-      <h4 class="panel-title">
-        Q your Expertises
-      </h4>
-    </div>
-    <div id="collapseTwo" class="panel-collapse collapse">
-      <div class="panel-body">
-        Q1. wed?</br>
-        Q2. werwerw?</br></br>
-        
+      <div class="tab-pane" id="profile">
+         <span class="action_links float-right">
+          <%= link_to ' See All', questions_path, :title => "See All", :class=>'icon-list' %>
+        </span></br></br>
       </div>
+      <div class="tab-pane" id="messages">
+       <span class="action_links float-right">
+          <%= link_to ' See All', questions_path, :title => "See All", :class=>'icon-list' %>
+        </span></br></br>
+      </div>      
     </div>
-  </div>
-  <div class="panel panel-primary">
-    <span class="action_links float-right">
-      <%= link_to '  See All', questions_path, :title => "Edit", :class=>'icon-list' %>
-    </span>
-    <div class="panel-heading" data-toggle="collapse" data-parent="#accordion" href="#collapseThree">
-      <h4 class="panel-title">
-        Q your Interests
-      </h4>
-    </div>
-    <div id="collapseThree" class="panel-collapse collapse">
-      <div class="panel-body">
-        Q1. yiwudiwe?</br>
-        Q2. kwdwoidwd?</br></br>
-         
-      </div>
-    </div>
-  </div>
+    <script>
+    $(function () {
+      $('#myTab a:last').tab('show')
+      })
+    </script>
+   </div>
 </div>
 
 
