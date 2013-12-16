@@ -6,7 +6,7 @@ tmp/*/
 tmp/*/*/
 tmp/*/*/*/
 tmp/*/*/*/*/
-
+config/initializers/setup_mail.rb
 
 *.pid
 /tmp/**/*
