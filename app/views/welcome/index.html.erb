@@ -3,7 +3,6 @@
 </p>
 
 <div class="panel-group" id="accordion">
-  <div class="panel panel-primary">
     <ul class="nav nav-tabs" id="myTab">
       <li class="active"><a href="#home" data-toggle="tab">Q by You</a></li>
       <li><a href="#profile" data-toggle="tab">Q on your Experitise</a></li>
@@ -12,18 +11,18 @@
     <div class="tab-content">
       <div class="tab-pane active" id="home">
         <span class="action_links float-right">
-          <%= link_to ' See All', questions_path, :title => "See All", :class=>'icon-list' %>
+          <%= link_to '', questions_path, :title => "See All", :class=>'icon-list' %>
         </span></br></br>
-        <%= render :partial => 'questions/question', :collection => @questions %>
+        <%= render :partial => 'questions/question', :collection => @questions, :spacer_template => "shared/item_seperator"  %>
       </div>
       <div class="tab-pane" id="profile">
          <span class="action_links float-right">
-          <%= link_to ' See All', questions_path, :title => "See All", :class=>'icon-list' %>
+          <%= link_to '', questions_path, :title => "See All", :class=>'icon-list' %>
         </span></br></br>
       </div>
       <div class="tab-pane" id="messages">
        <span class="action_links float-right">
-          <%= link_to ' See All', questions_path, :title => "See All", :class=>'icon-list' %>
+          <%= link_to '', questions_path, :title => "See All", :class=>'icon-list' %>
         </span></br></br>
       </div>      
     </div>
@@ -32,5 +31,4 @@
       $('#myTab a:last').tab('show')
       })
     </script>
-   </div>
 </div>
