@@ -11,8 +11,8 @@
       <span class="float-left" style="margin-top:-5px;margin-bottom:5px;">
         <%= image_tag "user.jpeg", :size => "40x40", :style => "border-radius:5px; border:1px solid #3A87AD;" %>
       </span>
-      <div class="span7 panel-title question">
-        <%= question.question%>
+      <div class="panel-title question">
+        &nbsp;<%= question.question%>
       </div>
       <div class="clear"></div>
       <% if question.user_id==current_user.id %>
@@ -21,11 +21,13 @@
           <%= question.tags.map{|tag| tag.name }.join(", ") %>
         </span>
       <%end%>
+      <i><small class="float-right">Updated : <%= time_ago_in_words(question.updated_at) %> ago</small></i>
+    </br>
     </div>
-    
+   
     <div id="<%= question.id %>" class="panel-collapse collapse">
       <div class="panel-body">
-        <%= render :partial => "answers/answer", :collection => question.answers, :spacer_template => "shared/item_seperator" %>
+        <%= render :partial => "answers/answer", :collection => question.answers%>
         <br/>
         <%= render "answers/form", :question => question%>
       </div>
