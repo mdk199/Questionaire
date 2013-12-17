@@ -1,13 +1,13 @@
-<%= form_for [@question, @answer] do |f| %>
-  <%= render "shared/error_messages", :object => @answer %>
-  <div class="field">
-   	<%= f.hidden_field :user_id, :value => current_user.id %>
+<%= form_for(Answer.new, :url => answers_path) do |f| %>
+  <div class="panel panel-success">
+    <div class="panel-heading">
+      Provide an answer:
+    </div>
+    <div class="panel-body">
+      <%= f.hidden_field :user_id, :value => current_user.id %>
+      <%= f.hidden_field :question_id, :value => question.id %>
+      <%= f.text_area :answer , :rows => 3 ,:class=>"form-control"%>
+      <%= f.submit "Submit", :class => "btn btn-primary"%>
+    </div>
   </div>
-  <div class="field">
-   	<%= f.label :answer %>
-   	<%= f.text_area :answer , :rows => 3, :cols => 500, :class => 'form-control'  %>
-  </div>
-  <div class="actions">
-   	<%= f.submit "Submit", :class => "btn btn-primary"%>
-  </div>
-<% end %>
+<% end%>

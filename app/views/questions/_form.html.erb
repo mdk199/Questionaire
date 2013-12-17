@@ -10,7 +10,7 @@
     <%= f.fields_for :tags do |tag| %>
     <%= tag.label :name, :class=> 'span'%>&nbsp; &nbsp;
     <%= tag.text_field :name%> &nbsp; &nbsp;
-    <%= tag.link_to_remove "",:title => "Delete", :class=>'icon-remove btn btn-primary'%>
+    <span style="margin-left:-10px;"><%= tag.link_to_remove "",:title => "Delete", :class=>'icon-remove btn btn-primary'%></span>
     <% end %>
     <%= f.link_to_add "Add a Tag", :tags %>
     </div>

@@ -1,0 +1,13 @@
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <span>
+      <%= image_tag "user.jpeg", :size => "30x30", :style => "border-radius:5px; border:1px solid #3A87AD;" %>
+    </span>
+    <%= answer.user.email%>
+  </div>
+  <div class="panel-body">
+    <%= answer.answer %></br>
+    <h5><i><small class="float-right">Updated At: <%= time_ago_in_words(answer.updated_at) %> ago</small></i></h5>
+    <p </p>
+  </div>
+</div>

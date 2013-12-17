@@ -56,3 +56,11 @@ input{
   width: 600px !important;
   height: 200px !important;
 }
+
+.tags{
+  font-size: 10px;
+}
+
+.question{
+  margin-left: 20px !important;
+}
