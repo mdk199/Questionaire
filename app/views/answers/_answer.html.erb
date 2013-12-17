@@ -1,4 +1,10 @@
 <div class="panel panel-default">
+  <span class="action_links float-right">
+    <% if answer.user_id == current_user.id %>
+    <%= link_to '', edit_answer_path(answer), :title => "Edit", :class=>'icon-edit' %> 
+    <%= link_to '', answer, method: :delete, :title => "Delete", :class=>'icon-remove', data: { confirm: 'Are you sure?' } %>
+    <% end %>
+  </span>
   <div class="panel-heading">
     <span>
       <%= image_tag "user.jpeg", :size => "30x30", :style => "border-radius:5px; border:1px solid #3A87AD;" %>
@@ -7,7 +13,7 @@
   </div>
   <div class="panel-body">
     <%= answer.answer %></br>
-    <h5><i><small class="float-right">Updated At: <%= time_ago_in_words(answer.updated_at) %> ago</small></i></h5>
+    <h5><i><small class="float-right">Updated : <%= time_ago_in_words(answer.updated_at) %> ago</small></i></h5>
     <p </p>
   </div>
 </div>

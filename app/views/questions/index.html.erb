@@ -1,8 +1,8 @@
 <blockquote>
   <p>My Questions</p>
 </blockquote>
-<span class="add-new">
-  <%= link_to 'New question', new_question_path %>
+<span>
+  <%= link_to ' Add Question', new_question_path, :title => "New Question", :class=>'icon-plus-sign' %>
 </span>
 </br>
 <%= render :partial => 'question', :collection => @questions, :spacer_template => "shared/item_seperator" %>
