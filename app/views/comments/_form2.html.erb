@@ -1,15 +1,18 @@
 <%= form_for(@comment) do |f| %>
   <%= render "shared/error_messages", :object => @comment %>
+  
   <div class="field">
     <%= f.label :user_id %><br />
     <%= f.text_field :user_id, :readonly => "readonly"%>
     <%= f.hidden_field :user_id %>
   </div>
+  
   <div class="field">
     <%= f.label :answer_id %><br />
     <%= f.text_field :answer_id, :readonly => "readonly"%>
     <%= f.hidden_field :answer_id %>
   </div>
+  
   <div class="field">
     <%= f.label :comment %><br />
     <%= f.text_area :comment , :rows => 3  %>
