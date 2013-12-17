@@ -34,17 +34,19 @@
         </div>
       </br>
         <% end %>
-        <form role="form">
-          <div class="panel panel-success">
-            <div class="panel-heading">
-              Add an Answer
-            </div>
-            <div class="panel-body">
-              <textarea class="form-control" rows="3"></textarea>
-              <button type="submit" class="btn btn-primary" action="">Submit</button>
-            </div>
+        <%= form_for @answer, :as => :post, :url =>answers_path(@answer) do |f| %>
+        <div class="panel panel-success">
+          <div class="panel-heading">
+            Add an Answer
           </div>
-        </form>
+          <div class="panel-body">
+            <%= f.hidden_field :user_id, :value => current_user.id %>
+            <%= f.hidden_field :question_id, :value => question.id %>
+            <%= f.text_area :answer , :rows => 3 ,:class=>"form-control"%>
+            <%= f.submit "Submit", :class => "btn btn-primary"%>
+          </div>
+        </div>
+      <% end%>
       </div>
    </div>
   </div>
