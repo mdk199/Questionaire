@@ -1,37 +1,36 @@
 <p class="pull-right visible-xs">
   <button type="button" class="btn btn-primary btn-xs" data-toggle="offcanvas">Toggle nav</button>
 </p>
-
 <div class="panel-group" id="accordion">
-    <ul class="nav nav-tabs" id="myTab">
-      <li class="active"><a href="#home" data-toggle="tab">Q by You</a></li>
-      <li><a href="#profile" data-toggle="tab">Q on your Experitise</a></li>
-      <li><a href="#messages" data-toggle="tab">Q on your Interest</a></li>
-    </ul>
-    <div class="tab-content">
-      <div class="tab-pane active" id="home">          
-        <span class="action_links float-right">
-          <%= link_to '', new_question_path, :title => "New Question", :class=>'icon-plus-sign' %>&nbsp;&nbsp;&nbsp;
-          <%= link_to '', questions_path, :title => "See All", :class=>'icon-list' %>
-        </span></br></br>
-        <%= render :partial => 'questions/question', :collection => @questions%>
-      </div>
-      <div class="tab-pane" id="profile">
-         <span class="action_links float-right">
-          <%= link_to '', new_expertise_path, :title => "New Expertise", :class=>'icon-plus-sign' %>&nbsp;&nbsp;&nbsp;
-          <%= link_to '', questions_path, :title => "See All", :class=>'icon-list' %>
-        </span></br></br>
-      </div>
-      <div class="tab-pane" id="messages">
-       <span class="action_links float-right">
-        <%= link_to '', new_interest_path, :title => "New Interest", :class=>'icon-plus-sign' %>&nbsp;&nbsp;&nbsp;
-          <%= link_to '', questions_path, :title => "See All", :class=>'icon-list' %>
-        </span></br></br>
-      </div>      
+  <ul class="nav nav-tabs" id="myTab">
+    <li class="active"><a href="#home" data-toggle="tab">Q by You</a></li>
+    <li><a href="#profile" data-toggle="tab">Q on your Experitise</a></li>
+    <li><a href="#messages" data-toggle="tab">Q on your Interest</a></li>
+  </ul>
+  <div class="tab-content">
+    <div class="tab-pane active" id="home">          
+      <span class="action_links float-right">
+        <%= link_to '', new_question_path, :title => "New Question", :class=>'icon-plus-sign' %>&nbsp;&nbsp;&nbsp;
+        <%= link_to '', questions_path, :title => "See All", :class=>'icon-list' %>
+      </span></br></br>
+      <%= render :partial => 'questions/question', :collection => @questions, :spacer_template => "shared/item_seperator" %>
     </div>
-    <script>
-    $(function () {
-      $('#myTab a:last').tab('show')
-      })
-    </script>
+    <div class="tab-pane" id="profile">
+       <span class="action_links float-right">
+        <%= link_to '', new_expertise_path, :title => "New Expertise", :class=>'icon-plus-sign' %>&nbsp;&nbsp;&nbsp;
+        <%= link_to '', questions_path, :title => "See All", :class=>'icon-list' %>
+      </span></br></br>
+    </div>
+    <div class="tab-pane" id="messages">
+     <span class="action_links float-right">
+      <%= link_to '', new_interest_path, :title => "New Interest", :class=>'icon-plus-sign' %>&nbsp;&nbsp;&nbsp;
+      <%= link_to '', questions_path, :title => "See All", :class=>'icon-list' %>
+      </span></br></br>
+    </div>      
+  </div>
+  <script>
+  $(function () {
+    $('#myTab a:last').tab('show')
+    })
+  </script>
 </div>
