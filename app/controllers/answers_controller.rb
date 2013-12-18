@@ -45,11 +45,16 @@ class AnswersController < ApplicationController
 
     respond_to do |format|
       if @answer.save
-        format.html { redirect_to @answer, notice: 'Answer was successfully created.' }
+        flash.now[:notice] = 'Answer was successfully created.'
+        format.html { redirect_to @answer }
         format.json { render json: @answer, status: :created, location: @answer }
+        format.js { render "answers/create", :layout => false }
       else
         format.html { render action: "new" }
         format.json { render json: @answer.errors, status: :unprocessable_entity }
+        format.js do
+          render "answers/create", :layout => false
+        end
       end
     end
   end
@@ -76,9 +81,11 @@ class AnswersController < ApplicationController
     @answer = Answer.find(params[:id])
     @answer.destroy
 
+    flash.now[:notice] = 'Answer was successfully removed.'
     respond_to do |format|
       format.html { redirect_to answers_url }
       format.json { head :no_content }
+      format.js { render "answers/destroy", :layout => false }
     end
   end
 end
