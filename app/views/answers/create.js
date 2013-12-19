@@ -1,5 +1,5 @@
 <% if @answer.valid? %>
-  CKEDITOR.instances.editor1.setData('');
+  CKEDITOR.instances.editor_<%= @answer.question.id%>.setData('');
   $("#answers_<%= @answer.question.id%>").append("<%= escape_javascript( render 'answers/answer', :answer => @answer ) %>");
   $("#question_<%= @answer.question.id%> form")[0].reset();
   $("#question_<%= @answer.question.id%> form").before("<%= escape_javascript(show_notice(notice)) %>");
