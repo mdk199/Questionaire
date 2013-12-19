@@ -8,7 +8,7 @@
       <%= f.label :question %>
     </div>
     <div class="panel-body">
-      <%= f.text_area :question, :rows => 3, :cols => 500, :class => 'form-control' %>
+      <%= f.text_area :question, :rows => 3, :cols => 500, :id=>'editor1' %>
       <h5>Tags to the Question </h5>
       <%= f.fields_for :tags do |tag| %>
         <div class="input-append">
@@ -21,3 +21,15 @@
     </div>
   </div>
 <% end %>
+<script>
+  CKEDITOR.replace( 'editor1', {
+  toolbarGroups: [
+    { name: 'clipboard',   groups: [ 'clipboard', 'undo' ] },     // Group's name will be used to create voice label.
+    { name: 'basicstyles', groups: [ 'basicstyles', 'cleanup' ] },
+    { name: 'paragraph', groups: [ 'list', 'indent', 'blocks', 'align', 'bidi' ] },
+    { name: 'colors' }
+  ]
+
+  // NOTE: Remember to leave 'toolbar' property with the default value (null).
+});
+</script>
