@@ -6,9 +6,23 @@
     <div class="panel-body">
       <%= f.hidden_field :user_id, :value => current_user.id %>
       <%= f.hidden_field :question_id, :value => question.id %>
-      <%= f.text_area :answer , :rows => 3 ,:class=>"ckeditor" %>
-      <br/>
-      <%= f.submit "Submit", :class => "btn btn-primary"%>
+      <%= f.text_area :answer , :rows => 3 , :id=>"editor1"%>
+     <br/>
+     <%= f.submit "Submit", :class => "btn btn-primary"%>
     </div>
   </div>
 <% end%>
+<script>
+  CKEDITOR.replace( 'editor1', {
+  toolbarGroups: [
+    { name: 'document',    groups: [ 'mode', 'document' ] },      // Displays document group with its two subgroup
+    { name: 'clipboard',   groups: [ 'clipboard', 'undo' ] },     // Group's name will be used to create voice label.
+    '/',                                // Line break - next group will be placed in new line.
+    { name: 'basicstyles', groups: [ 'basicstyles', 'cleanup' ] },
+    { name: 'links' },
+    { name: 'colors' }
+  ]
+
+  // NOTE: Remember to leave 'toolbar' property with the default value (null).
+});
+</script>
