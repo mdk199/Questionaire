@@ -15,11 +15,9 @@
 <script>
   CKEDITOR.replace( 'editor1', {
   toolbarGroups: [
-    { name: 'document',    groups: [ 'mode', 'document' ] },      // Displays document group with its two subgroup
     { name: 'clipboard',   groups: [ 'clipboard', 'undo' ] },     // Group's name will be used to create voice label.
-    '/',                                // Line break - next group will be placed in new line.
     { name: 'basicstyles', groups: [ 'basicstyles', 'cleanup' ] },
-    { name: 'links' },
+    { name: 'paragraph', groups: [ 'list', 'indent', 'blocks', 'align', 'bidi' ] },
     { name: 'colors' }
   ]
 
