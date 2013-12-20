@@ -10,7 +10,7 @@ class QuestionsController < ApplicationController
     end
   end
 
-  def allquestions
+  def all_questions
     @questions = Question.find(:all, :include=>"answers")
     respond_to do |format|
       format.html # all_question.html.erb
