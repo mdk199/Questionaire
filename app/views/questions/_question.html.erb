@@ -1,20 +1,25 @@
 <div class="panel-group" id="accordion">
   <div class="panel panel-info">
     <span class="action_links float-right">
+      <img src="assets/off.png" alt="1" id="flag" title="flag" height="20" width="20" style="margin-top:-5px; margin-left:5px;" onmouseover="onHover();" onmouseout="offHover();" onclick="flagSet();">
       <% if question.user_id == current_user.id %>
+
+      
       <%= link_to '', edit_question_path(question), :title => "Edit", :class=>'icon-edit' %> 
       <%= link_to '', question, method: :delete, :title => "Delete", :class=>'icon-remove', data: { confirm: 'Are you sure?' } %>
       <% end %>
+
     </span>
 
     <div class="panel-heading" data-toggle="collapse" data-parent="#accordion" href="#question_<%= question.id %>">
       <span class="float-left" style="margin-top:-5px;margin-bottom:5px;">
         <%= image_tag "user.jpeg", :size => "40x40", :style => "border-radius:5px; border:1px solid #3A87AD;" %>
       </span>
-      
       <div class="panel-title question">
         &nbsp;<%= raw question.question%>
       </div>
+
+      
       
       <div class="clear"></div>
         
