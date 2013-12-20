@@ -1,12 +1,11 @@
 <div class="panel-group" id="accordion">
   <div class="panel panel-info">
     <span class="action_links float-right">
-      <img src="assets/off.png" alt="1" id="flag" title="flag" height="20" width="20" style="margin-top:-5px; margin-left:5px;" onmouseover="onHover();" onmouseout="offHover();" onclick="flagSet();">
       <% if question.user_id == current_user.id %>
-
-      
       <%= link_to '', edit_question_path(question), :title => "Edit", :class=>'icon-edit' %> 
       <%= link_to '', question, method: :delete, :title => "Delete", :class=>'icon-remove', data: { confirm: 'Are you sure?' } %>
+      <% else %>
+      <img src="assets/off.png" alt="1" id="flag_<%=question.id%>" title="Flag" height="15" width="15" style="margin-top:-5px; margin-left:5px;" onmouseover="onHover(<%=question.id%>);" onmouseout="offHover(<%=question.id%>);" onclick="flagSet('<%=question.id%>','<%=current_user.email%>');">
       <% end %>
 
     </span>

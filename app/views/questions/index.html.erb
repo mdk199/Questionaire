@@ -2,7 +2,7 @@
   <p>My Questions</p>
 </blockquote>
 <span>
-  <%= link_to ' Add Question', new_question_path, :title => "New Question", :class=>'icon-plus-sign' %>
+  <%= link_to ' Add Question', new_question_path, :title => "New Question", :class=>'icon-plus-sign' %></br>
 </span>
 </br>
 <%= render :partial => 'question', :collection => @questions, :spacer_template => "shared/item_seperator" %>

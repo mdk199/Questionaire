@@ -1,19 +1,24 @@
-function onHover()
+function onHover(a)
 {
-    $("#flag").attr('src', 'assets/on.png');
+    $("#flag_"+a).attr('src', 'assets/on.png');
 }
 
-function offHover()
+function offHover(a)
 {
-    $("#flag").attr('src', 'assets/off.png');
+    $("#flag_"+a).attr('src', 'assets/off.png');
 }
 
-function flagSet()
+function flagSet(a,b)
 {
-	if(document.getElementById('flag').getAttribute("onmouseout")=='')
-		$("#flag").attr('onmouseout','offHover();');
+	if(document.getElementById('flag_'+a).getAttribute("onmouseout")=='')
+	{
+		$("#flag_"+a).attr('onmouseout','offHover('+a+');');
+		$("#flag_"+a).attr('title', 'Flag');
+	}
 	else
-		$("#flag").attr('onmouseout','');
-    $("#flag").attr('src', 'assets/on.png');
-    $("#flag").attr('title', '<%=current_user.id%>');
+	{
+		$("#flag_"+a).attr('onmouseout','');
+    	$("#flag_"+a).attr('src', 'assets/on.png');
+    	$("#flag_"+a).attr('title', b);
+    }
 }
