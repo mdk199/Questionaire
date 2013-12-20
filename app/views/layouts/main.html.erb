@@ -5,11 +5,7 @@
   <body>
     <%= render "shared/top_nav" %>
     <div class="container">
-      <div class="span2">
-        <h6><a>My Points</a></h6>
-        <h6><%= link_to 'Add Expertise', new_expertise_path %></h6>
-        <h6><%= link_to 'Add Interest', new_interest_path %></h6>
-      </div>
+      <%= render 'shared/leftlayout'%>
       <div class="span9">
         <%= show_alert(alert) %>
         <%= show_notice(notice) %>
