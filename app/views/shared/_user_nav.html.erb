@@ -1,0 +1,28 @@
+<% if current_user.present? %>
+  <ul class="nav navbar-nav navbar-right">
+    <li id="fat-menu" class="dropdown">
+      <a href="#" id="drop3" role="button" class="dropdown-toggle" data-toggle="dropdown" ><%= current_user.email %><b class="caret"></b></a>
+      <ul class="dropdown-menu" role="menu" aria-labelledby="drop3">
+        <li role="presentation">
+          <%if current_user.profile.present? %>
+            <%= link_to "Profile", edit_profile_path(current_user.profile) %>
+          <% else %>
+            <%= link_to "Profile", new_profile_path %>
+          <% end %>
+        </li>
+        <li role="presentation" class="divider"></li>
+        <li role="presentation">
+          <%= link_to "Logout", destroy_user_session_path, :method => :delete, :role => "menuitem", :tabindex => "2" %>
+      </ul>
+    </li>
+  </ul>
+<% else %>
+  <ul class="nav navbar-nav navbar-right">
+    <li>
+      <%= link_to "Sign in", new_user_session_path %>
+    </li> 
+    <li>
+      <%= link_to "Sign up", new_user_registration_path %>
+    </li>
+  </ul>
+<%end%>

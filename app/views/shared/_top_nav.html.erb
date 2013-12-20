@@ -16,19 +16,7 @@
         <li><a href="#contact">Contact</a></li>
       </ul>
 
-      <ul class="nav navbar-nav navbar-right">
-            <li id="fat-menu" class="dropdown">
-              <a href="#" id="drop3" role="button" class="dropdown-toggle" data-toggle="dropdown" ><%= current_user.email %><b class="caret"></b></a>
-              <ul class="dropdown-menu" role="menu" aria-labelledby="drop3">
-                <li role="presentation">
-                  <a role="menuitem" tabindex="1" href="/profile">My Profile</a>
-                </li>
-                <li role="presentation" class="divider"></li>
-                <li role="presentation">
-                  <%= link_to "Logout", destroy_user_session_path, :method => :delete, :role => "menuitem", :tabindex => "2" %>
-              </ul>
-            </li>
-          </ul>
+      <%= render "shared/user_nav" %>
     </div><!-- /.nav-collapse -->
   </div><!-- /.container -->
 </div><!-- /.navbar -->
