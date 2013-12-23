@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131220103839) do
+ActiveRecord::Schema.define(:version => 20131223101404) do
 
   create_table "answers", :force => true do |t|
     t.text     "answer"
@@ -50,6 +50,7 @@ ActiveRecord::Schema.define(:version => 20131220103839) do
     t.string   "flagable_type"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "user_id"
   end
 
   create_table "interests", :force => true do |t|

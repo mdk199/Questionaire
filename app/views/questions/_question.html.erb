@@ -2,10 +2,14 @@
   <div class="panel panel-info">
     <span class="action_links float-right">
       <% if question.user_id == current_user.id %>
-      <%= link_to '', edit_question_path(question), :title => "Edit", :class=>'icon-edit' %> 
-      <%= link_to '', question, method: :delete, :title => "Delete", :class=>'icon-remove', data: { confirm: 'Are you sure?' } %>
-      <% else %>
-      <img src="assets/off.png" alt="1" id="flag_<%=question.id%>" title="Flag" height="15" width="15" style="margin-top:-5px; margin-left:5px;" onmouseover="onHover(<%=question.id%>);" onmouseout="offHover(<%=question.id%>);" onclick="flagSet('<%=question.id%>','<%=current_user.email%>');">
+        <%= link_to '', edit_question_path(question), :title => "Edit", :class=>'icon-edit' %> 
+        <%= link_to '', question, method: :delete, :title => "Delete", :class=>'icon-remove', data: { confirm: 'Are you sure?' } %>
+        <% else %>
+        <% if Flag.already_flagged(question, current_user) %>
+          <%= link_to "", unflag_question_path(question), :remote => true, :class => "icon-flag", :style => "color:red;" %>
+        <% else %>
+          <%= link_to "", flag_question_path(question), :remote => true, :class => "icon-flag" %>
+        <% end %>
       <% end %>
 
     </span>

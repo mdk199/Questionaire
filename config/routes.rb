@@ -46,6 +46,11 @@ Rorproject::Application.routes.draw do
     collection do
       get 'answers/:id', to: 'questions#answers'
     end
+
+    member do
+      get "flag", to: "questions#flag"
+      get "unflag", to: "questions#unflag"
+    end
   end
 
   # Sample resource route with options:

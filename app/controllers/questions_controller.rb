@@ -93,4 +93,22 @@ class QuestionsController < ApplicationController
     @answers =  Answer.where("question_id = #{params[:id]}")
     render "/answers/index"
   end
+
+  def flag
+    @question = Question.find(params[:id])
+    Flag.add_flag(@question, current_user)
+    respond_to do |format|
+      format.js { render "questions/flag", :layout => false }
+      format.json { render json: @questions }
+    end
+  end
+
+  def unflag
+    @question = Question.find(params[:id])
+    Flag.remove_flag(@question, current_user)
+    respond_to do |format|
+      format.js { render "questions/unflag", :layout => false }
+      format.json { render json: @questions }
+    end
+  end
 end
