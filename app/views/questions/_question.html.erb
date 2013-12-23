@@ -6,9 +6,9 @@
         <%= link_to '', question, method: :delete, :title => "Delete", :class=>'icon-remove', data: { confirm: 'Are you sure?' } %>
         <% else %>
         <% if Flag.already_flagged(question, current_user) %>
-          <%= link_to "", unflag_question_path(question), :remote => true, :class => "icon-flag", :style => "color:red;" %>
+          <%= link_to "", unflag_question_path(question), :remote => true, :class => "icon-flag", :style => "color:red;" , :id=>"flag_#{question.id}"%>
         <% else %>
-          <%= link_to "", flag_question_path(question), :remote => true, :class => "icon-flag" %>
+          <%= link_to "", flag_question_path(question), :remote => true, :class => "icon-flag" ,:id=>"flag_#{question.id}"%>
         <% end %>
       <% end %>
 
