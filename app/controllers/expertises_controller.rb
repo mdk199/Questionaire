@@ -46,21 +46,14 @@ class ExpertisesController < ApplicationController
   # POST /expertises.json
   def create
     @expertise = Expertise.new(params[:expertise])
-    k = @expertise.expertise.split(",");
+   
     respond_to do |format|
-      i=0;
-      while(i < k.length)
-      @expertise = Expertise.new(:user_id=>@expertise.user_id,:expertise=>k[i]);
-
       if @expertise.save
         format.html { redirect_to @expertise, notice: 'Expertise was successfully created.' }
         format.json { render json: @expertise, status: :created, location: @expertise }
-         i=i+1;
       else
         format.html { render action: "new" }
         format.json { render json: @expertise.errors, status: :unprocessable_entity }
-      end
-
       end
     end
   end
