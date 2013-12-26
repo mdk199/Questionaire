@@ -1,8 +1,7 @@
-<blockquote>
-  <p>Listing all Questions</p>
-</blockquote>
+<h5>Listing all Questions</h5>
 <span>
-  <%= link_to ' Add Question', new_question_path, :title => "New Question", :class=>'icon-plus-sign' %></br>
+  <%= button_to '+ Add Question', new_question_path, :title => "New Question", :class=>'btn btn-success float-right', :method => :get  %>
 </span>
-</br>
+</br></br></br>
+
 <%= render :partial => 'question', :collection => @questions, :spacer_template => "shared/item_seperator" %>

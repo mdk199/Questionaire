@@ -19,6 +19,11 @@ class User < ActiveRecord::Base
     questions = tags.map {|tag| tag.questions}.flatten.uniq
     questions.delete_if { |question| question.user_id == self.id }
   end
+  def my_interest_questions
+    tags = interest.present? ? Tag.find(:all, :conditions => ["name in (?)", interest.interest.split(",")]) : []
+    questions = tags.map {|tag| tag.questions}.flatten.uniq
+    questions.delete_if { |question| question.user_id == self.id }
+  end
 
   def profile_pic_url
     if profile.present?
