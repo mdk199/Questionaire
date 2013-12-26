@@ -113,4 +113,5 @@ class QuestionsController < ApplicationController
       format.json { render json: @questions }
     end
   end
+
 end
