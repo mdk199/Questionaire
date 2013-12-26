@@ -5,12 +5,14 @@
   <body>
     <%= render "shared/top_nav" %>
     <div class="container">
-      <%= render 'shared/leftlayout'%>
-      <div class="span9">
-        <%= show_alert(alert) %>
-        <%= show_notice(notice) %>
-        <%= yield %>    
-      </div><!--/.container-->
+      <div class="row">
+        <%= render 'shared/leftlayout'%>
+        <div class="span9">
+          <%= show_alert(alert) %>
+          <%= show_notice(notice) %>
+          <%= yield %>    
+        </div><!--/.container-->
+      </div>
     </div>
     
     <div class="clear"></div>
@@ -27,7 +29,6 @@
         $('[data-toggle=offcanvas]').click(function() {
           $('.row-offcanvas').toggleClass('active');
         });
-        $(".datepicker").datepicker();
       });
     </script>
   </body>  

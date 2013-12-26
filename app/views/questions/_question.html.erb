@@ -11,7 +11,6 @@
           <%= link_to "", flag_question_path(question), :remote => true, :class => "icon-flag" ,:id=>"flag_#{question.id}"%>
         <% end %>
       <% end %>
-
     </span>
 
     <div class="panel-heading" data-toggle="collapse" data-parent="#accordion" href="#question_<%= question.id %>">
@@ -22,17 +21,13 @@
         &nbsp;<%= raw question.question%>
       </div>
 
-      
-      
       <div class="clear"></div>
         
-      <% if question.user_id==current_user.id %>
-        <span class="tags">
-          <i class="icon-tags"></i>
-          <%= question.tags.map{|tag| tag.name }.join(", ") %>
-        </span>
-      <%end%>
-
+      <span class="tags">
+        <i class="icon-tags"></i>
+        <%= question.tags.map{|tag| tag.name }.join(", ") %>
+      </span>
+      
       <i><small class="float-right">Updated : <%= time_ago_in_words(question.updated_at) %> ago</small></i>
       </br>
     </div>

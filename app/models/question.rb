@@ -17,4 +17,10 @@ class Question < ActiveRecord::Base
   		end
   	end
 	end
+
+  class << self
+    def all_published_questions(user)
+      Question.find(:all, :conditions => ["published = 1 OR user_id = ?", user.id], :include=>"answers")
+    end
+  end
 end

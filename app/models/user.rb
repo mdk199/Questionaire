@@ -13,4 +13,10 @@ class User < ActiveRecord::Base
   # Setup accessible (or protected) attributes for your model
   attr_accessible :email, :password, :password_confirmation, :remember_me
   # attr_accessible :title, :body
+
+  def my_expertise_questions
+    tags = Tag.find(:all, :conditions => ["name in (?)", expertise.expertise.split(",")])
+    questions = tags.map {|tag| tag.questions}.flatten.uniq
+    questions.delete_if { |question| question.user_id == self.id }
+  end
 end

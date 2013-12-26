@@ -20,7 +20,7 @@
         <%= link_to '', new_expertise_path, :title => "New Expertise", :class=>'icon-plus-sign' %>&nbsp;&nbsp;&nbsp;
         <%= link_to '', questions_path, :title => "See All", :class=>'icon-list' %>
       </span></br></br>
-      <%= render :partial => 'questions/question', :collection => @expertisequestions, :spacer_template => "shared/item_seperator" %>
+      <%= render :partial => 'questions/question', :collection => @expertise_questions, :spacer_template => "shared/item_seperator" %>
     </div>
     <div class="tab-pane" id="messages">
      <span class="action_links float-right">

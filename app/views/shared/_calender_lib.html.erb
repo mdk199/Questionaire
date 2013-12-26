@@ -1,0 +1,10 @@
+<script type="text/javascript">
+  $('.datepicker').datepicker({
+    dateFormat: "dd-M-yy",
+    changeYear: true
+  }).keyup(function(e) {
+      if(e.keyCode == 8 || e.keyCode == 46) {
+          jQuery.datepicker._clearDate(this);
+      }
+  });
+</script>
