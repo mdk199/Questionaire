@@ -15,7 +15,7 @@ class User < ActiveRecord::Base
   # attr_accessible :title, :body
 
   def my_expertise_questions
-    tags = Tag.find(:all, :conditions => ["name in (?)", expertise.expertise.split(",")])
+    tags = expertise.present? ? Tag.find(:all, :conditions => ["name in (?)", expertise.expertise.split(",")]) : []
     questions = tags.map {|tag| tag.questions}.flatten.uniq
     questions.delete_if { |question| question.user_id == self.id }
   end

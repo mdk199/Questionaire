@@ -9,8 +9,8 @@
   </ul>
   <div class="tab-content">
     <div class="tab-pane active" id="home">          
-      <%= button_to ' See All', questions_path, :title => "See All", :class=>'btn btn-info float-right', :method => :get %>
-      <%= button_to '+ Add Question', new_question_path, :title => "New Question", :class=>'btn btn-success float-right', :method => :get  %>
+      <%= button_to 'See All', questions_path, :title => "See All", :class=>'btn btn-info float-right', :method => :get %>
+      <%= button_to '+ Add Question', new_question_path, :title => "New Question", :class=>'btn btn-success float-right', :method => :get  %> 
       </br></br>
       <%= render :partial => 'questions/question', :collection => @questions, :spacer_template => "shared/item_seperator" %>
     </div>
