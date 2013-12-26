@@ -1,3 +1,4 @@
+
 class QuestionsController < ApplicationController
   layout "main.html.erb"
   # GET /questions
@@ -82,10 +83,11 @@ class QuestionsController < ApplicationController
   def destroy
     @question = Question.find(params[:id])
     @question.destroy
-
+    flash.now[:notice] = 'Question was successfully removed.'
     respond_to do |format|
       format.html { redirect_to questions_url }
       format.json { head :no_content }
+      format.js { render "questions/destroy", :layout => false }
     end
   end
 
