@@ -15,7 +15,7 @@
 
     <div class="panel-heading" data-toggle="collapse" data-parent="#accordion" href="#question_<%= question.id %>">
       <span class="float-left" style="margin-top:-5px;margin-bottom:5px;">
-        <%= image_tag "user.jpeg", :size => "40x40", :style => "border-radius:5px; border:1px solid #3A87AD;" %>
+        <%= image_tag question.user.profile_pic_url, :size => "40x40", :style => "border-radius:5px; border:1px solid #3A87AD;" %>
       </span>
       <div class="panel-title question">
         &nbsp;<%= raw question.question%>

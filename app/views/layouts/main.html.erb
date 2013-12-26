@@ -6,22 +6,16 @@
     <%= render "shared/top_nav" %>
     <div class="container">
       <div class="row">
-        <%= render 'shared/leftlayout'%>
+        <div class="span2">
+          <%= render 'shared/sidebar'%>
+        </div>
         <div class="span9">
           <%= show_alert(alert) %>
           <%= show_notice(notice) %>
           <%= yield %>    
         </div><!--/.container-->
       </div>
-    </div>
-    
-    <div class="clear"></div>
-    <hr/>
-    
-    <div class="container">
-      <footer>
-        <p>&copy; Sony India Software Center 2013</p>
-      </footer>
+      <%= render "shared/footer" %>
     </div>
     
     <script>

@@ -1,38 +1,32 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
   <head>
     <%= render "shared/head" %>
   </head>
-  
   <body>
-  <%= render "shared/top_nav" %>
-  <div class="container"> 
-    <div class="row row-offcanvas row-offcanvas-right">
-      <%= render 'shared/leftlayout'%>
-      <div class="col-xs-6 col-sm-7">
-        <%= yield %>
-      </div><!--/span-->
-    
-     <div class="col-xs-6 col-sm-2 sidebar-offcanvas" id="sidebar" role="navigation">
-        <div>
-        <p> Top Contributors </p>
-        <p>Gaurav Soni!! </p>
-        </div>
-       <hr>
-      </div><!--/.container-->
-    
-      <div class="container col-xs-6 col-sm-6">
-        <hr>
-        <footer>
-          <p>&copy; Sony India Software Center 2013</p>
-        </footer>
-        <hr>
-      </div>
-      <script>
-        $(document).ready(function() {
-          $('[data-toggle=offcanvas]').click(function() {
-           $('.row-offcanvas').toggleClass('active');
-         });
-       });
-      </script>
-  </body>  
+
+    <%= render "shared/top_nav" %>
+
+    <div class="container">
+        <div class="row">
+          <div class="span2">
+            <%= render "shared/sidebar" %>
+          </div><!--/span-->
+          <div class="span7">
+            <%= bootstrap_flash %>
+            <%= yield %>
+          </div>
+          <div class="span2">
+            <div>
+              <p> Top Contributors </p>
+              <p>Gaurav Soni!! </p>
+            </div>
+            <hr/>
+          </div><!--/span-->
+        </div><!--/row-->
+      <%= render "shared/footer" %>
+
+    </div> <!-- /container -->
+
+  </body>
 </html>

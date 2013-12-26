@@ -1,0 +1,12 @@
+<div class="control-group">
+  <%= image_tag current_user.profile.photo.url(:medium), :class => 'control-label img-rounded' if current_user.profile.present? %>
+</div>
+<div class="well sidebar-nav">
+  <ul class="nav nav-list">
+    <li class="nav-header">Quick Links</li>
+    <li><a>My Points</a></li>
+    <li><%= link_to 'Add Expertise', new_expertise_path %></li>
+    <li><%= link_to 'Add Interest', new_interest_path %></li>
+    <li><%= link_to 'All Questions', all_questions_path %></li>
+  </ul>
+</div><!--/.well -->
