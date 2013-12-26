@@ -16,13 +16,13 @@
     </div>
     <div class="tab-pane" id="profile">
        <%= button_to ' See All', questions_path, :title => "See All", :class=>'btn btn-info float-right', :method => :get, :style => "margin-left:5px;"  %>
-      <%= button_to '+ Add Expertise', new_question_path, :title => "New Question", :class=>'btn btn-success float-right', :method => :get  %>
+      <%= button_to '+ Add Expertise', new_expertise_path, :title => "New Expertise", :class=>'btn btn-success float-right', :method => :get  %>
       </br></br>
       <%= render :partial => 'questions/question', :collection => @expertisequestions, :spacer_template => "shared/item_seperator" %>
     </div>
     <div class="tab-pane" id="messages">
       <%= button_to ' See All', questions_path, :title => "See All", :class=>'btn btn-info float-right', :method => :get, :style => "margin-left:5px;"  %>
-      <%= button_to '+ Add Interest', new_question_path, :title => "New Question", :class=>'btn btn-success float-right', :method => :get  %>
+      <%= button_to '+ Add Interest', new_interest_path, :title => "New Interest", :class=>'btn btn-success float-right', :method => :get  %>
       </br></br>
       <%= render :partial => 'questions/question', :collection => @interestquestions, :spacer_template => "shared/item_seperator" %>
     </div>      
