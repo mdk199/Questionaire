@@ -1,9 +1,9 @@
 <div class="panel-group" id="accordion">
-  <div class="panel panel-info">
+  <div class="panel panel-info" id= "questionpanel_<%= question.id%>">
     <span class="action_links float-right">
       <% if question.user_id == current_user.id %>
         <%= link_to '', edit_question_path(question), :title => "Edit", :class=>'icon-edit' %> 
-        <%= link_to '', question, method: :delete, :title => "Delete", :class=>'icon-remove', data: { confirm: 'Are you sure?' } %>
+        <%= link_to '', question, method: :delete, :title => "Delete", :class=>'icon-remove', data: { confirm: 'Are you sure?',:remote=>true } %>
         <% else %>
         <% if Flag.already_flagged(question, current_user) %>
           <%= link_to "", unflag_question_path(question), :remote => true, :class => "icon-flag", :style => "color:red;" , :id=>"flag_#{question.id}"%>

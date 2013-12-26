@@ -1,3 +1,4 @@
+
 class QuestionsController < ApplicationController
   layout "main.html.erb"
   # GET /questions
@@ -11,7 +12,7 @@ class QuestionsController < ApplicationController
   end
 
   def all_questions
-    @questions = Question.all
+    @questions = Question.all_published_questions
     respond_to do |format|
       format.html # all_question.html.erb
       format.json { render json: @questions }
@@ -82,10 +83,11 @@ class QuestionsController < ApplicationController
   def destroy
     @question = Question.find(params[:id])
     @question.destroy
-
+    flash.now[:notice] = 'Question was successfully removed.'
     respond_to do |format|
       format.html { redirect_to questions_url }
       format.json { head :no_content }
+      format.js { render "questions/destroy", :layout => false }
     end
   end
 

@@ -12,7 +12,7 @@
       <h5>Tags to the Question </h5>
       <%= f.fields_for :tags do |tag| %>
         <div class="input-append">
-          <%= tag.text_field :name, :class=>"span2", :id=>"appendedInputButton"%>
+          <%= tag.text_field :name, :class=>"span5", :id=>"appendedInputButton"%>
           <%= tag.link_to_remove "X",:title => "Delete", :class=>'btn'%>
         </div>
       <% end %>
