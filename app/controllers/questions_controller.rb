@@ -12,7 +12,7 @@ class QuestionsController < ApplicationController
   end
 
   def all_questions
-    @questions = Question.all_published_questions(current_user)
+    @questions = Question.all_published_questions
     respond_to do |format|
       format.html # all_question.html.erb
       format.json { render json: @questions }
