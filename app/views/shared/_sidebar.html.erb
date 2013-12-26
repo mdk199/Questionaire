@@ -1,7 +1,7 @@
-<div class="control-group">
-  <%= image_tag current_user.profile.photo.url(:medium), :class => 'control-label img-rounded' if current_user.profile.present? %>
-</div>
 <div class="well sidebar-nav">
+  <div class="control-group">
+  	<%= image_tag current_user.profile.photo.url(:medium), :class => 'control-label img-rounded' if current_user.profile.present? %>
+  </div>
   <ul class="nav nav-list">
     <li class="nav-header">Quick Links</li>
     
