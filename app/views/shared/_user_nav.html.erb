@@ -10,17 +10,13 @@
             <%= link_to "Profile", new_profile_path %>
           <% end %>
         </li>
-        <li role="presentation" class="divider"></li>
         <li role="presentation"><a>My Points</a></li>
-        <li role="presentation" class="divider"></li>
         <li role="presentation">
           <%= link_to 'Add Expertise', new_expertise_path %>
         </li>
-        <li role="presentation" class="divider"></li>
         <li role="presentation">
           <%= link_to 'Add Interest', new_interest_path %>
         </li>
-        <li role="presentation" class="divider"></li>
         <li role="presentation">
           <%= link_to "Logout", destroy_user_session_path, :method => :delete, :role => "menuitem", :tabindex => "2" %>
       </ul>
