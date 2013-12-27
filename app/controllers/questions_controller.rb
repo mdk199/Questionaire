@@ -114,4 +114,21 @@ class QuestionsController < ApplicationController
     end
   end
 
+  def publish
+    @question = Question.find(params[:id])
+    Question.publish_question(@question)
+    respond_to do |format|
+      format.js { render "questions/publish", :layout => false }
+      format.json { render json: @questions }
+    end
+  end
+
+  def unpublish
+    @question = Question.find(params[:id])
+    Question.unpublish_question(@question)
+    respond_to do |format|
+      format.js { render "questions/unpublish", :layout => false }
+      format.json { render json: @questions }
+    end
+  end
 end
