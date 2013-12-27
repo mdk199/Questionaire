@@ -54,6 +54,8 @@ Rorproject::Application.routes.draw do
     member do
       get "flag", to: "questions#flag"
       get "unflag", to: "questions#unflag"
+      get "publish", to: "questions#publish"
+      get "unpublish", to: "questions#unpublish"
     end
   end
 
