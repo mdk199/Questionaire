@@ -12,10 +12,6 @@
  *= require_tree .
  *= require bootstrap_and_overrides
  */
-.clear{
-  clear: both;
-}
-
 .float-right{
   float: right !important;
 }
@@ -64,6 +60,6 @@ input{
 
 .question{
   margin-right: 50px !important;
-  margin-top: -10px !important;
+  margin-top: -25px !important;
   margin-left: 50px !important;
 }

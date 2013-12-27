@@ -1,0 +1,6 @@
+<div style="margin-top:-20px;padding-bottom:3px;">
+  <%= button_to 'See All', questions_path, :title => "See All", :class=>'btn btn-info float-right', :method => :get, :style => "margin-left:5px;" %>
+  <%= button_to btn_title, url, :title => "New Question", :class=>'btn btn-success float-right', :method => :get %> 
+  <div class="clearfix"></div>
+</div>
+<%= render :partial => 'questions/question', :collection => items, :spacer_template => "shared/item_seperator" %>

@@ -1,5 +1,5 @@
 <div class="panel-group" id="accordion">
-  <div class="panel panel-info" id= "questionpanel_<%= question.id%>">
+  <div class="panel panel-warning" id= "questionpanel_<%= question.id%>">
     <span class="action_links float-right">
       <% if question.user_id == current_user.id %>
         <%= link_to '', edit_question_path(question), :title => "Edit", :class=>'icon-edit' %> 
@@ -21,15 +21,17 @@
         &nbsp;<%= raw question.question%>
       </div>
 
-      <div class="clear"></div>
+      <div class="clearfix"></div>
         
       <span class="tags">
-        <i class="icon-tags"></i>
-        <%= question.tags.map{|tag| tag.name }.join(", ") %>
+        <span class="badge"><%= pluralize(question.answers_count, "Answer") %></span>
+        <% question.tags.each do |tag| %>
+          <span class="label label-default"><i class="icon-tags"></i> <%= tag.name.titleize %></span>
+        <% end %>
       </span>
       
       <i><small class="float-right" style="margin-left:5px">Updated : <%= time_ago_in_words(question.updated_at) %> ago</small></i>
-      <i><small class="float-right" >Created By : <%= question.user.username.titleize %>   &nbsp;| </small></i>
+      <i><small class="float-right" >Created By : <%= question.user.name.titleize %>   &nbsp;| </small></i>
       </br>
     </div>
    

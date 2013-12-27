@@ -20,15 +20,15 @@ class Question < ActiveRecord::Base
 
   class << self
     def all_published_questions(user=nil)
-      if(Question.published.blank?)
-      Question.all
+      if user.present?
+        Question.where("user_id = #{user.id}")
       else
-      Question.find(:all, :conditions => ["published = 1 OR user_id = ?", user.id], :include=>"answers")
+        Question.published
       end
     end
 
     def published
-      Question.find(:all, :conditions=>["published=1"])
+      Question.find(:all, :conditions => "published = 1")
     end
   end
 end

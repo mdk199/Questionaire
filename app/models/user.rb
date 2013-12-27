@@ -32,4 +32,8 @@ class User < ActiveRecord::Base
       "user.jpeg"
     end
   end
+
+  def name
+    profile.present? ? profile.fullname : username
+  end
 end
