@@ -88,4 +88,21 @@ class AnswersController < ApplicationController
       format.js { render "answers/destroy", :layout => false }
     end
   end
+
+  def approve
+    @answer = Answer.find(params[:id])
+    @answer.approve=1
+    respond_to do |format|
+      format.js { render "answers/approve", :layout => false }
+      format.json { render json: @answers }
+    end
+  end
+
+  def unapprove
+    @answer = Answer.find(params[:id])
+    respond_to do |format|
+      format.js { render "answers/unapprove", :layout => false }
+      format.json { render json: @answers }
+    end
+  end
 end

@@ -23,8 +23,12 @@ Rorproject::Application.routes.draw do
   resources :expertises
 
 
-  resources :answers
-
+  resources :answers do
+    member do
+      get "approve", to: "answers#approve"
+      get "unapprove", to: "questions#unapprove"
+    end
+  end
 
   devise_for :users
 
