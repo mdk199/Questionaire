@@ -91,8 +91,8 @@ class AnswersController < ApplicationController
 
   def approve
     @answer = Answer.find(params[:id])
-    @answer.approved=1
-    @answer.save
+    @unapproved_answer = Answer.where("question_id = #{@answer.question_id} AND approved = 1").try(:first)
+    @answer.approve
     respond_to do |format|
       format.js { render "answers/approve", :layout => false }
       format.json { render json: @answers }

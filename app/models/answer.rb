@@ -11,7 +11,7 @@ class Answer < ActiveRecord::Base
   	validates_presence_of :question_id
   	validate :valid_user, :valid_question
 
-  	def valid_user
+  def valid_user
 		if self.user_id.present?
 			unless User.find_by_id(self.user_id).present?
 				self.errors.add(:user_id, "not found!")
@@ -31,5 +31,14 @@ class Answer < ActiveRecord::Base
 				self.errors.add(:question_id, "not found!")
 			end
 		end
+	end
+
+	def is_approved?
+		approved == true ? true : false 
+	end
+
+	def approve
+		question.answers.each{ |answer| answer.update_attribute(:approved, false) }
+		self.update_attribute(:approved, true)
 	end
 end

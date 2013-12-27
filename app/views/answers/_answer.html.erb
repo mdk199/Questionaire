@@ -1,4 +1,4 @@
-<div id="answer_<%=answer.id%>" class="panel panel-default">
+<div id="answer_<%=answer.id%>" class="panel <%= answer_panel_class(answer) %>">
   <span class="action_links float-right">
     <%= answer_actions(current_user, answer) %>
   </span>
@@ -6,7 +6,7 @@
     <span>
       <%= image_tag "user.jpeg", :size => "30x30", :style => "border-radius:5px; border:1px solid #3A87AD;" %>
     </span>
-    <%= answer.user.username%>
+    <%= answer.user.name%>
   </div>
   <div class="panel-body">
     <%= raw answer.answer %></br>
