@@ -28,7 +28,8 @@
         <%= question.tags.map{|tag| tag.name }.join(", ") %>
       </span>
       
-      <i><small class="float-right">Updated : <%= time_ago_in_words(question.updated_at) %> ago</small></i>
+      <i><small class="float-right" style="margin-left:5px">Updated : <%= time_ago_in_words(question.updated_at) %> ago</small></i>
+      <i><small class="float-right" >Created By : <%= question.user.username.titleize %>   &nbsp;| </small></i>
       </br>
     </div>
    
