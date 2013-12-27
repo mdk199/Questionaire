@@ -15,13 +15,13 @@ $('#tags2').tagsInput({
   'height':'70px',
   'defaultText':'Add Tag'
 }); 
+
 $('#tags3').tagsInput({
   'width': '90%',
   'height':'70px',
   'defaultText':'Add Tag',
 'autocomplete_url':'/2013/js/jQuery-Tags-Input/test/fake_json_endpoint.html' // jquery ui autocomplete requires a json endpoint
 });
-
 
 $('#tags4').tagsInput({
   'width': '90%',
