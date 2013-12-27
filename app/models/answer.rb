@@ -19,6 +19,12 @@ class Answer < ActiveRecord::Base
 		end
 	end
 
+	after_save :touch_question
+
+	def touch_question
+		question.touch
+	end
+
 	def valid_question
 		if self.question_id.present?
 			unless Question.find_by_id(self.question_id).present?

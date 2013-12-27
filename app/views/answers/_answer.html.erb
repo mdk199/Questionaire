@@ -1,9 +1,6 @@
 <div id="answer_<%=answer.id%>" class="panel panel-default">
   <span class="action_links float-right">
-    <% if answer.user.id == current_user.id %>
-    <%= link_to '', edit_answer_path(answer), :title => "Edit", :class=>'icon-edit' %> 
-    <%= link_to '', answer, method: :delete, :title => "Delete", :class=>'icon-remove', data: { confirm: 'Are you sure?' }, :remote => true %>
-    <% end %>
+    <%= answer_actions(current_user, answer) %>
   </span>
   <div class="panel-heading">
     <span>
