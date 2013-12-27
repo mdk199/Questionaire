@@ -26,7 +26,7 @@ Rorproject::Application.routes.draw do
   resources :answers do
     member do
       get "approve", to: "answers#approve"
-      get "unapprove", to: "questions#unapprove"
+      get "unapprove", to: "answers#unapprove"
     end
   end
 

@@ -91,7 +91,8 @@ class AnswersController < ApplicationController
 
   def approve
     @answer = Answer.find(params[:id])
-    @answer.approve=1
+    @answer.approved=1
+    @answer.save
     respond_to do |format|
       format.js { render "answers/approve", :layout => false }
       format.json { render json: @answers }
@@ -100,6 +101,8 @@ class AnswersController < ApplicationController
 
   def unapprove
     @answer = Answer.find(params[:id])
+    @answer.approved=0
+    @answer.save
     respond_to do |format|
       format.js { render "answers/unapprove", :layout => false }
       format.json { render json: @answers }
