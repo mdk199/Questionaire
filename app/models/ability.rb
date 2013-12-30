@@ -17,6 +17,7 @@ class Ability
       can :read, :all
       can :flag, Question
       can :unflag, Question
+      can :add_answer, Question
     else
       can :read, :all
     end

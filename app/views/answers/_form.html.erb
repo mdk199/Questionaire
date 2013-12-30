@@ -1,18 +1,28 @@
-<%= form_for(Answer.new, :url => answers_path, :remote=> true, :id => "new_answer_#{question.id}") do |f| %>
+<%= form_for(Answer.new, :url => answers_path, :remote=> true, :html => {:id => "new_answer_#{question.id}" }) do |f| %>
   <div class="panel panel-success" id= "panel_answer_<%=question.id%>">
     <div class="panel-heading">
       Provide an answer:
     </div>
     <div class="panel-body">
-      <%= f.hidden_field :user_id, :value => @answer.user.id %>
+      <%= f.hidden_field :user_id, :value => current_user.id %>
       <%= f.hidden_field :question_id, :value => question.id %>
       <%= f.text_area :answer , :rows => 3 , :id=>"editor_#{question.id}"%>
-     <br/>
-     <%= f.submit "Submit", :class => "btn btn-primary"%>
+     
+     <div style="margin-top: 5px">
+     <%= f.submit "Submit", :class => "btn btn-primary btn-mini"%>
+     <input type='button' class='btn btn-primary btn-mini btn-mini' value='Cancel' onclick='remove_editor()'/>
+     </div>
+
     </div>
   </div>
 <% end%>
 <script>
+ function remove_editor()
+  {
+    $('#new_answer_<%= @question.id%>').remove();
+    $('#add_answer_<%= @question.id%>').attr('disabled', false);
+  }
+
   CKEDITOR.replace( 'editor_<%= question.id%>', {
   toolbarGroups: [
     { name: 'clipboard',   groups: [ 'clipboard', 'undo' ] },     // Group's name will be used to create voice label.
