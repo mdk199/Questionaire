@@ -1,7 +1,7 @@
-<h6>My Questions</h6>
+<h5> Questions</h5>
 <span>
   <%= button_to '+ Add Question', new_question_path, :title => "New Question", :class=>'btn btn-success float-right', :method => :get  %>
 </span>
 </br></br></br>
 
-<%= render :partial => 'question', :collection => @questions, :spacer_template => "shared/item_seperator" %>
+<%= render :partial => 'question', :collection => @interest_questions, :spacer_template => "shared/item_seperator" %>

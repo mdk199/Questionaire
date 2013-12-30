@@ -18,11 +18,32 @@ class User < ActiveRecord::Base
     tags = expertise.present? ? Tag.find(:all, :conditions => ["name in (?)", expertise.expertise.split(",")]) : []
     questions = tags.map {|tag| tag.questions}.flatten.uniq
     questions.delete_if { |question| question.user_id == self.id }
+    questions.keep_if { |question| question.published == true }
+    questions.sort_by! {|q| q[:updated_at]}.reverse.take(5)    
   end
+
+  def expertise_questions
+    tags = expertise.present? ? Tag.find(:all, :conditions => ["name in (?)", expertise.expertise.split(",")]) : []
+    questions = tags.map {|tag| tag.questions}.flatten.uniq
+    questions.delete_if { |question| question.user_id == self.id }
+    questions.keep_if { |question| question.published == true }
+    questions.sort_by! {|q| q[:updated_at]}.reverse
+  end
+
   def my_interest_questions
     tags = interest.present? ? Tag.find(:all, :conditions => ["name in (?)", interest.interest.split(",")]) : []
     questions = tags.map {|tag| tag.questions}.flatten.uniq
     questions.delete_if { |question| question.user_id == self.id }
+    questions.keep_if { |question| question.published == true }
+    questions.sort_by! {|q| q[:updated_at]}.reverse.take(5)
+  end
+
+  def interest_questions
+    tags = interest.present? ? Tag.find(:all, :conditions => ["name in (?)", interest.interest.split(",")]) : []
+    questions = tags.map {|tag| tag.questions}.flatten.uniq
+    questions.delete_if { |question| question.user_id == self.id }
+    questions.keep_if { |question| question.published == true }
+    questions.sort_by! {|q| q[:updated_at]}.reverse
   end
 
   def profile_pic_url

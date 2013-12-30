@@ -5,9 +5,11 @@ class QuestionsController < ApplicationController
   # GET /questions.json
   def index
     @questions = Question.all_published_questions(current_user)
+    @interest_questions = current_user.interest_questions
+    @expertise_questions = current_user.expertise_questions
     respond_to do |format|
       format.html # index.html.erb
-      format.json { render json: @questions }
+      format.json { render json => {:question => @question, :expertisequestions => @expertise_questions, :interestquestions => @interest_questions }}
     end
   end
 
