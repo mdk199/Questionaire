@@ -1,5 +1,8 @@
 class InterestsController < ApplicationController
   layout "main.html.erb"
+
+  load_and_authorize_resource
+  
   # GET /interests
   # GET /interests.json
   def index

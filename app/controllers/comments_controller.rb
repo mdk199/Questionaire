@@ -1,5 +1,8 @@
 class CommentsController < ApplicationController
   layout "main.html.erb"
+
+  load_and_authorize_resource
+  
     # GET /comments
   # GET /comments.json
   def index

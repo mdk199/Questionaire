@@ -1,16 +1,16 @@
 <ul class="nav nav-tabs" id="myTab" style="margin-bottom:-1px;">
-  <li class="active"><a href="#home" data-toggle="tab">Q by You</a></li>
-  <li><a href="#profile" data-toggle="tab">Q on your Experitise</a></li>
-  <li><a href="#messages" data-toggle="tab">Q on your Interest</a></li>
+  <li class="active"><a href="#question_tab" data-toggle="tab">Q by You</a></li>
+  <li><a href="#expertise_tab" data-toggle="tab">Q on your Experitise</a></li>
+  <li><a href="#interest_tab" data-toggle="tab">Q on your Interest</a></li>
 </ul>
 <div class="tab-content" style="border:1px solid #ccc; border-top:0px; padding:5px;">
-  <div class="tab-pane active" id="home">          
+  <div class="tab-pane active" id="question_tab">          
     <%= render "welcome/top5", :question_url => questions_path, :url => new_question_path, :items => @questions, :btn_title => "Add Question" %>
   </div>
-  <div class="tab-pane" id="profile">
+  <div class="tab-pane" id="expertise_tab">
     <%= render "welcome/top5", :question_url => expertise_questions_path, :url => new_expertise_path, :items => @expertisequestions, :btn_title => "Add Expertise" %>
   </div>
-  <div class="tab-pane" id="messages">
+  <div class="tab-pane" id="interest_tab">
     <%= render "welcome/top5", :question_url => interest_questions_path, :url => new_interest_path, :items => @interestquestions, :btn_title => "Add Interest" %>
   </div>      
 </div>

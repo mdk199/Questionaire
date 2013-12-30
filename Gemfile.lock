@@ -32,6 +32,7 @@ GEM
     atomic (1.1.14)
     bcrypt-ruby (3.1.2)
     builder (3.0.4)
+    cancan (1.6.10)
     ckeditor_rails (4.3.1)
       railties (>= 3.0)
     climate_control (0.0.3)
@@ -133,6 +134,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  cancan
   ckeditor_rails
   coffee-rails (~> 3.2.1)
   devise

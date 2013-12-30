@@ -14,6 +14,18 @@ class User < ActiveRecord::Base
   attr_accessible :email, :password, :password_confirmation, :remember_me, :username
   # attr_accessible :title, :body
 
+  ADMIN_ROLE = "Admin"
+  USER_ROLE = "User"
+  ROLES = [ADMIN_ROLE, USER_ROLE]
+
+  def is_admin?
+    role == User::ADMIN_ROLE
+  end
+
+  def is_user?
+    role == User::USER_ROLE
+  end
+
   def my_expertise_questions
     tags = expertise.present? ? Tag.find(:all, :conditions => ["name in (?)", expertise.expertise.split(",")]) : []
     questions = tags.map {|tag| tag.questions}.flatten.uniq

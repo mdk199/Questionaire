@@ -1,5 +1,8 @@
 class ProfilesController < ApplicationController
   layout "main"
+
+  load_and_authorize_resource
+  
   # GET /profiles
   # GET /profiles.json
   def index

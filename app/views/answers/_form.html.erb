@@ -4,7 +4,7 @@
       Provide an answer:
     </div>
     <div class="panel-body">
-      <%= f.hidden_field :user_id, :value => current_user.id %>
+      <%= f.hidden_field :user_id, :value => @answer.user.id %>
       <%= f.hidden_field :question_id, :value => question.id %>
       <%= f.text_area :answer , :rows => 3 , :id=>"editor_#{question.id}"%>
      <br/>

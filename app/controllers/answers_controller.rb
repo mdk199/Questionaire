@@ -1,5 +1,8 @@
 class AnswersController < ApplicationController
   layout "main.html.erb"
+
+  load_and_authorize_resource
+  
   # GET /answers
   # GET /answers.json
   def index
@@ -25,7 +28,7 @@ class AnswersController < ApplicationController
   # GET /answers/new
   # GET /answers/new.json
   def new
-    @answer = Answer.new
+    @answer = Answer.new(:user_id => current_user.id)
 
     respond_to do |format|
       format.html # new.html.erb
