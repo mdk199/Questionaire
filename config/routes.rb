@@ -49,6 +49,8 @@ Rorproject::Application.routes.draw do
   resources :questions do
     collection do
       get 'answers/:id', to: 'questions#answers'
+      get "expertise", to: "questions#expertise_questions"
+      get "interest", to: "questions#interest_questions"
     end
 
     member do

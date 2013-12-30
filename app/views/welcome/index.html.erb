@@ -5,12 +5,12 @@
 </ul>
 <div class="tab-content" style="border:1px solid #ccc; border-top:0px; padding:5px;">
   <div class="tab-pane active" id="home">          
-    <%= render "welcome/top5", :url => new_question_path, :items => @questions, :btn_title => "Add Question" %>
+    <%= render "welcome/top5", :question_url => questions_path, :url => new_question_path, :items => @questions, :btn_title => "Add Question" %>
   </div>
   <div class="tab-pane" id="profile">
-    <%= render "welcome/top5", :url => new_expertise_path, :items => @expertisequestions, :btn_title => "Add Expertise" %>
+    <%= render "welcome/top5", :question_url => expertise_questions_path, :url => new_expertise_path, :items => @expertisequestions, :btn_title => "Add Expertise" %>
   </div>
   <div class="tab-pane" id="messages">
-    <%= render "welcome/top5", :url => new_interest_path, :items => @interestquestions, :btn_title => "Add Interest" %>
+    <%= render "welcome/top5", :question_url => interest_questions_path, :url => new_interest_path, :items => @interestquestions, :btn_title => "Add Interest" %>
   </div>      
 </div>
