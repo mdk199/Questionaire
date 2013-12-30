@@ -13,8 +13,10 @@ class Ability
       can :manage, Comment, :user_id => user.id    
       can :manage, Expertise, :user_id => user.id    
       can :manage, Interest, :user_id => user.id    
-      can :manage, Profile, :user_id => user.id    
+      can :manage, Profile, :user_id => user.id
       can :read, :all
+      can :flag, Question
+      can :unflag, Question
     else
       can :read, :all
     end
