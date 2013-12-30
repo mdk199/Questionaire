@@ -31,8 +31,7 @@
         <div id="answers_<%= question.id %>">
           <%= render :partial => "answers/answer", :collection => question.answers %>
         </div>
-        <br/>
-         <%= render "answers/form", :question => question%> 
+          <%= link_to 'Add Answer', add_answer_question_path(question),:remote=> true,:class=>'btn btn-primary', :id=>"add_answer_#{question.id}"%>
       </div>
     </div>
   </div>

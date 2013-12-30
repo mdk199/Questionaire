@@ -131,4 +131,11 @@ class QuestionsController < ApplicationController
       format.json { render json: @questions }
     end
   end
+
+  def add_answer
+    @question = Question.find(params[:id])
+    respond_to do |format|
+      format.js {render "questions/add_answer", :layout => false}
+    end
+  end
 end

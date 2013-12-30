@@ -56,6 +56,7 @@ Rorproject::Application.routes.draw do
       get "unflag", to: "questions#unflag"
       get "publish", to: "questions#publish"
       get "unpublish", to: "questions#unpublish"
+      get "add_answer", to: "questions#add_answer"
     end
   end
 
