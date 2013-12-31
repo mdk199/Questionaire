@@ -1,20 +1,28 @@
-<div class="navbar navbar-fixed-top">
+<div class="navbar">
   <div class="navbar-inner">
     <div class="container">
-      <a class="btn btn-navbar" data-target=".navbar-collapse" data-toggle="collapse">
+       <a class="btn btn-navbar" data-target=".nav-collapse" data-toggle="collapse">
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </a>
       <a class="brand" href="#">Rorproject</a>
-      <div class="collapse navbar-collapse">
-        <ul class="nav navbar-nav">
-          <li class="active"><a href="/">Home</a></li>
-          <li><a href="#about">About Us</a></li>
-          <li><a href="#contact">Contact</a></li>
-        </ul>
 
+      <div class="container nav-collapse">
+        <ul class="nav navbar-nav">
+          <%= tabs_tag :builder => MenuTabBuilder do |tab| %>
+            <%= tab.home 'Home', root_path %>
+            <%= tab.about_us 'About', about_us_path %>
+            <%= tab.contact_us 'Contact Us', contact_us_path %>
+          <% end %>
+        </ul>
         <%= render "shared/user_nav" %>
+        <form class="navbar-form navbar-right" role="search">
+          <div class="form-group input-append">
+            <input type="text" class="form-control" id="appendedInputButton" placeholder="Search">
+            <button type="submit" class="btn btn-default"><i class="icon-search"></i></button>
+          </div>
+        </form>
       </div><!-- /.nav-collapse -->
     </div>
   </div>

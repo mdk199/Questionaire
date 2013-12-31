@@ -66,3 +66,7 @@ input{
 .addbtn{
   margin-top: 4px !important;
 }
+
+.navbar-form{
+  margin: 0px 20px 0px 0px !important;
+}

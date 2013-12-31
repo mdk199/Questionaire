@@ -3,4 +3,4 @@
   <%= button_to btn_title, url, "data-disable-with" => "Please wait...", :title => btn_title, :class=>'btn btn-success btn-mini float-right', :method => :get %> 
   <div class="clearfix"></div>
 </div>
-<%= render :partial => 'questions/question', :collection => items, :spacer_template => "shared/item_seperator" %>
+<%= render :partial => 'questions/question', :collection => items, :spacer_template => "shared/item_seperator", :locals => {:prefix => prefix} %>
