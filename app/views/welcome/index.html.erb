@@ -14,3 +14,10 @@
     <%= render "welcome/top5", :question_url => interest_questions_path, :url => new_interest_path, :items => @interestquestions, :btn_title => "Add Interest" %>
   </div>      
 </div>
+
+<script type="text/javascript">
+$('#myTab a').click(function (e) {
+  e.preventDefault()
+  $(this).tab('show')
+})
+</script>
