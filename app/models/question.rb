@@ -1,13 +1,15 @@
 class Question < ActiveRecord::Base
   belongs_to :user
-  attr_accessible :question, :user_id, :published
   has_many :documents, as: :documentable, :dependent => :destroy
   has_many :flags, as: :flagable, :dependent => :destroy
   has_many :answers, :inverse_of=>:question
+  
   validates_presence_of :question, :user_id
   validate :valid_user
   
-  acts_as_taggable_on :tags
+  acts_as_taggable
+
+  attr_accessible :question, :user_id, :published, :tag_list
   
 	def valid_user
 		if self.user_id.present?
