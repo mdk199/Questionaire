@@ -2,6 +2,7 @@
 <span>
   <%= button_to '+ Add Question', new_question_path, :title => "New Question", :class=>'btn btn-success btn-mini float-right', :method => :get  %>
 </span>
-</br></br></br>
+</br></br>
 
 <%= render :partial => 'question', :collection => @questions, :spacer_template => "shared/item_seperator" %>
+<%= link_to "Back", :back %>
