@@ -39,7 +39,7 @@ class AnswersController < ApplicationController
   # GET /answers/1/edit
   def edit
     @answer = Answer.find(params[:id])
-      respond_to do |format|
+    respond_to do |format|
       format.html
       format.json { render json: @answer }
       format.js { render "answers/edit", :layout => false }
@@ -76,9 +76,11 @@ class AnswersController < ApplicationController
       if @answer.update_attributes(params[:answer])
         format.html { redirect_to @answer, notice: 'Answer was successfully updated.' }
         format.json { head :no_content }
+        format.js { render "answers/create", :layout => false }
       else
         format.html { render action: "edit" }
         format.json { render json: @answer.errors, status: :unprocessable_entity }
+        format.js { render "answers/create", :layout => false }
       end
     end
   end

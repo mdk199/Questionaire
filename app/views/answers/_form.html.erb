@@ -1,4 +1,4 @@
-<%= form_for(Answer.new, :url => answers_path, :remote=> true, :html => {:id => "new_answer_#{question.id}" }) do |f| %>
+<%= form_for(@answer, :remote=> true, :html => {:id => "new_answer_#{question.id}" }) do |f| %>
   <div class="panel panel-success" id= "panel_answer_<%=question.id%>">
     <div class="panel-heading">
       Provide an answer:
@@ -19,8 +19,8 @@
 <script>
  function remove_editor()
   {
-    $('#new_answer_<%= @question.id%>').remove();
-    $('#add_answer_<%= @question.id%>').attr('disabled', false);
+    $('#new_answer_<%= question.id%>').remove();
+    $('#add_answer_<%= question.id%>').attr('disabled', false);
   }
 
   CKEDITOR.replace( 'editor_<%= question.id%>', {

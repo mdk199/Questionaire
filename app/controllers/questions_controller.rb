@@ -154,6 +154,7 @@ class QuestionsController < ApplicationController
 
   def add_answer
     @question = Question.find(params[:id])
+    @answer = Answer.new(:question_id  => @question.id)
     respond_to do |format|
       format.js {render "questions/add_answer", :layout => false}
     end
