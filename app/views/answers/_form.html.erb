@@ -19,8 +19,14 @@
 <script>
  function remove_editor()
   {
-    $('#new_answer_<%= question.id%>').remove();
-    $('#add_answer_<%= question.id%>').attr('disabled', false);
+    if($('#editor_<%= question.id%>').text()!= ''){
+     // $('#new_answer_<%= question.id%>').remove();
+      $("#new_answer_<%= question.id%>").replaceWith("<%= escape_javascript( render 'answers/answer', :answer => @answer ) %>");
+      }
+    else{  
+      $('#new_answer_<%= question.id%>').remove();
+      $('#add_answer_<%= question.id%>').attr('disabled', false);
+    }
   }
 
   CKEDITOR.replace( 'editor_<%= question.id%>', {
