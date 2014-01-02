@@ -1,4 +1,4 @@
-<%= nested_form_for(@question) do |f| %>
+<%=form_for(@question) do |f| %>
   <%= render "shared/error_messages", :object => @question %>
   <div class="field">
     <%= f.hidden_field :user_id, :value => current_user.id %>
@@ -12,14 +12,7 @@
       <br/>
       <b>Publish question</b> <%= f.check_box :published,:style=>"margin-top:-3px"%> 
       <h5>Tags to the Question </h5>
-     <%= f.fields_for :tags do |tag| %>
-        <div class="input-append">
-          <%= tag.text_field :name, :class=>"span5", :id=>"appendedInputButton"%>
-          <%= tag.link_to_remove "X",:title => "Delete", :class=>'btn'%>
-        </div>
-      <% end %>
-      
-      <%= f.link_to_add "Add a Tag", :tags,:class=>"btn btn-default" %>
+      <%= f.text_area :tag_list, :id=>"tags", :class=>"set-height"%>
       <%= f.submit "Submit", :class => "btn btn-primary btn-mini"%>
     </div>
   </div>
