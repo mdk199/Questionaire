@@ -1,0 +1,9 @@
+<%= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
+  <%= render "shared/error_messages", :object => @user %>
+  <%= f.hidden_field :user_id, :value => current_user.id %>
+  <%= f.text_area :expertise_list, :id=>"tags", :class=>"set-height"%>
+  <br/>
+  <div class="actions"> 
+    <%= f.submit "Submit", :class => "btn btn-primary btn-mini"%>
+  </div>
+<% end %>

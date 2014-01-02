@@ -1,4 +1,5 @@
 Rorproject::Application.routes.draw do
+  
   resources :profiles
 
 
@@ -31,6 +32,12 @@ Rorproject::Application.routes.draw do
   end
 
   devise_for :users
+
+  resources :users do
+    member do
+      get "expertise", to: "users#expertise"
+    end
+  end
 
   match "all_questions" => "questions#all_questions"
 

@@ -8,7 +8,7 @@
     <%= render "welcome/top5", :question_url => questions_path, :url => new_question_path, :items => @questions, :btn_title => "Add Question", :prefix => "" %>
   </div>
   <div class="tab-pane" id="expertise_tab">
-    <%= render "welcome/top5", :question_url => expertise_questions_path, :url => new_expertise_path, :items => @expertisequestions, :btn_title => "Add Expertise", :prefix => "exp_" %>
+    <%= render "welcome/top5", :question_url => expertise_questions_path, :url => expertise_user_path(current_user) , :items => @expertisequestions, :btn_title => "Add Expertise", :prefix => "exp_" %>
   </div>
   <div class="tab-pane" id="interest_tab">
     <%= render "welcome/top5", :question_url => interest_questions_path, :url => new_interest_path, :items => @interestquestions, :btn_title => "Add Interest", :prefix => "int_"  %>
