@@ -11,7 +11,7 @@ module AnswersHelper
     end     
     
     if answer.user == user
-   		html << link_to('', edit_answer_path(answer), :title => "Edit", :class=>'icon-edit')
+   		html << link_to('', edit_answer_path(answer), :title => "Edit", :class=>'icon-edit',:remote =>true)
    	end
     
     if answer.user == user || answer.question.user == user

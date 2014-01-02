@@ -39,6 +39,11 @@ class AnswersController < ApplicationController
   # GET /answers/1/edit
   def edit
     @answer = Answer.find(params[:id])
+      respond_to do |format|
+      format.html
+      format.json { render json: @answer }
+      format.js { render "answers/edit", :layout => false }
+    end
   end
 
   # POST /answers
