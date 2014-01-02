@@ -1,5 +1,5 @@
 Rorproject::Application.routes.draw do
-  
+
   resources :profiles
 
 
@@ -36,6 +36,7 @@ Rorproject::Application.routes.draw do
   resources :users do
     member do
       get "expertise", to: "users#expertise"
+      get "interest", to: "users#interest"
     end
   end
 

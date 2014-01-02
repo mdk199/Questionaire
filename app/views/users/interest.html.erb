@@ -1,6 +1,6 @@
 <%=form_for(@user) do |f| %>
   <%= render "shared/error_messages", :object => @user %>
-  <%= f.text_area :expertise_list, :id=>"tags", :class=>"set-height"%>
+  <%= f.text_area :interest_list, :id=>"tags", :class=>"set-height"%>
   <br/>
   <div class="actions"> 
     <%= f.submit "Submit", :class => "btn btn-primary btn-mini"%>
