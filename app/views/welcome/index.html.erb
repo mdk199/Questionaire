@@ -8,9 +8,17 @@
     <%= render "welcome/top5", :question_url => questions_path, :url => new_question_path, :items => @questions, :btn_title => "Add Question", :prefix => "" %>
   </div>
   <div class="tab-pane" id="expertise_tab">
+    <h6>Your Expertises : 
+    <% current_user.expertise_list.split(",") do |tag| %>
+      <span class="label label-default"><i class="icon-tags"></i> <%= tag.titleize %></span>
+    <% end %></h6>
     <%= render "welcome/top5", :question_url => expertise_questions_path, :url => expertise_user_path(current_user) , :items => @expertisequestions, :btn_title => "Add Expertise", :prefix => "exp_" %>
   </div>
   <div class="tab-pane" id="interest_tab">
+    <h6>Your Interests : 
+    <% current_user.interest_list.split(",") do |tag| %>
+      <span class="label label-default"><i class="icon-tags"></i> <%= tag.titleize %></span>
+    <% end %></h6>
     <%= render "welcome/top5", :question_url => interest_questions_path, :url => interest_user_path(current_user), :items => @interestquestions, :btn_title => "Add Interest", :prefix => "int_"  %>
   </div>      
 </div>
