@@ -6,12 +6,16 @@ class User < ActiveRecord::Base
   has_many :answers
   has_many :comments
   has_one :profile, :dependent => :destroy 
+
+  acts_as_tagger
+  acts_as_taggable_on :expertises, :interests
+
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable, :confirmable
   # Setup accessible (or protected) attributes for your model
-  attr_accessible :email, :password, :password_confirmation, :remember_me, :username
+  attr_accessible :email, :password, :password_confirmation, :remember_me, :username, :expertise_list, :interest_list
   # attr_accessible :title, :body
 
   ADMIN_ROLE = "Admin"
@@ -31,7 +35,7 @@ class User < ActiveRecord::Base
     questions = tags.map {|tag| tag.questions}.flatten.uniq
     questions.delete_if { |question| question.user_id == self.id }
     questions.keep_if { |question| question.published == true }
-    questions.sort_by! {|q| q[:updated_at]}.reverse.take(5)    
+    questions.sort_by! {|q| q[:updated_at]}.reverse.take(10)    
   end
 
   def expertise_questions
@@ -47,7 +51,7 @@ class User < ActiveRecord::Base
     questions = tags.map {|tag| tag.questions}.flatten.uniq
     questions.delete_if { |question| question.user_id == self.id }
     questions.keep_if { |question| question.published == true }
-    questions.sort_by! {|q| q[:updated_at]}.reverse.take(5)
+    questions.sort_by! {|q| q[:updated_at]}.reverse.take(10)
   end
 
   def interest_questions

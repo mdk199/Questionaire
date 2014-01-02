@@ -1,14 +1,13 @@
 class Question < ActiveRecord::Base
   belongs_to :user
-  has_and_belongs_to_many :tags
   attr_accessible :question, :user_id, :published
   has_many :documents, as: :documentable, :dependent => :destroy
   has_many :flags, as: :flagable, :dependent => :destroy
   has_many :answers, :inverse_of=>:question
   validates_presence_of :question, :user_id
   validate :valid_user
-  accepts_nested_attributes_for :tags , :allow_destroy => "true"
-  attr_accessible :tags_attributes 
+  
+  acts_as_taggable_on :tags
   
 	def valid_user
 		if self.user_id.present?
