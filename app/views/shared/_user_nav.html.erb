@@ -19,10 +19,10 @@
         </li>
         <li><a>My Points</a></li>
         <li>
-          <%= link_to 'Add Expertise', new_expertise_path %>
+          <%= link_to 'Add Expertise', expertise_user_path(current_user) %>
         </li>
         <li>
-          <%= link_to 'Add Interest', new_interest_path %>
+          <%= link_to 'Add Interest', interest_user_path(current_user) %>
         </li>
         <li class="divider"></li>
         <li>
