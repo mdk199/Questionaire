@@ -1,17 +1,32 @@
-<blockquote>
-  <p>Display Question</p>
-</blockquote>
-
-<p>
-  <b>User:</b>
-  <%= current_user.profile ? current_user.profile.fullname : current_user.username %>
-</p>
-
-<p>
-  <b>Question:</b>
-  <%= raw @question.question %>
-</p>
-
-
-<%= link_to 'Edit', edit_question_path(@question) %> |
-<%= link_to 'Back', questions_path %>
+<div class="panel-group">
+  <div class="panel panel-warning" id= "questionpanel_<%= @question.id%>">
+	<span class="action_links float-right">
+	  <%= question_actions(current_user, @question) %>
+	</span>
+	<div class="panel-heading" >
+      <span class="float-left" style="margin-top:-5px;margin-bottom:5px;">
+	    <%= image_tag @question.user.profile_pic_url, :size => "40x40", :style => "border-radius:5px; border:1px solid #3A87AD;" %>
+	  </span>
+	  <div class="panel-title question">
+	   	&nbsp;<%= raw @question.question%>
+	  </div>
+	  <div class="clearfix"></div>
+	  <span class="tags">
+	  <span class="badge"><%= pluralize(@question.answers_count, "Answer") %></span>
+	  	<% @question.tags.each do |tag| %>
+	  	  <span class="label label-default"><i class="icon-tags"></i> <%= tag.name.titleize %></span>
+	    <% end %>
+	  </span>
+	  <i><small class="float-right" style="margin-left:5px">Updated : <%= time_ago_in_words(@question.updated_at) %> ago</small></i>
+	  <i><small class="float-right" >Created By : <%= @question.user.name.titleize %>   &nbsp;| </small></i>
+	  </br>
+	</div>
+	<div class="panel-body">
+	  <div id="answers_<%= @question.id %>">
+	   	<%= render :partial => "answers/answer", :collection => @question.answers %>
+	  </div>
+	  <%= link_to 'Add Answer', add_answer_question_path(@question),:remote=> true,:class=>'btn btn-primary btn-mini addbtn', :id=>"add_answer_#{@question.id}"%>
+	</div>
+  </div>
+</div>
+<%= link_to 'Back', :back %>

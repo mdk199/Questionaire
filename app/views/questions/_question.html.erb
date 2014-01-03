@@ -1,10 +1,11 @@
-<div class="panel-group" id="accordion">
+<div class="panel-group">
   <div class="panel panel-warning" id= "questionpanel_<%= question.id%>">
     <span class="action_links float-right">
       <%= question_actions(current_user, question) %>
     </span>
 
-    <div class="panel-heading" data-toggle="collapse" data-parent="#accordion" href="#question_<%= question.id %>">
+    <div class="panel-heading" >
+      <a href="<%=question_path(question)%>" style="color:inherit;text-decoration: none;" title="Question Details">
       <span class="float-left" style="margin-top:-5px;margin-bottom:5px;">
         <%= image_tag question.user.profile_pic_url, :size => "40x40", :style => "border-radius:5px; border:1px solid #3A87AD;" %>
       </span>
@@ -25,5 +26,6 @@
       <i><small class="float-right" >Created By : <%= question.user.name.titleize %>   &nbsp;| </small></i>
       </br>
     </div>
+    </a>
   </div>
 </div>

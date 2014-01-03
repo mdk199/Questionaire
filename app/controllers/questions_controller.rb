@@ -1,6 +1,6 @@
 
 class QuestionsController < ApplicationController
-  layout "main"
+  layout "dashboard"
 
   skip_before_filter :authenticate_user!, :only => [:index, :show]
   load_and_authorize_resource :except => [:index, :show]
