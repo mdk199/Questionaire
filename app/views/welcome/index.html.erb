@@ -4,11 +4,12 @@
   <li><a href="#interest_tab" data-toggle="tab">Q on your Interest</a></li>
 </ul>
 <div class="tab-content" style="border:1px solid #ccc; border-top:0px; padding:5px;">
-  <div class="tab-pane active" id="question_tab">          
+  <div class="tab-pane active" id="question_tab">
+  <h6>Your Questions : </h6>         
     <%= render "welcome/top5", :question_url => questions_path, :url => new_question_path, :items => @questions, :btn_title => "Add Question", :prefix => "" %>
   </div>
   <div class="tab-pane" id="expertise_tab">
-    <h6>Your Expertises : 
+    <h6>Your Expertises :
     <% current_user.expertise_list.split(",") do |tag| %>
       <span class="label label-success"><i class="icon-tags"></i> <%= tag.titleize %></span>
     <% end %></h6>
