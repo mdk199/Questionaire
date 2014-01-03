@@ -18,7 +18,9 @@
 <% end%>
 <script>
  function remove_editor()
-  {
+  {    
+    if($("#editor_<%= question.id%>").text()!='')
+    $("#new_answer_<%= question.id%>").replaceWith("<%= escape_javascript( render 'answers/answer', :answer => @answer ) %>");
     $('#new_answer_<%= question.id%>').remove();
     $('#add_answer_<%= question.id%>').attr('disabled', false);
   }
