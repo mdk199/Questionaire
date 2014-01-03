@@ -6,27 +6,20 @@
 <div class="tab-content" style="border:1px solid #ccc; border-top:0px; padding:5px;">
   <div class="tab-pane active" id="question_tab">
   <h6>Your Questions : </h6>         
-    <%= render "welcome/top5", :question_url => questions_path, :url => new_question_path, :items => @questions, :btn_title => "Add Question", :prefix => "" %>
+    <%= render "welcome/top5", :question_url => questions_path, :url => new_question_path, :items => @questions, :btn_title => "Add Question" %>
   </div>
   <div class="tab-pane" id="expertise_tab">
     <h6>Your Expertises :
     <% current_user.expertise_list.split(",") do |tag| %>
       <span class="label label-success"><i class="icon-tags"></i> <%= tag.titleize %></span>
     <% end %></h6>
-    <%= render "welcome/top5", :question_url => expertise_questions_path, :url => expertise_user_path(current_user) , :items => @expertisequestions, :btn_title => "Add Expertise", :prefix => "exp_" %>
+    <%= render "welcome/top5", :question_url => expertise_questions_path, :url => expertise_user_path(current_user) , :items => @expertisequestions, :btn_title => "Add Expertise" %>
   </div>
   <div class="tab-pane" id="interest_tab">
     <h6>Your Interests : 
     <% current_user.interest_list.split(",") do |tag| %>
       <span class="label label-success"><i class="icon-tags"></i> <%= tag.titleize %></span>
     <% end %></h6>
-    <%= render "welcome/top5", :question_url => interest_questions_path, :url => interest_user_path(current_user), :items => @interestquestions, :btn_title => "Add Interest", :prefix => "int_"  %>
+    <%= render "welcome/top5", :question_url => interest_questions_path, :url => interest_user_path(current_user), :items => @interestquestions, :btn_title => "Add Interest" %>
   </div>      
 </div>
-
-<script type="text/javascript">
-$('#myTab a').click(function (e) {
-  e.preventDefault()
-  $(this).tab('show')
-})
-</script>

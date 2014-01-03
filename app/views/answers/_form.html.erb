@@ -6,32 +6,27 @@
     <div class="panel-body">
       <%= f.hidden_field :user_id, :value => current_user.id %>
       <%= f.hidden_field :question_id, :value => question.id %>
-      <%= f.text_area :answer , :rows => 3 , :id=>"editor_#{question.id}"%>
+      <%= f.text_area :answer , :rows => 3 , :id=>"editor_#{question.id}", :class => "ckeditor" %>
      
      <div style="margin-top: 5px">
      <%= f.submit "Submit", :class => "btn btn-primary btn-mini"%>
-     <input type='button' class='btn btn-primary btn-mini btn-mini' value='Cancel' onclick='remove_editor()'/>
+     <input type='button' class='btn btn-primary btn-mini btn-mini' value='Cancel' onclick='remove_editor();'/>
      </div>
 
     </div>
   </div>
 <% end%>
-<script>
- function remove_editor()
-  {    
-    if($("#editor_<%= question.id%>").text()!='')
-    $("#new_answer_<%= question.id%>").replaceWith("<%= escape_javascript( render 'answers/answer', :answer => @answer ) %>");
-    $('#new_answer_<%= question.id%>').remove();
-    $('#add_answer_<%= question.id%>').attr('disabled', false);
-  }
 
-  CKEDITOR.replace( 'editor_<%= question.id%>', {
-  toolbarGroups: [
-    { name: 'clipboard',   groups: [ 'clipboard', 'undo' ] },     // Group's name will be used to create voice label.
-    { name: 'basicstyles', groups: [ 'basicstyles', 'cleanup' ] },
-    { name: 'paragraph', groups: [ 'list', 'indent', 'blocks', 'align', 'bidi' ] },
-    { name: 'colors' }
-  ]
-// NOTE: Remember to leave 'toolbar' property with the default value (null).
-  });
+<script type="text/javascript">
+  $('.ckeditor').ckeditor();
+
+  function remove_editor(){
+    <% if @answer.new_record? %>
+      $('#new_answer_<%=question.id%>').remove();
+      $('#add_answer_<%=question.id%>').removeAttr("disabled");
+    <% else %>
+      $('#new_answer_<%=question.id%>').replaceWith("<%= escape_javascript( render 'answers/answer', :answer => @answer ) %>");
+    <% end %>
+  }
 </script>
+

@@ -1,12 +1,10 @@
-<% prefix = prefix || "" %>
-
 <div class="panel-group" id="accordion">
   <div class="panel panel-warning" id= "questionpanel_<%= question.id%>">
     <span class="action_links float-right">
       <%= question_actions(current_user, question) %>
     </span>
 
-    <div class="panel-heading" data-toggle="collapse" data-parent="#accordion" href="#<%= prefix %>question_<%= question.id %>">
+    <div class="panel-heading" data-toggle="collapse" data-parent="#accordion" href="#question_<%= question.id %>">
       <span class="float-left" style="margin-top:-5px;margin-bottom:5px;">
         <%= image_tag question.user.profile_pic_url, :size => "40x40", :style => "border-radius:5px; border:1px solid #3A87AD;" %>
       </span>
@@ -26,15 +24,6 @@
       <i><small class="float-right" style="margin-left:5px">Updated : <%= time_ago_in_words(question.updated_at) %> ago</small></i>
       <i><small class="float-right" >Created By : <%= question.user.name.titleize %>   &nbsp;| </small></i>
       </br>
-    </div>
-   
-    <div id="<%= prefix %>question_<%= question.id %>" class="panel-collapse collapse">
-      <div class="panel-body">
-        <div id="<%= prefix %>answers_<%= question.id %>">
-          <%= render :partial => "answers/answer", :collection => question.answers %>
-        </div>
-          <%= link_to 'Add Answer', add_answer_question_path(question),:remote=> true,:class=>'btn btn-primary btn-mini addbtn', :id=>"add_answer_#{question.id}", :prefix => prefix %>
-      </div>
     </div>
   </div>
 </div>
