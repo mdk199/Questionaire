@@ -31,35 +31,19 @@ class User < ActiveRecord::Base
   end
 
   def my_expertise_questions
-    tags = expertise.present? ? Tag.find(:all, :conditions => ["name in (?)", expertise.expertise.split(",")]) : []
-    questions = tags.map {|tag| tag.questions}.flatten.uniq
-    questions.delete_if { |question| question.user_id == self.id }
-    questions.keep_if { |question| question.published == true }
-    questions.sort_by! {|q| q[:updated_at]}.reverse.take(10)    
+    questions = Question.where("user_id != #{id} && published=true").tagged_with(expertise_list, :any=>true).limit(10).order("updated_at DESC")
   end
 
   def expertise_questions
-    tags = expertise.present? ? Tag.find(:all, :conditions => ["name in (?)", expertise.expertise.split(",")]) : []
-    questions = tags.map {|tag| tag.questions}.flatten.uniq
-    questions.delete_if { |question| question.user_id == self.id }
-    questions.keep_if { |question| question.published == true }
-    questions.sort_by! {|q| q[:updated_at]}.reverse
+    questions = Question.where("user_id != #{id} && published=true").tagged_with(expertise_list, :any=>true).order("updated_at DESC")
   end
 
   def my_interest_questions
-    tags = interest.present? ? Tag.find(:all, :conditions => ["name in (?)", interest.interest.split(",")]) : []
-    questions = tags.map {|tag| tag.questions}.flatten.uniq
-    questions.delete_if { |question| question.user_id == self.id }
-    questions.keep_if { |question| question.published == true }
-    questions.sort_by! {|q| q[:updated_at]}.reverse.take(10)
+    questions = Question.where("user_id != #{id} && published=true").tagged_with(interest_list, :any=>true).limit(10).order("updated_at DESC")
   end
 
   def interest_questions
-    tags = interest.present? ? Tag.find(:all, :conditions => ["name in (?)", interest.interest.split(",")]) : []
-    questions = tags.map {|tag| tag.questions}.flatten.uniq
-    questions.delete_if { |question| question.user_id == self.id }
-    questions.keep_if { |question| question.published == true }
-    questions.sort_by! {|q| q[:updated_at]}.reverse
+    questions = Question.where("user_id != #{id} && published=true").tagged_with(interest_list, :any=>true).order("updated_at DESC")
   end
 
   def profile_pic_url
