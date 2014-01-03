@@ -46,5 +46,11 @@ class Question < ActiveRecord::Base
       question.published==true ? true : false
     end
 
+    def approved_answer(question)
+      answer = question.answers.where(:approved=>true).first
+      answer.blank? ? question : answer
+
+    end
+
   end
 end
