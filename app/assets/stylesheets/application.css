@@ -70,3 +70,19 @@ input{
 .navbar-form{
   margin: 0px 20px 0px 0px !important;
 }
+
+.navbar-inner {
+  background-color: #2c2c2c; /* fallback color, place your own */
+
+  /* Gradients for modern browsers, replace as you see fit */
+  background-image: -moz-linear-gradient(top, #F1F1E9, #D8D8D8) !important;
+  background-image: -ms-linear-gradient(top,  #F1F1E9, #D8D8D8) !important;
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#F1F1E9), to(#D8D8D8)) !important;
+  background-image: -webkit-linear-gradient(top,  #F1F1E9, #D8D8D8) !important;
+  background-image: -o-linear-gradient(top, #F1F1E9, #D8D8D8) !important;
+  background-image: linear-gradient(top,  #F1F1E9, #D8D8D8) !important;
+  background-repeat: repeat-x !important;
+
+  /* IE8-9 gradient filter */
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#F1F1E9', endColorstr='#D8D8D8', GradientType=0);
+}
