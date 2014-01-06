@@ -1,6 +1,6 @@
-<div class="panel panel-primary">
+<div class="panel panel-info">
   <div class="panel-heading">
-    <%= current_user.profile.try(:fullname) || current_user.email %>
+    <b><%= current_user.profile.try(:fullname) || current_user.email %></b>
   </div>
   <div class="panel-body">
 <%= form_for @profile, :html => { :class => 'form-horizontal', :style =>"padding-left: 20px;"} do |f| %>
@@ -10,7 +10,7 @@
         <%= f.label :photo, (image_tag @profile.photo.url(:medium), :class => "img-rounded"), :class => 'control-label' %>
       </div>
     </div>
-    <div class="span6">
+    <div class="span8">
       <%= render "shared/error_messages", :object => @profile %>
 
       <div class="control-group">
