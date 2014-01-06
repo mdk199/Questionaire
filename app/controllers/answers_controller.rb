@@ -73,7 +73,9 @@ class AnswersController < ApplicationController
   # PUT /answers/1.json
   def update
     @answer = Answer.find(params[:id])
-
+    if @answer.user == current_user
+      @answer.approved = false
+    end
     respond_to do |format|
       if @answer.update_attributes(params[:answer])
         flash.now[:notice] = 'Answer was successfully updated.'

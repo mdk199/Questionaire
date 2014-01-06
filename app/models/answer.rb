@@ -5,13 +5,14 @@ class Answer < ActiveRecord::Base
 	has_many :documents, as: :documentable
 	has_many :flags, as: :flagable, :dependent => :destroy
 	has_many :comments, :dependent => :destroy
-	attr_accessible :answer, :user_id, :question_id
+	attr_accessible :answer, :user_id, :question_id,:approved
 	validates :answer, :presence => true
 	validates_presence_of :user_id, :message=>"user not present" 
   	validates_presence_of :question_id
   	validate :valid_user, :valid_question
 
-  def valid_user
+
+  	def valid_user
 		if self.user_id.present?
 			unless User.find_by_id(self.user_id).present?
 				self.errors.add(:user_id, "not found!")
@@ -41,4 +42,6 @@ class Answer < ActiveRecord::Base
 		question.answers.each{ |answer| answer.update_attribute(:approved, false) }
 		self.update_attribute(:approved, true)
 	end
+
+
 end
