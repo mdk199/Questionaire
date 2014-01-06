@@ -16,6 +16,15 @@
   float: right !important;
 }
 
+.top-margin{
+  margin-top: -36px !important;
+  margin-right: 4px !important;
+}
+
+.body-margin{
+  margin-top: -20px !important;
+}
+
 .float-left{
   float: left !important;
 }

@@ -2,11 +2,9 @@
   <div class="panel-heading">
     <b>Listing All Questions</b>
   </div>
-  <div class="panel-body">
-	<span>
-  		<%= button_to '+ Add Question', new_question_path, :title => "New Question", :class=>'btn btn-success btn-mini float-right', :method => :get%>
-	</span>
+  <%= button_to '+ Add Question', new_question_path, :title => "New Question", :class=>'btn btn-success btn-mini float-right top-margin', :method => :get%>
+  <div class="panel-body body-margin">
+    <%= render :partial => 'question', :collection => @questions, :spacer_template => "shared/item_seperator" %>
   </div>
-  <%= render :partial => 'question', :collection => @questions, :spacer_template => "shared/item_seperator" %>
 </div>
 <%= link_to "Back", :back %>
