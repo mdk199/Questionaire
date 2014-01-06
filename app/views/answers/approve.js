@@ -5,4 +5,5 @@ $("#approve_<%= @answer.id %>").replaceWith('<%= escape_javascript(link_to("", u
 <% end %>
 $("#answer_<%= @answer.id %>").removeClass("panel-default");
 $("#answer_<%= @answer.id %>").addClass("panel-success");
+$("#see_solution").attr('href','#answer_<%= @answer.id%>');
 alert("You have approved this answer");

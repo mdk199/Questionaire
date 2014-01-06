@@ -18,7 +18,7 @@
 	    <% end %>
 	  </span>
 	  <span class="label label-success">
-	  	<a href="#answer_<%= Question.approved_answer(@question).id%>" style="color:inherit;text-decoration: none;">See Solution</a>
+	  	<a href="#answer_<%= Question.approved_answer(@question).id%>" style="color:inherit;text-decoration: none" id="see_solution">Accepted Solution</a>
 	  </span>
 	  <i><small class="float-right" style="margin-left:5px">Updated : <%= time_ago_in_words(@question.updated_at) %> ago</small></i>
 	  <i><small class="float-right" >Created By : <%= @question.user.name.titleize %>   &nbsp;| </small></i>
