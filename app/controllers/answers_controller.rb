@@ -40,9 +40,12 @@ class AnswersController < ApplicationController
   def edit
     @answer = Answer.find(params[:id])
     respond_to do |format|
-      format.html
-      format.json { render json: @answer }
-      format.js { render "answers/edit", :layout => false }
+      if @answer.save
+        flash.now[:notice] = 'Answer was successfully edited.'
+        format.html
+        format.json { render json: @answer }
+        format.js { render "answers/edit", :layout => false }
+      end
     end
   end
 
