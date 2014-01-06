@@ -41,7 +41,6 @@ class AnswersController < ApplicationController
     @answer = Answer.find(params[:id])
     respond_to do |format|
       if @answer.save
-        flash.now[:notice] = 'Answer was successfully edited.'
         format.html
         format.json { render json: @answer }
         format.js { render "answers/edit", :layout => false }
@@ -77,7 +76,8 @@ class AnswersController < ApplicationController
 
     respond_to do |format|
       if @answer.update_attributes(params[:answer])
-        format.html { redirect_to @answer, notice: 'Answer was successfully updated.' }
+        flash.now[:notice] = 'Answer was successfully updated.'
+        format.html
         format.json { head :no_content }
         format.js { render "answers/create", :layout => false }
       else
