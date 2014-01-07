@@ -54,11 +54,13 @@ Rorproject::Application.routes.draw do
   # This route can be invoked with purchase_url(:id => product.id)
 
   # Sample resource route (maps HTTP verbs to controller actions automatically):
+  
   resources :questions do
     collection do
       get 'answers/:id', to: 'questions#answers'
       get "expertise", to: "questions#expertise_questions"
       get "interest", to: "questions#interest_questions"
+      get "tagged/:id", to: 'questions#tagged' 
     end
 
     member do

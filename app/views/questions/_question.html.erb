@@ -18,7 +18,7 @@
       <span class="tags">
         <span class="badge"><%= pluralize(question.answers_count, "Answer") %></span>
         <% question.tags.each do |tag| %>
-          <span class="label label-default"><i class="icon-tags"></i> <%= tag.name.titleize %></span>
+          <a href="/questions/tagged/<%=tag.id%>"><span class="label label-default"><i class="icon-tags"></i><%= tag.name.titleize %></span></a>
         <% end %>
       </span>
       

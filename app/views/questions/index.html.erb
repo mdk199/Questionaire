@@ -1,6 +1,10 @@
 <div class="panel panel-default">
   <div class="panel-heading">
-    <b>Listing Questions</b>
+  	<%if @tag.present?%>
+   	<b>Listing Questions tagged with <%= @tag.name.upcase%></b>
+    <%else%>
+   	<b>Listing Questions</b>
+    <%end%>
   </div>
     <%= button_to '+ Add Question', new_question_path, :title => "New Question", :class=>'btn btn-success btn-mini float-right top-margin', :method => :get  %>
   <div class="panel-body body-margin">

@@ -63,8 +63,7 @@ class Question < ActiveRecord::Base
 
     def approved_answer(question)
       answer = question.answers.where(:approved=>true).first
-      answer.blank? ? question : answer
-
+      answer.blank? ? nil : answer
     end
 
   end
