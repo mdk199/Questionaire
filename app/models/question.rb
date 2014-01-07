@@ -10,6 +10,21 @@ class Question < ActiveRecord::Base
   acts_as_taggable
 
   attr_accessible :question, :user_id, :published, :tag_list
+
+  searchable do
+    text :question
+    boolean :published
+
+    text :user do 
+      user.name
+      user.email
+      user.username
+    end
+
+    text :answers do
+      answers.map {|answer| answer.answer}
+    end
+  end
   
 	def valid_user
 		if self.user_id.present?

@@ -111,14 +111,9 @@ class QuestionsController < ApplicationController
     end
   end
 
-  def answers
-    @answers =  Answer.where("question_id = #{params[:id]}")
-    render "/answers/index"
-  end
-
   def flag
     @question = Question.find(params[:id])
-    Flag.add_flag(@question, current_user)
+    Flag.add_flaga(@question, current_user)
     respond_to do |format|
       format.js { render "questions/flag", :layout => false }
       format.json { render json: @questions }

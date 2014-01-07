@@ -38,3 +38,11 @@ gem 'cancan'
 gem 'ckeditor_rails'
 gem 'paperclip'
 gem 'acts-as-taggable-on'
+
+gem 'better_errors'
+gem 'binding_of_caller'
+
+gem 'sunspot_rails'
+gem 'sunspot_solr'
+
+gem 'progress_bar'
