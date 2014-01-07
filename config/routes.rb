@@ -61,6 +61,7 @@ Rorproject::Application.routes.draw do
       get "expertise", to: "questions#expertise_questions"
       get "interest", to: "questions#interest_questions"
       get "tagged/:id", to: 'questions#tagged' 
+      post :search
     end
 
     member do

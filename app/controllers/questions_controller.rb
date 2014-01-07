@@ -3,7 +3,7 @@ class QuestionsController < ApplicationController
   layout "dashboard"
 
   skip_before_filter :authenticate_user!, :only => [:index, :show]
-  load_and_authorize_resource :except => [:index, :show, :tagged]
+  load_and_authorize_resource :except => [:index, :show, :tagged,:search]
 
   # GET /questions
   # GET /questions.json
@@ -160,7 +160,16 @@ class QuestionsController < ApplicationController
     @questions = Question.tagged_with(@tag.name).where(:published=> true)
     respond_to do |format|
       format.html {render :index}
-      format.json { render json: @questions }
+      format.json {render json: @questions}
+    end
+  end
+
+  def search
+
+    @questions = Question.search {fulltext params[:text]}.results
+    respond_to do |format|
+      format.html {render :index}
+      format.json {render json: @questions}
     end
   end
 end
