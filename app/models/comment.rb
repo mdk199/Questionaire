@@ -21,4 +21,9 @@ class Comment < ActiveRecord::Base
 	  		end
 	  	end
   	end
+  	after_save :touch_answer
+
+	def touch_answer
+		answer.touch
+	end
 end
