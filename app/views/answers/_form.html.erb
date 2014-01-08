@@ -6,7 +6,7 @@
     <div class="panel-body">
       <%= f.hidden_field :user_id, :value => current_user.id %>
       <%= f.hidden_field :question_id, :value => question.id %>
-      <%= f.text_area :answer , :rows => 3 , :id=>"editor_#{question.id}", :class => "ckeditor" %>
+      <%= f.cktext_area :answer , :rows => 3 , :id=>"editor_#{question.id}", :class => "ckeditor" %>
      
      <div style="margin-top: 5px">
      <%= f.submit "Submit", :class => "btn btn-primary btn-mini"%>

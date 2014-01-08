@@ -35,7 +35,7 @@ gem 'jquery-rails'
 # To use debugger
 # gem 'debugger'
 gem 'cancan'
-gem 'ckeditor_rails'
+gem 'ckeditor'
 gem 'paperclip'
 gem 'acts-as-taggable-on'
 

@@ -40,8 +40,9 @@ GEM
       debug_inspector (>= 0.0.1)
     builder (3.0.4)
     cancan (1.6.10)
-    ckeditor_rails (4.3.1)
-      railties (>= 3.0)
+    ckeditor (4.0.7)
+      mime-types
+      orm_adapter
     climate_control (0.0.3)
       activesupport (>= 3.0)
     cocaine (0.5.3)
@@ -173,7 +174,7 @@ DEPENDENCIES
   better_errors
   binding_of_caller
   cancan
-  ckeditor_rails
+  ckeditor
   coffee-rails (~> 3.2.1)
   devise
   jquery-rails
