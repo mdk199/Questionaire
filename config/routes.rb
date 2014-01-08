@@ -25,9 +25,13 @@ Rorproject::Application.routes.draw do
 
 
   resources :answers do
+    collection do
+      get 'comments/:id', to: 'answers#comments'
+    end
     member do
       get "approve", to: "answers#approve"
       get "unapprove", to: "answers#unapprove"
+      get "add_comment", to: "answers#add_comment"
     end
   end
 

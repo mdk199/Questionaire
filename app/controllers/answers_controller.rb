@@ -123,4 +123,11 @@ class AnswersController < ApplicationController
       format.json { render json: @answers }
     end
   end
+  def add_comment
+    @answer = Answer.find(params[:id])
+    @comment = Comment.new(:answer_id  => @answer.id)
+    respond_to do |format|
+      format.js {render "answers/add_comment", :layout => false}
+    end
+  end
 end

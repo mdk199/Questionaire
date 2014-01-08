@@ -1,0 +1,16 @@
+<div id="comment_<%=comment.id%>" class="panel <%= comment_panel_class(comment) %>">
+  <span class="action_links float-right">
+    <%= comment_actions(current_user, comment) %>
+  </span>
+  <div class="panel-heading">
+    <span>
+      <%= image_tag "user.jpeg", :size => "30x30", :style => "border-radius:5px; border:1px solid #3A87AD;" %>
+    </span>
+    <%= comment.user.name %>
+  </div>
+  <div class="panel-body">
+    <%= raw comment.comment %></br>
+    <h5><i><small class="float-right">Updated : <%= time_ago_in_words(comment.updated_at) %> ago</small></i></h5>
+    <p> </p>
+  </div>
+</div>
