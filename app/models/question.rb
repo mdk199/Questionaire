@@ -19,7 +19,6 @@ class Question < ActiveRecord::Base
       user.name
       user.email
       user.username
-      user.profile
     end
 
     text :tags do

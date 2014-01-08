@@ -1,12 +1,21 @@
-<div class="span2"><h5>Your Interest</h5></div>
-<div class="span10">
-  <%=form_for(@user) do |f| %>
-	  <%= render "shared/error_messages", :object => @user %>
-	  <%= f.text_area :interest_list, :id=>"tags4", :class=>"set-height"%>
-	  <br/>
-	  <div class="actions"> 
-	    <%= f.submit "Submit", :class => "btn btn-primary btn-mini"%>
-	  </div>
-  <% end %>
+<div class="panel-group">
+  <div class="panel panel-info">
+  	<div class="panel-heading" >
+  		<b>Your Interest</b>
+  	</div>
+	<div class="panel-body">
+		<i>Add or Remove your Interest</i></br>
+		</br>
+		<%=form_for(@user) do |f| %>
+		  <%= render "shared/error_messages", :object => @user %>
+		  <%= f.text_area :interest_list, :id=>"tags4", :class=>"set-height"%>
+		  <br/>
+		  <div class="actions"> 
+			<%= f.submit "Submit", :class => "btn btn-primary btn-mini"%>
+		  </div>
+		<% end %>
+	</div>
+  </div>
 </div>
+
 <%= link_to "Back", :back %>
