@@ -11,4 +11,8 @@ class ApplicationController < ActionController::Base
       format.js { render :js => "alert('#{exception.message}');" }
     end
   end
+
+  def after_sign_in_path_for(resource_or_scope)
+    welcome_path
+  end
 end

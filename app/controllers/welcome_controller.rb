@@ -2,6 +2,7 @@ class WelcomeController < ApplicationController
   layout "dashboard"
 
 	def index
+		set_tab :dashboard
 		@questions = Question.where(:user_id=>current_user.id).order("updated_at DESC").limit(10).includes(:answers)
 		@expertisequestions = current_user.my_expertise_questions
 	    @interestquestions = current_user.my_interest_questions
@@ -9,5 +10,12 @@ class WelcomeController < ApplicationController
 			format.html # index.html.erb
 			format.json  { render :json => {:question => @question, :expertisequestions => @expertisequestions, :interestquestions => @interestquestions }}
 		end
+	end
+	def about_us
+	  set_tab :about_us
+	end
+
+	def contact_us
+	  set_tab :contact_us
 	end
 end

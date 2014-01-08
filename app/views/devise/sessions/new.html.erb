@@ -1,24 +1,24 @@
 <body>
-  <div style="margin: auto; width:400px;">
+  <div style="margin: auto; width:500px;">
     <h2>Sign in</h2>
 
     <%= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
-      <div class="span1"><%= f.label :username%></div>
+      <div class="span2"><%= f.label :username%></div>
       <div class="span3"><%= f.text_field :username, :autofocus => true %></div>
       <div class="clearfix"></div>
-      <div class="span1"><%= f.label :password %></div>
+      <div class="span2"><%= f.label :password %></div>
       <div class="span3"><%= f.password_field :password %></div>
       <div class="clearfix"></div>
       <% if devise_mapping.rememberable? -%>
-        <div class="span1"><%= f.label :remember_me %></div>
+        <div class="span2"><%= f.label :remember_me %></div>
         <div class="span3"><%= f.check_box :remember_me %></div> 
         <div class="clearfix"></div>
       <% end -%>
-      <div class="span1"></div>
+      <div class="span2"></div>
       <div class="span3"><%= f.submit "Sign in", :class => "btn btn-primary btn-mini"%></div> 
       <div class="clearfix"></div>
     <% end %>
-    <div class="span1"></div> 
+    
     <div class="span3"><%= render "devise/shared/links" %></div> 
     <div class="clearfix"></div>
     

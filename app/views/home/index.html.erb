@@ -1,0 +1,54 @@
+<div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+  <!-- Indicators -->
+  <ol class="carousel-indicators">
+    <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+    <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+    <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+  </ol>
+
+  <!-- Wrapper for slides -->
+  <div class="carousel-inner">
+    <% 3.times do |i| %>
+      <div class="item <%= "active" if i==0 %>">
+        <%= image_tag "#{i+1}.jpeg", :size => "800x400" %>
+        <div class="carousel-caption">
+          Page snap <%= i %>
+        </div>
+      </div>
+    <%end%>
+  </div>
+
+  <!-- Controls -->
+  <a class="left carousel-control" href="#carousel-example-generic" data-slide="prev">
+    <span class="glyphicon glyphicon-chevron-left"></span>
+  </a>
+  <a class="right carousel-control" href="#carousel-example-generic" data-slide="next">
+    <span class="glyphicon glyphicon-chevron-right"></span>
+  </a>
+</div>
+
+<div class="row">
+  <div class="span5">
+      <center>
+        <%= button_to "Sign in", new_user_session_path, :class => "btn btn-primary btn-lg btn-block", :style => "height:100px;", :method => :get %>
+      </center>
+  </div>
+  
+  <div class="span2">
+    <center><h1>Or</h1></center>
+  </div>
+  
+  <div class="span5">
+      <center>
+        <%= button_to "Sign up", new_user_registration_path, :class => "btn btn-primary btn-lg btn-block", :style => "height:100px;", :method => :get %>
+      </center>
+  </div><!--/span-->
+</div><!--/row-->
+
+<script type="text/javascript">
+  $(document).ready(function(){
+      $('.carousel').carousel({
+      interval: 2000
+    });
+  });
+</script>

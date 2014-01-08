@@ -114,10 +114,10 @@ Rorproject::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
-
+  get 'welcome' => 'welcome#index'
   get 'about_us' => 'welcome#about_us'
   get 'contact_us' => 'welcome#contact_us'
-  root :to => 'welcome#index'
+  root :to => 'home#index'
 
   # See how all your routes lay out with "rake routes"
 
