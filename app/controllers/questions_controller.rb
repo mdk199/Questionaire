@@ -165,7 +165,7 @@ class QuestionsController < ApplicationController
   end
 
   def search
-    @questions = Question.search {fulltext params[:text]}.results
+    @questions = Question.search {fulltext params[:text] do boost_fields :question => 2.0 end}.results
     respond_to do |format|
       format.html {render :index}
       format.json {render json: @questions}

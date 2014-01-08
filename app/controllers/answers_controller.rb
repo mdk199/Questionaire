@@ -1,7 +1,7 @@
 class AnswersController < ApplicationController
   layout "main.html.erb"
 
-  load_and_authorize_resource
+  load_and_authorize_resource :except => [:add_comment]
   
   # GET /answers
   # GET /answers.json
