@@ -165,7 +165,6 @@ class QuestionsController < ApplicationController
   end
 
   def search
-
     @questions = Question.search {fulltext params[:text]}.results
     respond_to do |format|
       format.html {render :index}
