@@ -1,5 +1,5 @@
 <div class="panel-group">
-  <div class="panel panel-warning" id= "answerpanel_<%= @answer.id%>">
+  <div class="panel panel-info" id= "answerpanel_<%= @answer.id%>">
 	<span class="action_links float-right">
 	  <%= answer_actions(current_user, @answer) %>
 	</span>
@@ -7,12 +7,12 @@
       <span class="float-left" style="margin-top:-5px;margin-bottom:5px;">
 	    <%= image_tag @answer.user.profile_pic_url, :size => "40x40", :style => "border-radius:5px; border:1px solid #3A87AD;" %>
 	  </span>
-	  <div class="panel-title answer">
+	  <div class="panel-title question">
 	   	&nbsp;<%= raw @answer.answer%>
 	  </div>
 	  <div class="clearfix"></div>
 	  <span class="tags">
-	  <span class="badge"><%= pluralize(@answer.comments_count, "Answer") %></span>
+	  <span class="badge"><%= pluralize(@answer.comments_count, "Comment") %></span>
 	  </span>
 	  <i><small class="float-right" style="margin-left:5px">Updated : <%= time_ago_in_words(@answer.updated_at) %> ago</small></i>
 	  <i><small class="float-right" >Created By : <%= @answer.user.name.titleize %>   &nbsp;| </small></i>

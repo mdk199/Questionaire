@@ -1,12 +1,12 @@
 <%= form_for(@comment, :remote=>true, :html =>{:id => "new_comment_#{answer.id}" }) do |f| %>
-  <div class="panel panel-success" id= "panel_answer_<%=answer.id%>">
+  <div class="panel panel-success" id= "panel_comment_<%=answer.id%>">
     <div class="panel-heading">
       Provide a comment:
     </div>
     <div class="panel-body">
       <%= f.hidden_field :user_id, :value => current_user.id %>
       <%= f.hidden_field :answer_id, :value => answer.id %>
-      <%= f.text_area :comment , :rows => 3 %>
+      <%= f.text_area :comment , :rows => 3, :style => "width:880px;" %>
       <div style="margin-top: 5px">
         <%= f.submit "Submit", :class => "btn btn-primary btn-mini"%>
       </div>

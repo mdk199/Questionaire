@@ -39,6 +39,13 @@ class CommentsController < ApplicationController
   # GET /comments/1/edit
   def edit
     @comment = Comment.find(params[:id])
+    respond_to do |format|
+      if @comment.save
+        format.html
+        format.json { render json: @comment }
+        format.js { render "comments/edit", :layout => false }
+      end
+    end
   end
 
   # POST /comments
@@ -48,11 +55,16 @@ class CommentsController < ApplicationController
 
     respond_to do |format|
       if @comment.save
-        format.html { redirect_to @comment, notice: 'Comment was successfully created.' }
+        flash.now[:notice] = 'Comment was successfully created.'
+        format.html { redirect_to @comment}
         format.json { render json: @comment, status: :created, location: @comment }
+        format.js { render "comments/create", :layout => false }
       else
         format.html { render action: "new" }
         format.json { render json: @comment.errors, status: :unprocessable_entity }
+        format.js do
+          render "comments/create", :layout => false
+        end
       end
     end
   end
@@ -64,11 +76,14 @@ class CommentsController < ApplicationController
 
     respond_to do |format|
       if @comment.update_attributes(params[:comment])
-        format.html { redirect_to @comment, notice: 'Comment was successfully updated.' }
+        flash.now[:notice] = 'Comment was successfully updated.'
+        format.html 
         format.json { head :no_content }
+        format.js { render "comments/create", :layout => false }
       else
         format.html { render action: "edit" }
         format.json { render json: @comment.errors, status: :unprocessable_entity }
+        format.js { render "comments/create", :layout => false }
       end
     end
   end
@@ -78,10 +93,11 @@ class CommentsController < ApplicationController
   def destroy
     @comment = Comment.find(params[:id])
     @comment.destroy
-
+    flash.now[:notice] = 'Answer was successfully removed.'
     respond_to do |format|
       format.html { redirect_to comments_url }
       format.json { head :no_content }
+      format.js { render "comments/destroy", :layout => false }
     end
   end
 end
