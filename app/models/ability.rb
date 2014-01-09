@@ -22,7 +22,6 @@ class Ability
       can :add_answer, Question
     else
       can :read, :all
-      can :search, Question
     end
     #
     # The first argument to `can` is the action you are giving the user 
