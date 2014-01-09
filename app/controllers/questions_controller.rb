@@ -2,7 +2,7 @@
 class QuestionsController < ApplicationController
   layout "dashboard"
 
-  skip_before_filter :authenticate_user!, :only => [:index, :show]
+  skip_before_filter :authenticate_user!, :only => [:index, :show,:tagged,:search]
   load_and_authorize_resource :except => [:index, :show, :tagged,:search]
 
   # GET /questions
