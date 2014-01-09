@@ -4,9 +4,17 @@
     <%if @tag.present?%>
      	<b>Listing Questions tagged with <%= @tag.name.upcase%></b>
     <%elsif path== "/questions/expertise"%>
-     	<b>Listing Questions on your expertise</b>
+     	<b>Listing Questions on your expertise : </b>
+      <% current_user.expertise_list.split(",") do |tag| %>
+      <a href="/questions/tagged/<%=Tag.find_by_name(tag).id%>"><span class="label label-success"><i class="icon-tags"></i> <%= tag.titleize %></span></a>
+    <% end %>
     <%elsif path== "/questions/interest"%>
-      <b>Listing Questions on your Interest</b>
+      <b>Listing Questions on your Interest : </b>
+      <% current_user.interest_list.split(",") do |tag| %>
+    <a href="/questions/tagged/<%=Tag.find_by_name(tag).id%>">
+      <span class="label label-success"><i class="icon-tags"></i> <%= tag.titleize %></span>
+    </a>
+    <% end %>
     <%else%>
       <b>Listing Questions </b>
     <%end%>
