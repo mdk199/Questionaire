@@ -1,7 +1,7 @@
 class ProfilesController < ApplicationController
   layout "main"
 
-  load_and_authorize_resource
+  load_and_authorize_resource :except=> [:index]
   
   # GET /profiles
   # GET /profiles.json
@@ -78,9 +78,9 @@ class ProfilesController < ApplicationController
   def destroy
     @profile = Profile.find(params[:id])
     @profile.destroy
-
+     flash.now[:notice] = 'Your Profile is removed.'
     respond_to do |format|
-      format.html { redirect_to profiles_url }
+      format.html { redirect_to welcome_url}
       format.json { head :no_content }
     end
   end
