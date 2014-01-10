@@ -1,7 +1,8 @@
+<b> Top Contributors </b>
 <div class="taggers" align="center">
   <% User.find(:all, :limit => 2).each do |user| %>
   	<a href="/profiles/<%=user.profile.id%>">
-  		<%= image_tag user.profile.photo.url(:thumb)%>
+  		<%= image_tag user.profile.photo.url , :size => "60x60"%></br>
   		<%= user.name %></a>
   	</br>
   <% end %>

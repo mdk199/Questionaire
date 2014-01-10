@@ -8,6 +8,14 @@
 <div style="margin: auto;">
 	<%= bootstrap_flash %>
 	<%= yield%>
+	<div class="span2">
+	    <div>
+	    	<%= render "shared/contributors" %>
+	    </div>
+	    <hr/>
+	    <%= render "shared/tags" %>
+	    <hr/>
+	</div>
 </div>
 
 </body>
