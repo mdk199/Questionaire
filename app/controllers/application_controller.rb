@@ -6,7 +6,7 @@ class ApplicationController < ActionController::Base
     respond_to do |format|
       format.html do
         flash[:error] = exception.message
-        redirect_to :root
+        redirect_to welcome_path
       end
       format.js { render :js => "alert('#{exception.message}');" }
     end

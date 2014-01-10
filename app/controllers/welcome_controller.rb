@@ -11,11 +11,5 @@ class WelcomeController < ApplicationController
 			format.json  { render :json => {:question => @question, :expertisequestions => @expertisequestions, :interestquestions => @interestquestions }}
 		end
 	end
-	def about_us
-	  set_tab :about_us
-	end
 
-	def contact_us
-	  set_tab :contact_us
-	end
 end
