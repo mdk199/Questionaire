@@ -6,14 +6,14 @@
 <div class="tab-content" style="border:1px solid #ccc; border-top:0px; padding:5px;">
   <div class="tab-pane active" id="question_tab">
   <h6>Your Questions : </h6>         
-    <%= render "welcome/top5", :question_url => questions_path, :url => new_question_path, :items => @questions, :btn_title => "Add Question" %>
+    <%= render "welcome/top5", :question_url => questions_path, :url => new_question_path, :items => @questions, :btn_title => "+ Add Question" %>
   </div>
   <div class="tab-pane" id="expertise_tab">
     <h6>Your Expertises :
     <% current_user.expertise_list.split(",") do |tag| %>
       <a href="/questions/tagged/<%=Tag.find_by_name(tag).id%>"><span class="label label-success"><i class="icon-tags"></i> <%= tag.titleize %></span></a>
     <% end %></h6>
-    <%= render "welcome/top5", :question_url => expertise_questions_path, :url => expertise_user_path(current_user) , :items => @expertisequestions, :btn_title => "Add Expertise" %>
+    <%= render "welcome/top5", :question_url => expertise_questions_path, :url => expertise_user_path(current_user) , :items => @expertisequestions, :btn_title => "+ Add Expertise" %>
   </div>
   <div class="tab-pane" id="interest_tab">
     <h6>Your Interests : 
@@ -22,6 +22,6 @@
       <span class="label label-success"><i class="icon-tags"></i> <%= tag.titleize %></span>
     </a>
     <% end %></h6>
-    <%= render "welcome/top5", :question_url => interest_questions_path, :url => interest_user_path(current_user), :items => @interestquestions, :btn_title => "Add Interest" %>
+    <%= render "welcome/top5", :question_url => interest_questions_path, :url => interest_user_path(current_user), :items => @interestquestions, :btn_title => "+ Add Interest" %>
   </div>      
 </div>
