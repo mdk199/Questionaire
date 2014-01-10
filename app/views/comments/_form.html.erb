@@ -1,12 +1,13 @@
 <%= form_for(Comment.new, :remote=>true, :html =>{:id => "new_comment_#{answer.id}" }) do |f| %>
   <div class="panel panel-success" id= "panel_comment_<%=answer.id%>">
-    <div class="panel-heading">
-      Provide a comment:
+    <div class="modal-header">
+      <h4 class="modal-title">Provide a comment: 
+      <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button></h4>
     </div>
-    <div class="panel-body">
+    <div class="modal-body">
       <%= f.hidden_field :user_id, :value => current_user.id %>
       <%= f.hidden_field :answer_id, :value => answer.id %>
-      <%= f.text_area :comment , :rows => 3, :style => "width:495px;" %>
+      <%= f.text_area :comment , :rows => 3, :style => "width:100%;" %>
       <div style="margin-top: 5px">
         <%= f.submit "Submit", :class => "btn btn-primary btn-mini"%>
       </div>
