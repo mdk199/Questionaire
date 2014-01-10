@@ -1,0 +1,67 @@
+.label {
+  display: inline !important;
+  padding: .2em .6em .3em !important;
+  font-size: 75% !important;
+  font-weight: bold !important;
+  line-height: 1 !important;
+  color: #ffffff !important;
+  text-align: center !important;
+  white-space: nowrap !important;
+  vertical-align: baseline !important;
+  border-radius: .25em !important;
+}
+.label[href]:hover,
+.label[href]:focus {
+  color: #ffffff !important;
+  text-decoration: none !important;
+  cursor: pointer !important;
+}
+.label:empty {
+  display: none !important;
+}
+.btn .label {
+  position: relative !important;
+  top: -1px !important;
+}
+.label-default {
+  background-color: #999999 !important;
+}
+.label-default[href]:hover,
+.label-default[href]:focus {
+  background-color: #808080 !important;
+}
+.label-primary {
+  background-color: #428bca !important;
+}
+.label-primary[href]:hover,
+.label-primary[href]:focus {
+  background-color: #3071a9 !important;
+}
+.label-success {
+  background-color: #5cb85c !important;
+}
+.label-success[href]:hover,
+.label-success[href]:focus {
+  background-color: #449d44 !important;
+}
+.label-info {
+  background-color: #5bc0de !important;
+}
+.label-info[href]:hover,
+.label-info[href]:focus {
+  background-color: #31b0d5 !important;
+}
+.label-warning {
+  background-color: #f0ad4e !important;
+}
+.label-warning[href]:hover,
+.label-warning[href]:focus {
+  background-color: #ec971f !important;
+}
+.label-danger {
+  background-color: #d9534f !important;
+}
+.label-danger[href]:hover,
+.label-danger[href]:focus {
+  background-color: #c9302c !important;
+}

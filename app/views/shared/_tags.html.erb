@@ -1,6 +1,10 @@
-<b>Popular tags : </b></br></br>
-<div align="center">
+<div style="text-align:center">
   <% Tag.find(:all, :limit => 20).each do |tag| %>
-  	<a href="/questions/tagged/<%=tag.id%>"><span class="label label-success"><i class="icon-tags"></i> <%= tag.name.titleize %></span></a>
+    <% rand = Random.rand(5) %>
+  	<a href="/questions/tagged/<%=tag.id%>">
+      <span class="label label-<%= Tag::TAG_TYPES[rand] %>">
+        <i class="icon-tags"></i> <%= tag.name.titleize %>
+      </span>
+    </a>&nbsp;
   <% end %>
 </div>

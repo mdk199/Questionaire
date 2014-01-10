@@ -9,10 +9,10 @@
     <%= render "welcome/top5", :question_url => questions_path, :url => new_question_path, :items => @questions, :btn_title => "+ Add Question" %>
   </div>
   <div class="tab-pane" id="expertise_tab">
-    <h6>Your Expertises :
-    <% current_user.expertise_list.split(",") do |tag| %>
+    <h6 class="span2">Your Expertises :</h6>
+    <span><% current_user.expertise_list.split(",") do |tag| %>
       <a href="/questions/tagged/<%=Tag.find_by_name(tag).id%>"><span class="label label-success"><i class="icon-tags"></i> <%= tag.titleize %></span></a>
-    <% end %></h6>
+    <% end %></span>
     <%= render "welcome/top5", :question_url => expertise_questions_path, :url => expertise_user_path(current_user) , :items => @expertisequestions, :btn_title => "+ Add Expertise" %>
   </div>
   <div class="tab-pane" id="interest_tab">
