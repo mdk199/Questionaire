@@ -17,7 +17,9 @@
     <%= raw answer.answer %>
     <i><small class="float-right">Updated : <%= time_ago_in_words(answer.updated_at) %> ago</small></i>
     <hr/>
-    <%= render :partial => "comments/comment", :collection => answer.comments.order("updated_at") %>
+    <div id="comments_<%= answer.id %>">
+      <%= render :partial => "comments/comment", :collection => answer.comments.order("updated_at") %>
+    </div>
     <button class="btn btn-success btn-mini addbtn float-right" type="button" data-toggle="modal" data-target="#myModal">+ Add Comment</button>
   </div>
   <div class="modal fade" data-fullscreen="true" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="false">
@@ -37,8 +39,4 @@
 </div>
 
 </div>
-<script>
-$('#myModal').modal('hide');
-$('body').removeClass('modal-open');
-$('.modal-backdrop').remove();
-</script>
+

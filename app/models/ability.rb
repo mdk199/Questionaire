@@ -9,7 +9,7 @@ class Ability
       can :manage, :all
     elsif user.is_user?
       can :manage, Question, :user_id => user.id    
-      can :manage, Answer, :user_id => user.id
+      can :manage, Answer
       can :approve,Answer
       can :unapprove, Answer     
       can :manage, Comment, :user_id => user.id    

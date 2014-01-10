@@ -1,7 +1,7 @@
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title><%= content_for?(:title) ? yield(:title) : "Rorproject" %></title>
+<title><%= content_for?(:title) ? yield(:title) : "Q/A" %></title>
 <%= csrf_meta_tags %>
 
 <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
@@ -29,9 +29,7 @@
 <!-- Size should be 32 x 32 pixels -->
 <%= favicon_link_tag 'favicon.ico', :rel => 'shortcut icon' %><%= javascript_include_tag "jquery-ui-1.10.2/jquery-1.9.1" %>
 <%= csrf_meta_tags %>
-<%= javascript_include_tag "bootstrap", :media=>"screen" %>
 <%= javascript_include_tag "application" %>
-<%= javascript_include_tag "nested_form" %>
 <%= javascript_include_tag "flag-setter" %>
 <%= javascript_include_tag "jquery-ui-1.10.2/ui/jquery-ui" %>
 <%= javascript_include_tag "jquery-ui-1.10.2/ui/jquery.ui.datepicker" %>

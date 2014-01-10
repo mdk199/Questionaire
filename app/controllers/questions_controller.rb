@@ -155,7 +155,6 @@ class QuestionsController < ApplicationController
     end
   end
 
-
   def tagged  
     @tag = Tag.find(params[:id])
     @questions = Question.tagged_with(@tag.name).where(:published=> true)

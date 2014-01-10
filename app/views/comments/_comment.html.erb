@@ -1,6 +1,8 @@
-<small class="float-right"><%= raw comment.comment %> - - 
+<div id="comment_<%= comment.id%>">
+	<small class="float-right" ><%= raw comment.comment %> - - 
   <i><%= comment.user.name %></i>
   <%= comment_actions(current_user, comment) %>
 </small>
-
 </br>
+</div>
+
