@@ -1,7 +1,8 @@
+<b>Top Tags</b>
 <div style="text-align:center">
   <% Tag.find(:all, :limit => 20).each do |tag| %>
     <% rand = Random.rand(5) %>
-  	<a href="/questions/tagged/<%=tag.id%>">
+  	<a href="/questions/tagged/<%=tag.id%>" style="text-decoration:none;">
       <span class="label label-<%= Tag::TAG_TYPES[rand] %>">
         <i class="icon-tags"></i> <%= tag.name.titleize %>
       </span>

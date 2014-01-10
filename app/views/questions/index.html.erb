@@ -19,7 +19,7 @@
       <b>Listing Questions </b>
     <%end%>
   </div>
-    <%= button_to '+ Add Question', new_question_path, :title => "New Question", :class=>'btn btn-success btn-mini float-right top-margin', :method => :get  %>
+    <%= button_to '+ Add Question', new_question_path, "data-disable-with" => "Please wait...", :title => "New Question", :class=>'btn btn-success btn-mini float-right top-margin', :method => :get  %>
   <div class="panel-body body-margin">
 	<%= render :partial => 'question', :collection => @questions, :spacer_template => "shared/item_seperator" %>
   </div>
