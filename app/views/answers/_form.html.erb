@@ -18,8 +18,6 @@
 <% end%>
 
 <script type="text/javascript">
-  $('.ckeditor').ckeditor();
-
   function remove_editor(){
     <% if @answer.new_record? %>
       $('#new_answer_<%=question.id%>').remove();
