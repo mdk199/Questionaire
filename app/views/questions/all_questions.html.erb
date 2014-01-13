@@ -2,7 +2,12 @@
   <div class="panel-heading">
     <b>Listing All Questions</b>
   </div>
-  <%= button_to '+ Add Question', new_question_path, :title => "New Question", :class=>'btn btn-success btn-mini float-right top-margin', :method => :get%>
+  	<%if current_user.present?%>
+  		<%path = new_question_path%>
+	 <%else%>
+	 	<%path = new_user_registration_path%>
+	 <%end%>
+	<%= button_to '+ Add Question',path, :title => "New Question", :class=>'btn btn-success btn-mini float-right top-margin', :method => :get%>
   <div class="panel-body body-margin">
     <%= render :partial => 'question', :collection => @questions, :spacer_template => "shared/item_seperator" %>
   </div>

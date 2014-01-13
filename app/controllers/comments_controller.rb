@@ -93,7 +93,7 @@ class CommentsController < ApplicationController
   def destroy
     @comment = Comment.find(params[:id])
     @comment.destroy
-    flash.now[:notice] = 'Answer was successfully removed.'
+    flash.now[:notice] = 'Comment was successfully removed.'
     respond_to do |format|
       format.html { redirect_to comments_url }
       format.json { head :no_content }
