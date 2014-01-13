@@ -11,7 +11,8 @@
       <%= f.cktext_area :question , :rows => 3 , :id=>"editor1" %>
       <br/>
       <b>Publish question</b> <%= f.check_box :published,:style=>"margin-top:-3px"%> 
-      <h5>Tags to the Question </h5>
+      <p class="label label-info">Tick publish question if you want the question to be visible to public.</p> <p class="label label-warning">Note: Only published questions will be answered by others. You can even publish/unpublish a question later. </p>
+      <h5>Tags to the Question </label>
       <%= f.text_area :tag_list, :id=>"tags", :class=>"set-height"%>
       <%= f.submit "Submit", :class => "btn btn-primary btn-mini"%>
     </div>
