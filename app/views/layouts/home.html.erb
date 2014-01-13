@@ -5,10 +5,10 @@
 
 <body>
 <%= render'shared/top_nav'%>
-<div style="margin: auto;">
-	<%= bootstrap_flash %>
-	<%= yield%>
-	<div class="span2">
+		<%= bootstrap_flash %>
+		<%= yield%>
+		<div class="span1"></div>
+	<div class="span3">
 	    <div>
 	    	<%= render "shared/contributors" %>
 	    </div>
@@ -16,6 +16,8 @@
 	    <%= render "shared/tags" %>
 	    <hr/>
 	</div>
+	<%= render "shared/log" %>
 </div>
+
 
 </body>
