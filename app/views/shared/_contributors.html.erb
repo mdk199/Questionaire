@@ -1,6 +1,7 @@
 <h5> Top Contributors </h5>
 <div class="list-group">
 <% User.find(:all, :limit => 2).each do |user| %>
+<%if user.profile.present? %>
   <a href="<%= profile_path(user.profile)%>" class="list-group-item">
     <ul class="media-list" style="margin-bottom:0px;">
       <li class="media">
@@ -12,5 +13,6 @@
       </li>
     </ul>
   </a>
+<%end%>
 <% end %>
 </div>

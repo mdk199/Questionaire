@@ -4,7 +4,7 @@
   </span>
   <div class="panel-heading">
     <span>
-      <%= image_tag answer.user.profile_pic_url(:micro), :style => "border-radius:5px; border:1px solid #3A87AD;" %>
+      <%= image_tag "user.jpeg", :size => "30x30", :style => "border-radius:5px; border:1px solid #3A87AD;" %>
     </span>
     <%= answer.user.name %>
     <span class="tags">
@@ -20,9 +20,9 @@
     <div id="comments_<%= answer.id %>">
       <%= render :partial => "comments/comment", :collection => answer.comments.order("updated_at") %>
     </div>
-    <%= button_to "Add comment", add_comment_answer_path(answer), :class => "btn btn-success btn-mini addbtn float-right", :method => :get, :remote => true, :id=>"comment_#{answer.id}", 'data-controls-modal' =>  "#modal-window", 'data-backdrop' => true, 'data-keyboard' => true %>
+    <%= link_to "Add comment", add_comment_answer_path(answer), :class => "btn btn-success btn-mini addbtn float-right", :method => :get, :remote => true, :id=>"comment_#{answer.id}",:id=>"comment_#{answer.id}"%>
   </div>
-  <div class="modal fade" id="modal-window">
+  <div class="modal fade" id="modal-window" tabindex="-1" role="dialog" aria-hidden="true">
     <div class="modal-dialog" >
       <div class="modal-content" id="modal-content_<%= answer.id%>">
       </div><!-- /.modal-content -->
