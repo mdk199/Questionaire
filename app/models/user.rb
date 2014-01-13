@@ -46,11 +46,11 @@ class User < ActiveRecord::Base
     questions = Question.where("user_id != #{id} && published=true").tagged_with(interest_list, :any=>true).order("updated_at DESC")
   end
 
-  def profile_pic_url
+  def profile_pic_url(style)
     if profile.present?
-      profile.photo.url(:medium)
+      profile.photo.url(style)
     else
-      "user.jpeg"
+      "user_#{style.to_s}.jpeg"
     end
   end
 
