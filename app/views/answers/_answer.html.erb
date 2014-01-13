@@ -25,8 +25,11 @@
   <div class="modal fade" data-fullscreen="true" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="false">
   <div class="modal-dialog" >
     <div class="modal-content">
+      <% if current_user.present? %>
       <%= render "comments/form", :answer => answer%>
-      
+      <% else %>
+      Login First
+      <% end %>
       
     </div><!-- /.modal-content -->
   </div><!-- /.modal-dialog -->
