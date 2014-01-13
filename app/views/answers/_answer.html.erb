@@ -20,12 +20,6 @@
     <div id="comments_<%= answer.id %>">
       <%= render :partial => "comments/comment", :collection => answer.comments.order("updated_at") %>
     </div>
-    <%= link_to "Add comment", add_comment_answer_path(answer), :class => "btn btn-success btn-mini addbtn float-right", :method => :get, :remote => true, :id=>"comment_#{answer.id}",:id=>"comment_#{answer.id}"%>
-  </div>
-  <div class="modal fade" id="modal-window" tabindex="-1" role="dialog" aria-hidden="true">
-    <div class="modal-dialog" >
-      <div class="modal-content" id="modal-content_<%= answer.id%>">
-      </div><!-- /.modal-content -->
-    </div><!-- /.modal-dialog -->
+    <%= link_to "Add comment", add_comment_answer_path(answer), :class => "btn btn-success btn-mini addbtn float-right", :method => :get, :remote => true %>
   </div>
 </div>
