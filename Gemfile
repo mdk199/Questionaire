@@ -17,6 +17,13 @@ group :assets do
   gem 'therubyracer', :platforms => :ruby
   gem 'uglifier', '>= 1.0.3'
 end
+
+
+group :development do
+	gem  'zeus'
+	gem 'better_errors'
+end
+
 gem 'jquery-rails'
 
 # To use ActiveModel has_secure_password
@@ -37,8 +44,6 @@ gem 'cancan'
 gem 'ckeditor'
 gem 'paperclip'
 gem 'acts-as-taggable-on'
-
-gem 'better_errors'
 gem 'binding_of_caller'
 
 gem 'sunspot_rails'

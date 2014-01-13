@@ -2,8 +2,8 @@
 class QuestionsController < ApplicationController
   layout "dashboard"
 
-  skip_before_filter :authenticate_user!, :only => [:index, :show,:tagged,:search]
-  load_and_authorize_resource :except => [:index, :show, :tagged,:search]
+  skip_before_filter :authenticate_user!, :only => [:index, :show,:tagged,:search,:all_questions]
+  load_and_authorize_resource :except => [:index, :show, :tagged,:search,:all_questions]
 
   # GET /questions
   # GET /questions.json

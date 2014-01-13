@@ -1,7 +1,7 @@
 <body>
   <div style="margin: auto; width:500px;">
     <h2>Sign in</h2>
-
+    <hr/>
     <%= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
       <div class="span2"><%= f.label :username%></div>
       <div class="span3"><%= f.text_field :username, :autofocus => true %></div>
@@ -16,9 +16,8 @@
       <% end -%>
       <div class="span2"></div>
       <div class="span3"><%= f.submit "Sign in", :class => "btn btn-primary btn-mini"%></div> 
-      <div class="clearfix"></div>
     <% end %>
-    
+    <hr/>
     <div class="span3"><%= render "devise/shared/links" %></div> 
     <div class="clearfix"></div>
     

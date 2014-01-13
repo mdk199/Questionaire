@@ -8,7 +8,7 @@
       <%= f.label :question %>
     </div>
     <div class="panel-body">
-      <%= f.cktext_area :question , :rows => 3 , :id=>"editor1" %>
+      <%= f.cktext_area :question , :rows => 3%>
       <br/>
       <b>Publish question</b> <%= f.check_box :published,:style=>"margin-top:-3px"%> 
       <p class="label label-info">Tick publish question if you want the question to be visible to public.</p> <p class="label label-warning">Note: Only published questions will be answered by others. You can even publish/unpublish a question later. </p>
@@ -18,15 +18,3 @@
     </div>
   </div>
 <% end %>
-<script>
-  CKEDITOR.replace( 'editor1', {
-  toolbarGroups: [
-    { name: 'clipboard',   groups: [ 'clipboard', 'undo' ] },     // Group's name will be used to create voice label.
-    { name: 'basicstyles', groups: [ 'basicstyles', 'cleanup' ] },
-    { name: 'paragraph', groups: [ 'list', 'indent', 'blocks', 'align', 'bidi' ] },
-    { name: 'colors' }
-  ]
-
-  // NOTE: Remember to leave 'toolbar' property with the default value (null).
-});
-</script>
