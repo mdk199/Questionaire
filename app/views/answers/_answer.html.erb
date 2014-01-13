@@ -22,21 +22,4 @@
     </div>
     <button class="btn btn-success btn-mini addbtn float-right" type="button" data-toggle="modal" data-target="#myModal" id="<%=answer.id%>" onclick="addComment(<%=answer.id%>)">+ Add Comment</button>
   </div>
-  <div class="modal fade" data-fullscreen="true" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="false">
-  <div class="modal-dialog" >
-    <div class="modal-content" id="modals">
-      Add Comment
-    </div><!-- /.modal-content -->
-  </div><!-- /.modal-dialog -->
 </div>
-
-</div>
-<script>
-  function addComment(answers)
-  {
-    var answer_id = parseInt(answers);
-    alert(answer_id.value);
-    $ ('#modals').replaceWith("<%=escape_javascript(render 'comments/form', :answer => Answer.find_by_id("+answer_id+"))%>" );
-      
-  }
-</script>
