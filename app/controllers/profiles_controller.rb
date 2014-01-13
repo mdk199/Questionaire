@@ -1,8 +1,7 @@
 class ProfilesController < ApplicationController
   layout "main"
 
-  load_and_authorize_resource :except=> [:index]
-  
+  load_and_authorize_resource :except => [:index, :show]
   # GET /profiles
   # GET /profiles.json
   def index
