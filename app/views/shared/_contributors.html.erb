@@ -1,11 +1,16 @@
-<b> Top Contributors </b>
-<div class="taggers" align="center">
-  <% User.find(:all, :limit => 2).each do |user| %>
-	  <%if user.profile.present?%>
-	  	<a href="/profiles/<%=user.profile.id%>">
-	  		<%= image_tag user.profile.photo.url , :size => "60x60"%></br>
-	  		<%= user.name %></a>
-	  	</br>
-	  <%end%>
-  <% end %>
+<h5> Top Contributors </h5>
+<div class="list-group">
+<% User.find(:all, :limit => 2).each do |user| %>
+  <a href="<%= profile_path(user.profile)%>" class="list-group-item">
+    <ul class="media-list" style="margin-bottom:0px;">
+      <li class="media">
+        <%= image_tag user.profile.photo.url(:medium), :class => "pull-left" %>
+        <div class="media-body">
+          <h5 class="media-heading"><%= user.name %></h5>
+          <span class="badge">42 Points</span>
+        </div>
+      </li>
+    </ul>
+  </a>
+<% end %>
 </div>
