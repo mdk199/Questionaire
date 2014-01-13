@@ -20,23 +20,12 @@
     <div id="comments_<%= answer.id %>">
       <%= render :partial => "comments/comment", :collection => answer.comments.order("updated_at") %>
     </div>
-    <button class="btn btn-success btn-mini addbtn float-right" type="button" data-toggle="modal" data-target="#myModal" id="<%=answer.id%>" onclick="addComment(<%=answer.id%>)">+ Add Comment</button>
+    <%= button_to "Add comment", add_comment_answer_path(answer), :class => "btn btn-success btn-mini addbtn float-right", :method => :get, :remote => true, :id=>"comment_#{answer.id}", 'data-controls-modal' =>  "#modal-window", 'data-backdrop' => true, 'data-keyboard' => true %>
   </div>
-  <div class="modal fade" data-fullscreen="true" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="false">
-  <div class="modal-dialog" >
-    <div class="modal-content" id="modals">
-      Add Comment
-    </div><!-- /.modal-content -->
-  </div><!-- /.modal-dialog -->
+  <div class="modal fade" id="modal-window">
+    <div class="modal-dialog" >
+      <div class="modal-content" id="modal-content_<%= answer.id%>">
+      </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+  </div>
 </div>
-
-</div>
-<script>
-  function addComment(answers)
-  {
-    var answer_id = parseInt(answers);
-    alert(answer_id.value);
-    $ ('#modals').replaceWith("<%=escape_javascript(render 'comments/form', :answer => Answer.find_by_id("+answer_id+"))%>" );
-      
-  }
-</script>
