@@ -14,7 +14,7 @@
           
           <span class="badge"><%= pluralize(question.answers_count, "Answer") %></span>
           <% question.tags.each do |tag| %>
-            <a href="/questions/tagged/<%=tag.id%>" style="text-decoration:none;"><span class="label label-default"><i class="icon-tags"></i><%= tag.name.titleize %></span></a>
+            <a href="/questions/tagged/<%=tag.id%>" style="text-decoration:none;"><span class="label label-default"><i class="icon-tags"></i><%= tag.name %></span></a>
           <% end %>
         
         <i><small class="float-right" style="margin-left:5px">Updated : <%= time_ago_in_words(question.updated_at) %> ago</small></i>
