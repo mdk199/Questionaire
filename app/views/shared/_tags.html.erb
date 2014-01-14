@@ -2,12 +2,15 @@
 <div style="height:180px; overflow:auto;">
   <ul class="list-group">
     <% Tag.all.each do |tag| %>
-      <li class="list-group-item">
-        <span class="badge">14</span>
-        <a href="/questions/tagged/<%=tag.id%>" style="text-decoration:none;">
-          <i class="icon-tags"></i> <%= tag.name %>
-        </a>
-      </li>
+      <% tag_count = Question.tagged_with(tag.name).count %>
+      <% if tag_count > 0 %>
+        <li class="list-group-item">
+          <span class="badge"><%= tag_count %></span>
+          <a href="/questions/tagged/<%=tag.id%>" style="text-decoration:none;">
+            <i class="icon-tags"></i> <%= tag.name %>
+          </a>
+        </li>
+      <% end %>
     <% end %>
   </ul>
 </div>
