@@ -9,21 +9,5 @@
 	<%= bootstrap_flash %>
 	<%= yield%>
 </div>
-<div class="row">
-  <div class="span3">
-      <center>
-        <%= button_to "Sign in", new_user_session_path, :class => "btn btn-primary btn-lg btn-block", :style => "height:100px;", :method => :get %>
-      </center>
-  </div>
-  
-  <div class="span2">
-    <center><h1>Or</h1></center>
-  </div>
-  
-  <div class="span3">
-      <center>
-        <%= button_to "Sign up", new_user_registration_path, :class => "btn btn-primary btn-lg btn-block", :style => "height:100px;", :method => :get %>
-      </center>
-  </div><!--/span-->
-</div>
+
 </body>
