@@ -6,19 +6,13 @@
 <body>
 <%= render'shared/top_nav'%>
 	<%= bootstrap_flash %>
-	<div class="span8">
+	<div class="span9">
 		<%= yield%>
 	</div>
-	<div class="span3 well float-right">
-	    	<%= button_to "Sign in", new_user_session_path, :class => "btn btn-info btn-lg btn-block", :style => "height:80px !important;", :method => :get %>
-	    	<%= button_to "Sign up", new_user_registration_path, :class => "btn btn-info btn-lg btn-block", :style => "height:80px !important;", :method => :get %>
-		    <%= render "shared/contributors" %>
-			
-			<%= render "shared/tags" %>
-		</div>
-		<div class="span1"></div>
+	<div class="span3 well ">
+	    <%= button_to "Sign in", new_user_session_path, :class => "btn btn-info btn-lg btn-block", :style => "height:80px !important;", :method => :get %>
+	   	<%= button_to "Sign up", new_user_registration_path, :class => "btn btn-info btn-lg btn-block", :style => "height:80px !important;", :method => :get %>
+		<%= render "shared/contributors" %>
+		<%= render "shared/tags" %>
 	</div>
-</div>
-
-
 </body>

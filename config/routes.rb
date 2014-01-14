@@ -117,6 +117,7 @@ Rorproject::Application.routes.draw do
   get 'welcome' => 'welcome#index'
   get 'about_us' => 'home#about_us'
   get 'contact_us' => 'home#contact_us'
+
   root :to => 'home#index'
 
   # See how all your routes lay out with "rake routes"

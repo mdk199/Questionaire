@@ -9,7 +9,7 @@
 	 <%end%>
 	<%= button_to '+ Add Question',path, :title => "New Question", :class=>'btn btn-success btn-mini float-right top-margin', :method => :get%>
   <div class="panel-body body-margin">
-    <%= render :partial => 'question', :collection => @questions, :spacer_template => "shared/item_seperator" %>
+    <%= render :partial => 'questions/question', :collection => @questions, :spacer_template => "shared/item_seperator" %>
   </div>
 </div>
 <%= link_to "Back", :back %>
