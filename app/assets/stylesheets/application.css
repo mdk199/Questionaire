@@ -117,3 +117,6 @@ background-color: transparent !important;
 .navbar .nav>li>a:focus {
 background-color: transparent !important; 
 }
+.navbar .nav li.dropdown.open>.dropdown-toggle, .navbar .nav li.dropdown.active>.dropdown-toggle, .navbar .nav li.dropdown.open.active>.dropdown-toggle{
+  background-color: transparent !important;
+}
