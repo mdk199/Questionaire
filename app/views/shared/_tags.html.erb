@@ -1,16 +1,13 @@
 <h5>Tag List</h5>
 <div style="height:180px; overflow:auto;">
   <ul class="list-group">
-    <% Tag.all.each do |tag| %>
-      <% tag_count = Question.tagged_with(tag.name).count %>
-      <% if tag_count > 0 %>
+    <% Question.joins(:taggings).select("count(question) as questions_count, tag_id").group(:tag_id).order("questions_count DESC").each do |tag| %>
         <li class="list-group-item">
-          <span class="badge"><%= tag_count %></span>
-          <a href="/questions/tagged/<%=tag.id%>" style="text-decoration:none;">
-            <i class="icon-tags"></i> <%= tag.name %>
+          <span class="badge"><%= tag.questions_count%></span>
+          <a href="/questions/tagged/<%=tag.tag_id%>" style="text-decoration:none;">
+            <i class="icon-tags"></i> <%= Tag.find(tag.tag_id).name %>
           </a>
         </li>
-      <% end %>
     <% end %>
   </ul>
 </div>
