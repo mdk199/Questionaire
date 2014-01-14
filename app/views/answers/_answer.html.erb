@@ -1,16 +1,12 @@
 <div id="answer_<%=answer.id%>" class="panel <%= answer_panel_class(answer) %>">
-  <span class="action_links float-right">
-    <%= answer_actions(current_user, answer) %>
-  </span>
+  <%= answer_actions(current_user, answer) %>
   <div class="panel-heading">
     <span>
       <%= image_tag "user.jpeg", :size => "30x30", :style => "border-radius:5px; border:1px solid #3A87AD;" %>
     </span>
     <%= answer.user.name %>
     <span class="tags">
-      <a href="<%=answer_path(answer)%>" style="color:inherit;text-decoration: none;" title="Answer Details">
-        <span class="badge"><%= pluralize(answer.comments_count, "Comment") %></span>
-      </a>
+       <span class="badge"><%= pluralize(answer.comments_count, "Comment") %></span>
     </span>
   </div>
   <div class="panel-body">

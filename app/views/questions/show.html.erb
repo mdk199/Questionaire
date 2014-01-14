@@ -1,8 +1,6 @@
 <div class="panel-group">
   <div class="panel panel-warning" id= "questionpanel_<%= @question.id%>">
-	<span class="action_links float-right">
-	  <%= question_actions(current_user, @question) %>
-	</span>
+	<%= question_actions(current_user, @question) %>
 	<div class="panel-heading" >
       <span class="float-left" style="margin-top:-5px;margin-bottom:5px;">
 	    <%= image_tag @question.user.profile_pic_url(:mini), :style => "border-radius:5px; border:1px solid #3A87AD;" %>
