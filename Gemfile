@@ -21,7 +21,8 @@ end
 
 group :development do
 	gem  'zeus'
-	gem 'better_errors'
+	gem ='better_errors'
+	gem  'hirb'
 end
 
 gem 'jquery-rails'
