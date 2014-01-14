@@ -114,3 +114,6 @@ input{
 .navbar .nav>li>a:hover {
 background-color: transparent !important; 
 }
+.navbar .nav>li>a:focus {
+background-color: transparent !important; 
+}
