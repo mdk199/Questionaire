@@ -110,3 +110,7 @@ input{
   opacity: .5 !important;
   filter: alpha(opacity=50) !important;
 }
+
+.navbar .nav>li>a:hover {
+background-color: transparent !important; 
+}
