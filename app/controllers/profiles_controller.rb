@@ -1,6 +1,6 @@
 class ProfilesController < ApplicationController
   layout "main"
-
+  skip_before_filter :authenticate_user!,:only => [:index, :show]
   load_and_authorize_resource :except => [:index, :show]
   # GET /profiles
   # GET /profiles.json
