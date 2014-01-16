@@ -3,7 +3,7 @@ class HomeController < ApplicationController
 	
 	def index
       set_tab :home
-      @questions = Question.all_published_questions
+      @questions = Question.order("updated_at DESC").all_published_questions
       respond_to do |format|
 	    format.html # all_question.html.erb
 	    format.json { render json: @questions }
