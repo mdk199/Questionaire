@@ -1,43 +1,41 @@
-<% if current_user.present? %>
-  <ul class="nav navbar-right">
-    <li class="dropdown">
-      <a href="#" class="dropdown-toggle" data-toggle="dropdown"> Welcome 
-        <%= current_user.profile ? current_user.profile.fullname : current_user.username %> <b class="caret"></b></a>
-      <ul class="dropdown-menu">
-        <li>
-          <%if current_user.profile.present? %>
-            <%= link_to "Profile", edit_profile_path(current_user.profile) %>
-          <% else %>
-            <%= link_to "Profile", new_profile_path %>
-          <% end %>
-        </li>
-        <li><a>My Points</a></li>
-        <li>
-          <%= link_to 'Add Expertise', expertise_user_path(current_user) %>
-        </li>
-        <li>
-          <%= link_to 'Add Interest', interest_user_path(current_user) %>
-        </li>
-        <li class="divider"></li>
-        <li>
-          <%= link_to "Logout", destroy_user_session_path, :method => :delete, :role => "menuitem", :tabindex => "2" %> 
-        </li>
-      </ul>
-    </li>
-  </ul>
-<% else %>
 <ul class="nav navbar-right">
-    <li class="dropdown">
-      <a href="#" class="dropdown-toggle" data-toggle="dropdown"> Welcome 
-        Guest <b class="caret"></b></a>
-      <ul class="dropdown-menu">
-        <li>
-          <%= link_to 'Sign In', new_user_session_path %>
-        </li>
-        <li>
-          <%= link_to 'Sign Up', new_user_registration_path %>
-        </li>
-      </ul>
-    </li>
-  </ul>
+<% if current_user.present? %>
+  <li class="dropdown">
+    <a href="#" class="dropdown-toggle" data-toggle="dropdown"> Welcome 
+      <%= current_user.profile ? current_user.profile.fullname : current_user.username %> <span class="caret"></span></a>
+    <ul class="dropdown-menu pull-right">
+      <li>
+        <%if current_user.profile.present? %>
+          <%= link_to "Profile", edit_profile_path(current_user.profile) %>
+        <% else %>
+          <%= link_to "Profile", new_profile_path %>
+        <% end %>
+      </li>
+      <li><a>My Points</a></li>
+      <li>
+        <%= link_to 'Add Expertise', expertise_user_path(current_user) %>
+      </li>
+      <li>
+        <%= link_to 'Add Interest', interest_user_path(current_user) %>
+      </li>
+      <li class="divider"></li>
+      <li>
+        <%= link_to "Logout", destroy_user_session_path, :method => :delete, :role => "menuitem", :tabindex => "2" %> 
+      </li>
+    </ul>
+  </li>
+<% else %>
+  <li class="dropdown">
+    <a href="#" class="dropdown-toggle" data-toggle="dropdown"> Welcome 
+      Guest <span class="caret"></span></a>
+    <ul class="dropdown-menu pull-right">
+      <li>
+        <%= link_to 'Sign In', new_user_session_path %>
+      </li>
+      <li>
+        <%= link_to 'Sign Up', new_user_registration_path %>
+      </li>
+    </ul>
+  </li>
 <%end%>
+</ul>
