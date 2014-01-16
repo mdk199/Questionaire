@@ -70,5 +70,9 @@ class Question < ActiveRecord::Base
       answer.blank? ? nil : answer
     end
 
+    def tagged_questions_count
+      question = Question.where(:published=> true).joins(:tags).select("count(question) as questions_count, tag_id,name").group(:tag_id).order("questions_count DESC")
+    end
+
   end
 end
