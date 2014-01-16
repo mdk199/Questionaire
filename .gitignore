@@ -13,4 +13,5 @@ config/initializers/setup_mail.rb
 
 public/system/
 solr/development
+solr/test
 log/sunspot-solr-development.log.lck
