@@ -25,6 +25,10 @@ group :development do
 	gem  'hirb'
 end
 
+group :development, :test do
+  gem 'rspec-rails'
+end
+
 gem 'jquery-rails'
 
 # To use ActiveModel has_secure_password
