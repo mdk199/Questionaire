@@ -3,8 +3,13 @@ require "spec_helper"
 describe Question do
 
   context "when creating a new question" do
-    let(:question) { Question.new }
+    let(:question) { FactoryGirl.create :question }
 
+    before(:each) {
+      question.user = nil
+      question.question = nil
+      question.save
+    }
     it "validates question text" do
       question.errors_on(:question).should_not be_blank
     end
@@ -15,15 +20,15 @@ describe Question do
   end
 
   context "when published questions present in db" do
+    before(:each) { FactoryGirl.create :published_question }
+    
     it "returns published questions only" do
-      user = User.create({:username => "test", :password => "password", :password_confirmation => "password", :email => "test@example.com"})
-      puts user.inspect
-      Question.create({:question => "some question...", :user_id => user.id, :published => true})
-      Question.create({:question => "some question...", :user_id => user.id, :published => false})
-      
-      puts Question.all
       Question.published_questions.count.should == 1
     end
-  end
 
+    it "faltu" do
+      question = FactoryGirl.create :question_with_tags
+      puts question.tags.inspect
+    end
+  end
 end

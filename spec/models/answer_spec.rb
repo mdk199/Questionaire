@@ -13,14 +13,13 @@ describe Answer do
 			answer.errors_on(:question_id).should_not be_blank
 		end
 	end
+
 	context "checking for answer approved" do
 		it "answer is approved or not" do
-			answer = Answer.create({:answer=>"some answer1", :user_id=>1, :question_id=>1})
-			answer1 = Answer.create({:answer=>"some answer1", :user_id=>1, :question_id=>1})
+			answer = FactoryGirl.create :answer
 			answer.should_not be_is_approved
-			answer1.approve
+			answer.approve
 			answer.should be_is_approved
 		end
 	end
-
 end

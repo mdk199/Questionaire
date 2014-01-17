@@ -1,6 +1,6 @@
 class Answer < ActiveRecord::Base
   # attr_accessible :title, :body
-	belongs_to :question,:inverse_of=> :answers, counter_cache: true
+	belongs_to :question, :inverse_of => :answers, counter_cache: true
 	belongs_to :user
 	has_many :documents, as: :documentable
 	has_many :flags, as: :flagable, :dependent => :destroy
