@@ -28,7 +28,6 @@ describe Question do
 
     it "faltu" do
       question = FactoryGirl.create :question_with_tags
-      puts question.tags.inspect
     end
   end
 end
