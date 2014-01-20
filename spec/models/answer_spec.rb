@@ -22,4 +22,11 @@ describe Answer do
 			answer.should be_is_approved
 		end
 	end
+	
+	context "creating approved answer" do
+		it "answer is approved?" do
+			answer = FactoryGirl.create :approved_answer
+			answer.should be_is_approved
+		end
+	end
 end
