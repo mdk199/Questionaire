@@ -114,6 +114,7 @@ class QuestionsController < ApplicationController
   def flag
     @question = Question.find(params[:id])
     Flag.add_flag(@question, current_user)
+    @question.create_activity :flag, owner: current_user
     respond_to do |format|
       format.js { render "questions/flag", :layout => false }
       format.json { render json: @questions }

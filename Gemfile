@@ -52,8 +52,7 @@ gem 'ckeditor'
 gem 'paperclip'
 gem 'acts-as-taggable-on'
 gem 'binding_of_caller'
-
 gem 'sunspot_rails'
 gem 'sunspot_solr'
-
 gem 'progress_bar'
+gem 'public_activity'

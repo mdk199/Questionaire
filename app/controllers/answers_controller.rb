@@ -78,6 +78,7 @@ class AnswersController < ApplicationController
     end
     respond_to do |format|
       if @answer.update_attributes(params[:answer])
+        @answer.create_activity :update, owner: current_user
         flash.now[:notice] = 'Answer was successfully updated.'
         format.html
         format.json { head :no_content }
@@ -108,6 +109,8 @@ class AnswersController < ApplicationController
     @answer = Answer.find(params[:id])
     @unapproved_answer = Answer.where("question_id = #{@answer.question_id} AND approved = 1").try(:first)
     @answer.approve
+    @answer.create_activity :approves, owner: current_user
+    @answer.create_activity :got_approved, owner: @answer.user
     respond_to do |format|
       format.js { render "answers/approve", :layout => false }
       format.json { render json: @answers }
@@ -118,6 +121,8 @@ class AnswersController < ApplicationController
     @answer = Answer.find(params[:id])
     @answer.approved=0
     @answer.save
+    @answer.create_activity :unapproves, owner: current_user
+    @answer.create_activity :got_unapproved, owner: @answer.user
     respond_to do |format|
       format.js { render "answers/unapprove", :layout => false }
       format.json { render json: @answers }

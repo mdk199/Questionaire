@@ -1,4 +1,6 @@
 class Question < ActiveRecord::Base
+  include PublicActivity::Common
+
   belongs_to :user
   has_many :documents, as: :documentable, :dependent => :destroy
   has_many :flags, as: :flagable, :dependent => :destroy
@@ -14,6 +16,7 @@ class Question < ActiveRecord::Base
   searchable do
     text :question
     boolean :published
+    time :updated_at
 
     text :user do 
       user.name

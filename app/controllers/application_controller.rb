@@ -2,6 +2,8 @@ class ApplicationController < ActionController::Base
   layout 'devise'
   before_filter :authenticate_user!
 
+  include PublicActivity::StoreController
+
   rescue_from 'CanCan::AccessDenied' do |exception|
     respond_to do |format|
       format.html do

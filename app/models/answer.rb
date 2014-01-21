@@ -1,4 +1,5 @@
 class Answer < ActiveRecord::Base
+	include PublicActivity::Common
   # attr_accessible :title, :body
 	belongs_to :question, :inverse_of => :answers, counter_cache: true
 	belongs_to :user
@@ -8,11 +9,12 @@ class Answer < ActiveRecord::Base
 	attr_accessible :answer, :user_id, :question_id,:approved
 	validates :answer, :presence => true
 	validates_presence_of :user_id, :message=>"user not present" 
-  	validates_presence_of :question_id
-  	validate :valid_user, :valid_question
+  validates_presence_of :question_id
+  validate :valid_user, :valid_question
 
+  after_save :touch_question
 
-  	def valid_user
+  def valid_user
 		if self.user_id.present?
 			unless User.find_by_id(self.user_id).present?
 				self.errors.add(:user_id, "not found!")
@@ -20,10 +22,9 @@ class Answer < ActiveRecord::Base
 		end
 	end
 
-	after_save :touch_question
-
 	def touch_question
-		question.touch
+		self.question.touch
+		self.question.index
 	end
 
 	def valid_question
