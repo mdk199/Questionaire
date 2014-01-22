@@ -141,6 +141,7 @@ GEM
     rdoc (3.12.2)
       json (~> 1.4)
     ref (1.0.5)
+    rsa (0.1.4)
     rsolr (1.0.9)
       builder (>= 2.1.2)
     rspec-core (2.14.7)
@@ -220,6 +221,7 @@ DEPENDENCIES
   progress_bar
   public_activity
   rails (= 3.2.14)
+  rsa
   rspec-rails
   sass-rails (~> 3.2.3)
   sunspot_rails
