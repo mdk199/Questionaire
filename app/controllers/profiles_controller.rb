@@ -48,7 +48,7 @@ class ProfilesController < ApplicationController
 
     respond_to do |format|
       if @profile.save
-        @profile.create_activity :create, :owner => current_user
+        @profile.create_activity :create, owner: current_user
         format.html { redirect_to @profile, notice: 'Profile was successfully created.' }
         format.json { render json: @profile, status: :created, location: @profile }
       else
