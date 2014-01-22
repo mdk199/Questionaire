@@ -3,18 +3,17 @@
 #
 # Examples:
 #
-#   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
+#   cities = City.create([{ name: 'Chicago' }) { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
-Points = PointsMap.create([
-			{key: 'answer.create',point: 10 },
-			{key: 'answer.got_approved',point: 15 },
-			{key: 'answer.got_unapproved',point: -15},
-			{key: 'question.create',point: 5},
-			{key: 'question.destroy',point: -5 },
-			{key: 'question.got_flagged',point: -20},
-			{key: 'question.got_unflagged',point: 20},
-			{key: 'profile.create',point: 20},
-			{key: 'profile.destroy',point: -20},
-			{key: 'comment.create',point: 5},
-			{key: 'commment.destroy',point: -5 },
-			{key: 'answer.destroy',point: -10}])
+PointsMap.find_or_create_by_key({:key => 'answer.create', :point => 10 })
+PointsMap.find_or_create_by_key({:key => 'answer.got_approved', :point => 15 })
+PointsMap.find_or_create_by_key({:key => 'answer.got_unapproved', :point => -15})
+PointsMap.find_or_create_by_key({:key => 'question.create', :point => 5})
+PointsMap.find_or_create_by_key({:key => 'question.destroy', :point => -5 })
+PointsMap.find_or_create_by_key({:key => 'question.got_flagged', :point => -20})
+PointsMap.find_or_create_by_key({:key => 'question.got_unflagged', :point => 20})
+PointsMap.find_or_create_by_key({:key => 'profile.create', :point => 20})
+PointsMap.find_or_create_by_key({:key => 'profile.destroy', :point => -20})
+PointsMap.find_or_create_by_key({:key => 'comment.create', :point => 5})
+PointsMap.find_or_create_by_key({:key => 'commment.destroy', :point => -5 })
+PointsMap.find_or_create_by_key({:key => 'answer.destroy', :point => -10})
