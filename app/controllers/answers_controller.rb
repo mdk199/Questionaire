@@ -55,6 +55,7 @@ class AnswersController < ApplicationController
 
     respond_to do |format|
       if @answer.save
+        @answer.create_activity :create, owner: current_user
         flash.now[:notice] = 'Answer was successfully created.'
         format.html { redirect_to @answer }
         format.json { render json: @answer, status: :created, location: @answer }
@@ -95,6 +96,7 @@ class AnswersController < ApplicationController
   # DELETE /answers/1.json
   def destroy
     @answer = Answer.find(params[:id])
+    @answer.create_activity :destroy, owner: @answer.user
     @answer.destroy
 
     flash.now[:notice] = 'Answer was successfully removed.'

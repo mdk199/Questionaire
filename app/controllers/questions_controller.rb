@@ -54,7 +54,6 @@ class QuestionsController < ApplicationController
   # GET /questions/new.json
   def new
     @question = Question.new
-
     respond_to do |format|
       format.html # new.html.erb
       format.json { render json: @question }
@@ -73,6 +72,7 @@ class QuestionsController < ApplicationController
   
     respond_to do |format|
       if @question.save
+        @question.create_activity :create, owner: current_user
         format.html { redirect_to @question, notice: 'Question was successfully created.' }
         format.json { render json: @question, status: :created, location: @question }
       else
@@ -89,6 +89,7 @@ class QuestionsController < ApplicationController
 
     respond_to do |format|
       if @question.update_attributes(params[:question])
+        @question.create_activity :update, owner: current_user
         format.html { redirect_to @question, notice: 'Question was successfully updated.' }
         format.json { head :no_content }
       else
@@ -102,6 +103,7 @@ class QuestionsController < ApplicationController
   # DELETE /questions/1.json
   def destroy
     @question = Question.find(params[:id])
+    @question.create_activity :destroy,:owner =>  @question.user
     @question.destroy
     flash.now[:notice] = 'Question was successfully removed.'
     respond_to do |format|
@@ -114,7 +116,8 @@ class QuestionsController < ApplicationController
   def flag
     @question = Question.find(params[:id])
     Flag.add_flag(@question, current_user)
-    @question.create_activity :flag, owner: current_user
+    @question.create_activity :flagged_by, owner: current_user
+    @question.create_activity :got_flagged, owner: @question.user
     respond_to do |format|
       format.js { render "questions/flag", :layout => false }
       format.json { render json: @questions }
@@ -124,6 +127,8 @@ class QuestionsController < ApplicationController
   def unflag
     @question = Question.find(params[:id])
     Flag.remove_flag(@question, current_user)
+    @question.create_activity :unflagged_by, owner: current_user
+    @question.create_activity :got_unflagged, owner: @question.user
     respond_to do |format|
       format.js { render "questions/unflag", :layout => false }
       format.json { render json: @questions }
@@ -133,6 +138,7 @@ class QuestionsController < ApplicationController
   def publish
     @question = Question.find(params[:id])
     Question.publish_question(@question)
+    @question.create_activity :published, owner: current_user
     respond_to do |format|
       format.js { render "questions/publish", :layout => false }
       format.json { render json: @questions }
@@ -142,6 +148,7 @@ class QuestionsController < ApplicationController
   def unpublish
     @question = Question.find(params[:id])
     Question.unpublish_question(@question)
+    @question.create_activity :unpublished, owner: current_user
     respond_to do |format|
       format.js { render "questions/unpublish", :layout => false }
       format.json { render json: @questions }

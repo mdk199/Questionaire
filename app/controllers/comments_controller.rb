@@ -7,7 +7,6 @@ class CommentsController < ApplicationController
   # GET /comments.json
   def index
     @comments = Comment.all
-
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @comments }
@@ -29,7 +28,6 @@ class CommentsController < ApplicationController
   # GET /comments/new.json
   def new
     @comment = Comment.new
-
     respond_to do |format|
       format.html # new.html.erb
       format.json { render json: @comment }
@@ -55,6 +53,7 @@ class CommentsController < ApplicationController
 
     respond_to do |format|
       if @comment.save
+        @comment.create_activity :create,:owner =>  @comment.user
         flash.now[:notice] = 'Comment was successfully created.'
         format.html { redirect_to @comment}
         format.json { render json: @comment, status: :created, location: @comment }
@@ -92,6 +91,7 @@ class CommentsController < ApplicationController
   # DELETE /comments/1.json
   def destroy
     @comment = Comment.find(params[:id])
+    @comment.create_activity :destroy,:owner =>  @comment.user
     @comment.destroy
     flash.now[:notice] = 'Comment was successfully removed.'
     respond_to do |format|
