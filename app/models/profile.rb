@@ -1,4 +1,5 @@
 class Profile < ActiveRecord::Base
+  include PublicActivity::Common
   belongs_to :user
 
   attr_accessible :city, :country, :dob, :first_name, :last_name, :mobile, :pin, :state, :street, :user_id, :photo
