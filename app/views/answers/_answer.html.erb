@@ -16,6 +16,10 @@
     <div id="comments_<%= answer.id %>">
       <%= render :partial => "comments/comment", :collection => answer.comments.order("updated_at") %>
     </div>
-    <%= link_to "Add comment", add_comment_answer_path(answer), :class => "btn btn-success btn-mini addbtn float-right", :method => :get, :remote => true %>
+    <%if current_user.present?%>
+    <%= link_to "+ Add comment", add_comment_answer_path(answer), :class => "btn btn-success btn-mini addbtn float-right", :method => :get, :remote => true %>
+    <% else %>
+    <%= link_to 'Sign In to Add Comment', new_user_session_path, :class=>'btn btn-success btn-mini addbtn float-right'%>
+    <%end%>
   </div>
 </div>

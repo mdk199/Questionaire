@@ -12,6 +12,12 @@
             <%= yield %>
           </div>
           <div class="span3">
+            <% unless current_user.present? %>
+            <div >
+              <%= button_to "Sign in", new_user_session_path, :class => "btn btn-info btn-lg btn-block", :style => "height:70px !important;", :method => :get %>
+              <%= button_to "Sign up", new_user_registration_path, :class => "btn btn-info btn-lg btn-block", :style => "height:70px !important;", :method => :get %>
+            </div>
+            <% end %>
             <div>
               <h5>Quick Links</h5>
               <div class="list-group">
