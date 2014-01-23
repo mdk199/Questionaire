@@ -1,7 +1,7 @@
 class CreateKeysTable < ActiveRecord::Migration
   def up
   	create_table :keys do |t| 
-  		t.string :ciphertext
+  		t.binary :ciphertext
   		t.text :key_pair
   	end
   end

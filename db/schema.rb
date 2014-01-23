@@ -14,7 +14,7 @@
 ActiveRecord::Schema.define(:version => 20140122151301) do
 
   create_table "keys", :force => true do |t|
-    t.string "ciphertext"
+    t.binary "ciphertext"
     t.text   "key_pair"
   end
 
