@@ -15,7 +15,7 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable, :confirmable
   # Setup accessible (or protected) attributes for your model
-  attr_accessible :email, :password, :password_confirmation, :remember_me, :username, :expertise_list, :interest_list
+  attr_accessible :email, :password, :password_confirmation, :remember_me, :username, :expertise_list, :interest_list, :points
   # attr_accessible :title, :body
 
   ADMIN_ROLE = "Admin"
@@ -57,4 +57,16 @@ class User < ActiveRecord::Base
   def name
     profile.present? ? profile.fullname : username
   end
+
+  def my_points(user)
+    user_array = User.where("users.id = #{user.id}").joins("INNER JOIN activities ON activities.owner_id = users.id INNER JOIN points_maps ON points_maps.key = activities.key").select("sum(point) as total_points,owner_id").group(:owner_id).order("total_points DESC")
+  end
+  
+
+  class << self
+    def top_contributors
+      user = User.joins("INNER JOIN activities ON activities.owner_id = users.id INNER JOIN points_maps ON points_maps.key = activities.key").select("sum(point) as total_points,owner_id").group(:owner_id).order("total_points DESC").limit(2)
+    end
+  end
+
 end

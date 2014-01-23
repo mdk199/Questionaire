@@ -2,7 +2,10 @@
 <div class="page-header">
   <h3><%=t '.title', :default => model_class.model_name.human.titleize %></h3>
 </div>
-
+<b>Points :  </b>
+<% @profile.user.my_points(@profile.user).each do |point| %>
+<%= point.total_points%>
+<%end%>
 <table >
   <tr><td><strong><%= model_class.human_attribute_name(:first_name) %>:</strong></td>
   <td><%= @profile.first_name %></td></tr>
