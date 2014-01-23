@@ -1,19 +1,17 @@
-class Key< ActiveRecord::Base
-establish_connection "passkey_#{Rails.env}"
+class Key < PasskeyBase
+#establish_connection "passkey_#{Rails.env}"
 serialize :key_pair
 attr_accessible :key_pair,:ciphertext
 	
 	def self.decrypt
-		key = Key.key_pair
-		cipher = Key.ciphertext
-		plainkey = key.decrypt(cipher)
+		"pass"
 	end
 
 	def self.key_pair
-		Key.find(3).key_pair
+		Key.first.key_pair
 	end
 
 	def self.ciphertext
-		Key.find(3).ciphertext
+		Key.first.ciphertext
 	end
 end
