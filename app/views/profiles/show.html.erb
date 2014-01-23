@@ -1,33 +1,42 @@
-<%- model_class = Profile -%>
-<div class="page-header">
-  <h3><%=t '.title', :default => model_class.model_name.human.titleize %></h3>
+<div class="panel panel-info span12">
+  <div class="panel-heading">
+    Profile
+  </div>
+  <div class="panel-body">
+    <div id="userStats" class="clearfix">
+      <div class="span3">
+        <%= image_tag current_user.profile.photo.url(:large), :class => 'control-label img-rounded' if current_user.present? && current_user.profile.present? %>
+
+      </div>
+      <div class="data span6">
+        <h2><%= @profile.user.name %></h2>
+        <h4><%= @profile.user.email%></h4>
+        <address>
+        <strong>Sony India Software Center</strong><br>
+          Street: <%= @profile.street %><br>
+          City : <%= @profile.city %><br> State: <%= @profile.state %><br>
+          Pin: <%= @profile.pin %><br> Country: <%= @profile.country %> <br>
+          <abbr title="Phone">P:</abbr> <%= @profile.mobile %>
+        </address>      
+      </div>
+      <div class="span3">
+        <div class="panel panel-warning">
+          <div class="panel-heading" align="center">
+            <b>Points </b>
+          </div>
+          <div class="panel-body" align="center">
+            <% @profile.user.my_points(@profile.user).each do |point| %>
+              <h1><%= point.total_points%> </h1>
+            <%end%>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
-<b>Points :  </b>
-<% @profile.user.my_points(@profile.user).each do |point| %>
-<%= point.total_points%>
-<%end%>
-<table >
-  <tr><td><strong><%= model_class.human_attribute_name(:first_name) %>:</strong></td>
-  <td><%= @profile.first_name %></td></tr>
-  <tr><td><strong><%= model_class.human_attribute_name(:last_name) %>:</strong></td>
-  <td><%= @profile.last_name %></td></tr>
-  <tr><td><strong><%= model_class.human_attribute_name(:dob) %>:</strong></td>
-  <td><%= @profile.dob %></td></tr>
-  <tr><td><strong><%= model_class.human_attribute_name(:street) %>:</strong></td>
-  <td><%= @profile.street %></td></tr>
-  <tr><td><strong><%= model_class.human_attribute_name(:city) %>:</strong></td>
-  <td><%= @profile.city %></td></tr>
-  <tr><td><strong><%= model_class.human_attribute_name(:state) %>:</strong></td>
-  <td><%= @profile.state %></td></tr>
-  <tr><td><strong><%= model_class.human_attribute_name(:pin) %>:</strong></td>
-  <td><%= @profile.pin %></td></tr>
-  <tr><td><strong><%= model_class.human_attribute_name(:country) %>:</strong></td>
-  <td><%= @profile.country %></td></tr>
-  <tr><td><strong><%= model_class.human_attribute_name(:mobile) %>:</strong></td>
-  <td><%= @profile.mobile %></td></tr>
-</table>
+<div class="clear"></div>
 <% if @profile.user==current_user %>
-  <div class="form-actions">
+<div class="span8" align="center">
     
     <%= link_to t('.edit', :default => t("helpers.links.edit")),
                 edit_profile_path(@profile), :class => 'btn' %>

@@ -3,7 +3,7 @@
       <%= question_actions(current_user, question) %>
     <div class="panel-heading" >
       <span class="float-left" style="margin-top:-5px;margin-bottom:5px;">
-        <%= image_tag question.user.profile_pic_url(:mini), :style => "border-radius:5px; border:1px solid #3A87AD;", :onclick => "window.location='http://google.com';" %>
+        <%= image_tag question.user.profile_pic_url(:mini), :style => "border-radius:5px; border:1px solid #3A87AD;" %>
       </span>
       <a href="<%=question_path(question)%>" style="color:inherit;text-decoration: none;" title="Question Details">
         <div class="panel-title question">
