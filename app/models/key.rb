@@ -1,10 +1,16 @@
-class Key < PasskeyBase
-#establish_connection "passkey_#{Rails.env}"
+class Key < ActiveRecord::Base
+ActiveRecord::Base.establish_connection(
+	:adapter  => "mysql2",
+	:database => "passkeys",
+  	:username => "mandeep",
+  	:password => "mypass")
 serialize :key_pair
 attr_accessible :key_pair,:ciphertext
 	
 	def self.decrypt
-		"pass"
+		key = Key.key_pair
+		cipher = Key.ciphertext
+		plainkey = key.decrypt(cipher)
 	end
 
 	def self.key_pair
