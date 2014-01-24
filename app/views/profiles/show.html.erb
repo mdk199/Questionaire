@@ -5,7 +5,7 @@
   <div class="panel-body">
     <div id="userStats" class="clearfix">
       <div class="span3">
-        <%= image_tag current_user.profile.photo.url(:large), :class => 'control-label img-rounded' if current_user.present? && current_user.profile.present? %>
+        <%= image_tag @profile.photo.url(:large), :class => 'control-label img-rounded' if @profile.present? %>
 
       </div>
       <div class="data span6">
@@ -19,14 +19,10 @@
           <abbr title="Phone">P:</abbr> <%= @profile.mobile %>
         </address>      
       </div>
-      <div class="span3">
-        <div class="panel panel-warning">
-          <div class="panel-heading" align="center">
-            <b>Points </b>
-          </div>
-          <div class="panel-body" align="center">
+      <div class="span2">
+        <%= image_tag("medal.jpeg", height: '150', width: '150') %>
             <% @profile.user.my_points(@profile.user).each do |point| %>
-              <h1><%= point.total_points%> </h1>
+              <h2 style="margin-top: -68px;margin-left: 50px;"><%= point.total_points%> </h2>
             <%end%>
           </div>
         </div>

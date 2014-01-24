@@ -9,7 +9,7 @@
         <%= image_tag u.profile.photo.url(:medium), :class => "pull-left" %>
         <div class="media-body">
           <h5 class="media-heading"><%= u.name %></h5>
-          <span class="badge"><%= user.total_points %> points</span>
+          <%= image_tag("medal.jpeg", height: '25', width: '25') %><span class="badge"><%= user.total_points %> points</span>
         </div>
       </li>
     </ul>
