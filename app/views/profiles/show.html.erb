@@ -20,13 +20,9 @@
         </address>      
       </div>
       <div class="span2">
-        <div class="panel panel-warning">
-          <div class="panel-heading" align="center">
-            <b>Points </b>
-          </div>
-          <div class="panel-body" align="center">
+        <%= image_tag("medal.jpeg", height: '150', width: '150') %>
             <% @profile.user.my_points(@profile.user).each do |point| %>
-              <h1><%= point.total_points%> </h1>
+              <h2 style="margin-top: -68px;margin-left: 50px;"><%= point.total_points%> </h2>
             <%end%>
           </div>
         </div>
