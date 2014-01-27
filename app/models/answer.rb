@@ -44,5 +44,7 @@ class Answer < ActiveRecord::Base
 		self.update_attribute(:approved, true)
 	end
 
-
+	def unapprove
+		update_attribute(:approved, false)
+	end
 end
