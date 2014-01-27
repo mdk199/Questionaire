@@ -10,13 +10,15 @@
       </div>
       <div class="data span6">
         <h2><%= @profile.user.name %></h2>
-        <h4><%= @profile.user.email%></h4>
-        <address>
+        <h4>Email : <%= @profile.user.email%></h4>
         <strong>Sony India Software Center</strong><br>
+        <hr/>
+        <address>
+          <strong>Address:</strong><br>
           Street: <%= @profile.street %><br>
           City : <%= @profile.city %><br> State: <%= @profile.state %><br>
           Pin: <%= @profile.pin %><br> Country: <%= @profile.country %> <br>
-          <abbr title="Phone">P:</abbr> <%= @profile.mobile %>
+          Phone: <%= @profile.mobile %>
         </address>      
       </div>
       <div class="span2">
