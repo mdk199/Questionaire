@@ -3,7 +3,7 @@ module QuestionsHelper
     if user.present?
       html = []
       html << "<span class='action_links float-right'>"
-  		if question.user_id == user.id
+  		if question.user_id == user.id || user.is_admin?
         	html << link_to('', edit_question_path(question), :title => "Edit", :class=>'icon-edit')
         	html << link_to('', question, method: :delete, :title => "Delete", :class=>'icon-remove', data: { confirm: 'Are you sure?',:remote=>true })
     	    if Question.already_published(question)
