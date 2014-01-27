@@ -23,7 +23,6 @@ group :development do
 	gem  'zeus'
 	gem  'better_errors'
 	gem  'hirb'
-  gem  'rsa'
 end
 
 group :development, :test do

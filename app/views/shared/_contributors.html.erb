@@ -1,20 +1,21 @@
 <h5> Top Contributors </h5>
 <div class="list-group">
 <% User.top_contributors.each do |user| %>
-<% u = User.find(user.owner_id)%>
-<%if u.profile.present? %>
-  <a href="<%= profile_path(u.profile)%>" class="list-group-item">
+  <a href="<%= user.profile.present? ? profile_path(user.profile) : "#" %>" class="list-group-item">
     <ul class="media-list" style="margin-bottom:0px;">
       <li class="media">
-        <%= image_tag u.profile.photo.url(:medium), :class => "pull-left" %>
+        <% if user.profile.present? %>
+          <%= image_tag user.profile.photo.url(:medium), :class => "pull-left" %>
+        <% else %>
+          <%= image_tag "user_medium.jpeg", :class => "pull-left" %>
+        <% end %>
         <div class="media-body">
-          <h5 class="media-heading"><%= u.name %></h5>
+          <h5 class="media-heading"><%= user.name %></h5>
           <%= image_tag("medal2.jpg", height: '35', width: '35') %>
           <span class="badge" ><%= user.total_points %> Points </span>
         </div>
       </li>
     </ul>
   </a>
-<%end%>
 <% end %>
 </div>
