@@ -4,7 +4,6 @@ class Answer < ActiveRecord::Base
 	belongs_to :question, :inverse_of => :answers, counter_cache: true
 	belongs_to :user
 	has_many :documents, as: :documentable
-	has_many :flags, as: :flagable, :dependent => :destroy
 	has_many :comments, :dependent => :destroy
 	attr_accessible :answer, :user_id, :question_id,:approved
 	validates :answer, :presence => true

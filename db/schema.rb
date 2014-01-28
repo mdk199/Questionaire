@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140122131428) do
+ActiveRecord::Schema.define(:version => 20140128092827) do
 
   create_table "activities", :force => true do |t|
     t.integer  "trackable_id"
@@ -134,6 +134,7 @@ ActiveRecord::Schema.define(:version => 20140122131428) do
     t.datetime "updated_at",                       :null => false
     t.integer  "answers_count", :default => 0
     t.boolean  "published",     :default => false
+    t.integer  "flags_count",   :default => 0
   end
 
   create_table "taggings", :force => true do |t|

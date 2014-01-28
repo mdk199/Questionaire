@@ -1,7 +1,7 @@
 class Flag < ActiveRecord::Base
   include PublicActivity::Common
   
-  belongs_to :flagable, polymorphic: true
+  belongs_to :flagable, polymorphic: true, counter_cache: true
   belongs_to :user
   attr_accessible :flagable_id, :flagable_type, :user_id
   validates_presence_of :flagable
