@@ -1,19 +1,20 @@
 <%= form_for(@user) do |f| %>
   <%= render "shared/error_messages", :object => @user %>
 
-  <div><%= f.label :email %><br />
-  <%= f.email_field :email, :autofocus => true %></div>
+  <table><tr><td><%= f.label :email %></td>
+  <td><%= f.email_field :email, :autofocus => true %></td></tr>
 
-  <div><%= f.label :username %><br />
-  <%= f.text_field :username %></div>
+  <tr><td><%= f.label :username %></td>
+  <td><%= f.text_field :username %></td></tr>
 
 
-  <div>
-  	<%= f.radio_button(:role, "Admin") %>
+  <tr><td>
+  	Role</td>
+  	<td><span><%= f.radio_button(:role, "Admin") %>
   	<%= f.label(:role_Admin, "Co-Admin") %>
   	<%= f.radio_button(:role, "User") %>
-	<%= f.label(:role_User, "normal User") %>
-  </div>
+	<%= f.label(:role_User, "normal User") %></span></td>
+  </tr></table>
 
   <div><%= f.submit "Update" , :class => "btn btn-primary btn-mini" %></div>
 <% end %>

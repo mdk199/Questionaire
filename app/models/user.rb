@@ -64,7 +64,7 @@ class User < ActiveRecord::Base
 
   class << self
     def top_contributors
-      user = User.joins("INNER JOIN activities ON activities.owner_id = users.id INNER JOIN points_maps ON points_maps.key = activities.key").select("users.*, sum(points_maps.point) as total_points,activities.owner_id").group(:owner_id).order("total_points DESC").limit(3)
+      user = User.where("role !='Admin'").joins("INNER JOIN activities ON activities.owner_id = users.id INNER JOIN points_maps ON points_maps.key = activities.key").select("users.*, sum(points_maps.point) as total_points,activities.owner_id").group(:owner_id).order("total_points DESC").limit(3)
     end
   end
 
