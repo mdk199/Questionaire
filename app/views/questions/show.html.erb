@@ -5,8 +5,11 @@
       <span class="float-left" style="margin-top:-5px;margin-bottom:5px;">
 	    <%= image_tag @question.user.profile_pic_url(:mini), :style => "border-radius:5px; border:1px solid #3A87AD;" %>
 	  </span>
-	  <div class="panel-title question">
-	   	&nbsp;<%= raw @question.question%>
+	  <div class="panel-title" style="margin-left:50px;margin-bottom:25px;">
+	   	<strong><%= @question.title %></strong>
+	  </div>
+	  <div class="question">
+	   	<%= raw @question.question %>
 	  </div>
 	  <div class="clearfix"></div>
 	  <span class="badge"><%= pluralize(@question.answers_count, "Answer") %></span>

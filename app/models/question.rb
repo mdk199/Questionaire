@@ -11,9 +11,10 @@ class Question < ActiveRecord::Base
   
   acts_as_taggable
 
-  attr_accessible :question, :user_id, :published, :tag_list
+  attr_accessible :question, :user_id, :published, :tag_list, :title
 
   searchable do
+    text :title
     text :question
     boolean :published
     time :updated_at
