@@ -7,12 +7,13 @@
   <div><%= f.label :username %><br />
   <%= f.text_field :username %></div>
 
-  <div><%= f.label :password %> <br />
-  <%= f.password_field :password, :autocomplete => "off" %></div>
 
-  <div><%= f.label :password_confirmation %><br />
-  <%= f.password_field :password_confirmation %></div>
-
+  <div>
+  	<%= f.radio_button(:role, "Admin") %>
+  	<%= f.label(:role_Admin, "Co-Admin") %>
+  	<%= f.radio_button(:role, "User") %>
+	<%= f.label(:role_User, "normal User") %>
+  </div>
 
   <div><%= f.submit "Update" , :class => "btn btn-primary btn-mini" %></div>
 <% end %>
