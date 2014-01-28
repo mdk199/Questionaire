@@ -3,7 +3,7 @@ module CommentsHelper
     html = []
    	
     
-    if comment.user == user || comment.answer.user == user || is_admin?
+    if comment.user == user || comment.answer.user == user || user.is_admin?
       html << link_to('', comment, method: :delete, :title => "Delete", :class=>'icon-remove', data: { confirm: 'Are you sure?' }, :remote => true)
     end
 
