@@ -14,7 +14,7 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable, :confirmable
   # Setup accessible (or protected) attributes for your model
-  attr_accessible :email, :password, :password_confirmation, :remember_me, :username, :expertise_list, :interest_list, :points
+  attr_accessible :email, :password, :password_confirmation, :remember_me, :username, :expertise_list, :interest_list, :points, :role
   # attr_accessible :title, :body
 
   ADMIN_ROLE = "Admin"
@@ -64,7 +64,7 @@ class User < ActiveRecord::Base
 
   class << self
     def top_contributors
-      user = User.joins("INNER JOIN activities ON activities.owner_id = users.id INNER JOIN points_maps ON points_maps.key = activities.key").select("users.*, sum(points_maps.point) as total_points,activities.owner_id").group(:owner_id).order("total_points DESC").limit(3)
+      user = User.where("role !='Admin'").joins("INNER JOIN activities ON activities.owner_id = users.id INNER JOIN points_maps ON points_maps.key = activities.key").select("users.*, sum(points_maps.point) as total_points,activities.owner_id").group(:owner_id).order("total_points DESC").limit(3)
     end
   end
 
