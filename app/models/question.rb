@@ -44,15 +44,15 @@ class Question < ActiveRecord::Base
 
   class << self
     def all_published_questions(user=nil)
-      if user.present?
-        Question.where("user_id = #{user.id}")
+      if user.present? 
+        Question.where("user_id = #{user.id} && flags_count<5")
       else
         Question.published_questions
       end
     end
 
     def published_questions
-      Question.find(:all, :conditions => "published = 1")
+      Question.find(:all, :conditions => "published = 1 && flags_count<5")
     end
 
     def publish_question(question)
@@ -78,5 +78,8 @@ class Question < ActiveRecord::Base
       question = Question.where(:published=> true).joins(:tags).select("count(question) as questions_count, tag_id,name").group(:tag_id).order("questions_count DESC")
     end
 
+    def blocked_questions
+      Question.find(:all, :conditions=>"flags_count=5")
+    end
   end
 end
