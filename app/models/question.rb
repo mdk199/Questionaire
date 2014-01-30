@@ -79,7 +79,7 @@ class Question < ActiveRecord::Base
     end
 
     def blocked_questions
-      Question.find(:all, :conditions=>"flags_count=5")
+      Question.find(:all, :conditions=>"flags_count=5");
     end
   end
 end
