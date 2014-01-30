@@ -5,5 +5,8 @@
   <ul class="nav nav-list" align="center">
     <li class="nav-header">Quick Links</li>
     <li><%= link_to 'All Questions', all_questions_path %></li>
+    <%if current_user.is_admin? %>
+        <li><%= link_to 'Manage User', users_path %></li>
+    <% end %>
   </ul>
 </div><!--/.well -->

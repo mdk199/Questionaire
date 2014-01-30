@@ -1,0 +1,27 @@
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <b>Activity Log</b>
+  </div>
+	<div class="panel-body ">
+    <table class="table table-striped">
+      <tr><th>User Name</th><th>Activity</th><th>Activity On</th><th>Time</th></tr>
+      <% @activities.each do |activity| %>
+        <tr><td><%= User.find(activity.owner_id).name %></td>
+          <td><%= activity.key %></td>
+          <td>
+            <% if activity.trackable_type=="Profile"%>
+              <%= link_to 'Profile', profile_path(Profile.find(activity.trackable_id))%> 
+            <% elsif activity.trackable_type=="Question"%>
+              <%= link_to 'Question', question_path(Question.find(activity.trackable_id))%>
+            <% elsif activity.trackable_type=="Answer"%>
+              <%= link_to 'Answer', question_path(Question.find(Answer.find(activity.trackable_id).question_id))%>
+            <% elsif activity.trackable_type=="Comment"%>
+              <%= link_to 'Comment', question_path(Question.find(Answer.find(Comment.find(activity.trackable_id).answer_id).question_id))%>  
+            <%end%>
+          </td>
+          <td><%= activity.created_at%></td>
+        </tr>
+      <%end%>
+    </table>
+  </div>
+</div>

@@ -49,4 +49,12 @@ class UsersController < ApplicationController
     end
   end
 
+  def activity_log
+  	@activities = Activity.all
+  	respond_to do |format|
+      format.html # activity_log.html.erb
+      format.json { render json: @activities }
+    end
+
+  end
 end

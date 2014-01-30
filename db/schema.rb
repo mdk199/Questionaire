@@ -94,6 +94,11 @@ ActiveRecord::Schema.define(:version => 20140128095407) do
     t.datetime "updated_at"
   end
 
+  create_table "keys", :force => true do |t|
+    t.binary "ciphertext"
+    t.text   "key_pair"
+  end
+
   create_table "points_histories", :force => true do |t|
     t.integer  "user_id"
     t.integer  "points_map_id"

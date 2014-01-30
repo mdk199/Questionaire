@@ -9,7 +9,7 @@
         <div class="row-fluid">
           <div class="span9">
             <%= bootstrap_flash %>
-            <%= yield %>
+              <%= yield %>
           </div>
           <div class="span3">
             <% unless current_user.present? %>
@@ -21,15 +21,32 @@
             <div>
               <h5>Quick Links</h5>
               <div class="list-group">
-              <a href="/all_questions" class="list-group-item">
                 <ul class="media-list" style="margin-bottom:0px;">
-                  <li class="media">
-                    <div class="media-body">
-                      <i class="icon-list"> All Questions</i>
-                    </div>
-                  </li>
+                  <div class="media-body">
+                    <li class="media">
+                      <a href="/all_questions" class="list-group-item">
+                      <i class="icon-list"> All Questions</i></a>
+                    </li>
+                  </div>
                 </ul>
-              </a>
+                <% if current_user.role="Admin" %>
+                  <ul class="media-list" style="margin-bottom:0px;">
+                    <li class="media">
+                      <div class="media-body">
+                        <a href="/activity_log" class="list-group-item">
+                        <i class="icon-list"> Activity Log</i></a>
+                      </div>
+                    </li>
+                  </ul>
+                  <ul class="media-list" style="margin-bottom:0px;">
+                    <li class="media">
+                      <div class="media-body">
+                        <a href="/users" class="list-group-item">
+                        <i class="icon-list"> Manage Users</i></a>
+                      </div>
+                    </li>
+                  </ul>
+                <%end%>              
               </div>
               <%= render "shared/contributors" %>
             </div>
