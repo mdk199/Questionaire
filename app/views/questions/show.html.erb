@@ -38,3 +38,12 @@
   </div>
   		<%= render "shared/modal"%>
 </div>
+<script>
+var url = window.location.href.split("#");
+var main_anchor = url[1];
+if(main_anchor!=undefined)
+{
+	$( "#"+url[1]).effect( "highlight",5000 );
+}
+
+</script>

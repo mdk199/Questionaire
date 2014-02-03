@@ -8,21 +8,50 @@
       <% @activities.each do |activity| %>
           <tr><td><%= User.find(activity.owner_id).name %>
           <% if activity.key =="profile.create"%>
-            created profile <%= link_to 'Profile', profile_path(Profile.find(activity.trackable_id))%>
-          <% elsif activity.key == "question.create" %> posted a <%= link_to 'Question', question_path(Question.find(activity.trackable_id))%>
-          <% elsif activity.key == "question.published" %> published a <%= link_to 'Question', question_path(Question.find(activity.trackable_id))%>
-          <% elsif activity.key == "question.unpublished" %> unpublished a <%= link_to 'Question', question_path(Question.find(activity.trackable_id))%>
-          <% elsif activity.key == "question.flagged_by" %> flagged a <%= link_to 'Question', question_path(Question.find(activity.trackable_id))%>
-          <% elsif activity.key == "question.got_flagged" %>'s <%= link_to 'Question', question_path(Question.find(activity.trackable_id))%> got flagged
-          <% elsif activity.key == "question.unflagged_by" %> unflagged a <%= link_to 'Question', question_path(Question.find(activity.trackable_id))%>
-          <% elsif activity.key == "question.got_flagged" %>'s <%= link_to 'Question', question_path(Question.find(activity.trackable_id))%> got unflagged
-          <% elsif activity.key == "answer.create" %> posted an <%= link_to 'Answer', question_path(Question.find(Answer.find(activity.trackable_id).question_id))%>
-          <% elsif activity.key == "answer.approves" %> approved an <%= link_to 'Answer', question_path(Question.find(Answer.find(activity.trackable_id).question_id))%>
-          <% elsif activity.key == "answer.unapproves" %> unapproved an <%= link_to 'Answer', question_path(Question.find(Answer.find(activity.trackable_id).question_id))%>
-          <% elsif activity.key == "answer.got_approved" %>'s <%= link_to 'Answer', question_path(Question.find(Answer.find(activity.trackable_id).question_id))%> got approved
-          <% elsif activity.key == "answer.got_unapproved" %>'s <%= link_to 'Answer', question_path(Question.find(Answer.find(activity.trackable_id).question_id))%> got unapproved
+            created profile
+            <%= link_to 'Profile', profile_path(Profile.find(activity.trackable_id))%>
+          <% elsif activity.key == "question.create" %>
+            posted a 
+            <%= link_to 'Question', question_path(Question.find(activity.trackable_id))%>
+          <% elsif activity.key == "question.published" %>
+            published a 
+            <%= link_to 'Question', question_path(Question.find(activity.trackable_id))%>
+          <% elsif activity.key == "question.unpublished" %>
+            unpublished a 
+            <%= link_to 'Question', question_path(Question.find(activity.trackable_id))%>
+          <% elsif activity.key == "question.flagged_by" %>
+            flagged a 
+            <%= link_to 'Question', question_path(Question.find(activity.trackable_id))%>
+          <% elsif activity.key == "question.got_flagged" %>
+            's 
+            <%= link_to 'Question', question_path(Question.find(activity.trackable_id))%>
+            got flagged
+          <% elsif activity.key == "question.unflagged_by" %>
+            unflagged a
+            <%= link_to 'Question', question_path(Question.find(activity.trackable_id))%>
+          <% elsif activity.key == "question.got_flagged" %>
+            's
+            <%= link_to 'Question', question_path(Question.find(activity.trackable_id))%>
+            got unflagged
+          <% elsif activity.key == "answer.create" %>
+            posted an
+            <%= link_to 'Answer', question_path(Question.find(Answer.find(activity.trackable_id).question_id), :anchor => "answer_#{activity.trackable_id}")%>
+          <% elsif activity.key == "answer.approves" %>
+            approved an
+            <%= link_to 'Answer', question_path(Question.find(Answer.find(activity.trackable_id).question_id), :anchor => "answer_#{activity.trackable_id}")%>
+          <% elsif activity.key == "answer.unapproves" %>
+            unapproved an
+            <%= link_to 'Answer', question_path(Question.find(Answer.find(activity.trackable_id).question_id), :anchor => "answer_#{activity.trackable_id}")%>
+          <% elsif activity.key == "answer.got_approved" %>
+            's
+            <%= link_to 'Answer', question_path(Question.find(Answer.find(activity.trackable_id).question_id), :anchor => "answer_#{activity.trackable_id}")%>
+            got approved
+          <% elsif activity.key == "answer.got_unapproved" %>
+            's
+            <%= link_to 'Answer', question_path(Question.find(Answer.find(activity.trackable_id).question_id), :anchor => "answer_#{activity.trackable_id}")%>
+            got unapproved
           <% else %>
-            posted a <%= link_to 'Comment', question_path(Question.find(Answer.find(Comment.find(activity.trackable_id).answer_id).question_id))%>  
+            posted a <%= link_to 'Comment', question_path(Question.find(Answer.find(Comment.find(activity.trackable_id).answer_id).question_id), :anchor => "comment_#{activity.trackable_id}")%>  
           <%end%>
           </td>
           <td><%= activity.created_at%></td>
