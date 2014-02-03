@@ -19,8 +19,40 @@ module QuestionsHelper
         	end
     	end
       html << "</span>"
-    	raw html.join(" ")
-      
+    	raw html.join(" ")   
     end
+  end
+
+  def question_index_heading(path,tags)
+    html = []
+    if tags.present?
+      html << "<b>Listing Questions tagged with #{tags.name.upcase}</b>"
+    elsif path== "/questions/expertise"
+      html << "<b>Listing Questions on your expertise : </b>"
+      current_user.expertise_list.split(",") do |tag|
+       tag_path = Tag.find_by_name(tag).id
+       html << "<a href='/questions/tagged/#{tag_path}'><span class='label label-success'><i class='icon-tags'></i>#{tag.titleize}</span></a>&nbsp;"
+      end 
+    elsif path== "/questions/interest"
+      html << "<b>Listing Questions on your Interest : </b>"
+      current_user.interest_list.split(",") do |tag|
+        tag_path = Tag.find_by_name(tag).id
+        html << "<a href='/questions/tagged/#{tag_path}'><span class='label label-success'><i class='icon-tags'></i>#{tag.titleize}</span></a>&nbsp;"
+      end
+    elsif path== "/questions/blocked"
+      html << "<b>Listing Blocked Questions</b>"
+    else
+      html << "<b>Listing Questions </b>"
+    end
+      raw html.join()
+  end
+
+  def question_index_buttons(path)
+    html = []
+    if path== "/questions/blocked"
+    else
+      html << button_to('+ Add Question', new_question_path, "data-disable-with" => "Please wait...", :title => "New Question", :class=>'btn btn-success btn-mini float-right top-margin', :method => :get)
+    end  
+    raw html.join()
   end
 end

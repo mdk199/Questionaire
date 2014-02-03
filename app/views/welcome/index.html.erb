@@ -2,7 +2,6 @@
   <li class="active"><a href="#question_tab" data-toggle="tab">Q by You</a></li>
   <li><a href="#expertise_tab" data-toggle="tab">Q on your Experitise</a></li>
   <li><a href="#interest_tab" data-toggle="tab">Q on your Interest</a></li>
-  <li><a href="#blocked_tab" data-toggle="tab">Blocked Questions</a></li>
 </ul>
 <div class="tab-content" style="border:1px solid #ccc; border-top:0px; padding:5px;">
   <div class="tab-pane active" id="question_tab">
@@ -24,9 +23,5 @@
     </a>
     <% end %></h6>
     <%= render "welcome/top5", :question_url => interest_questions_path, :url => interest_user_path(current_user), :items => @interestquestions, :btn_title => "+ Add Interest" %>
-  </div> 
-  <div class="tab-pane" id="blocked_tab">
-    <h6>Blocked Questions:</h6>
-    <%= render :partial => 'questions/question', :collection => @blockedquestions, :spacer_template => "shared/item_seperator" %>
-  </div>       
+  </div>      
 </div>

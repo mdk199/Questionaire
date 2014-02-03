@@ -1,0 +1,23 @@
+<h5>Quick Links</h5>
+<div class="list-group">
+  <a href="/all_questions" class="list-group-item">
+    <ul class="media-list" style="margin-bottom:0px;">
+      <li class="media">
+        <div class="media-body">
+          <i class="icon-list"> All Questions</i>
+        </div>
+      </li>
+    </ul>
+  </a>
+  <%if current_user.is_admin? %>
+  <a href="<%= blocked_questions_path%>" class="list-group-item">
+    <ul class="media-list" style="margin-bottom:0px;">
+      <li class="media">
+        <div class="media-body">
+          <i class="icon-list"> Blocked Questions</i>
+        </div>
+      </li>
+    </ul>
+  </a>
+  <% end %>
+</div>

@@ -31,6 +31,14 @@ class QuestionsController < ApplicationController
     end
   end
 
+  def blocked
+    @questions = Question.blocked_questions
+    respond_to do |format|
+      format.html { render :index}
+      format.json { render json: @questions }
+    end
+  end
+
   def all_questions
     @questions = Question.all_published_questions
     respond_to do |format|
@@ -113,6 +121,13 @@ class QuestionsController < ApplicationController
     end
   end
 
+  def destroy_multiple
+    Question.destroy(params[:blocked_questions])
+    respond_to do |format|
+      format.js {render "questions/destroy_multiple"}
+    end
+  end
+
   def flag
     @question = Question.find(params[:id])
     Flag.add_flag(@question, current_user)
@@ -177,6 +192,22 @@ class QuestionsController < ApplicationController
     respond_to do |format|
       format.html {render :index}
       format.json {render json: @questions}
+    end
+  end
+
+  def unblock
+    @questions = Question.find(params[:blocked_questions])
+    Question.unblock_questions(@questions)
+    respond_to do |format|
+      format.js {render "questions/unblock", :layout => false}
+    end
+  end
+
+  def single_unblock
+    @question = Question.find(params[:id])
+    Question.unblock_question(@question)
+    respond_to do |format|
+      format.js {render "questions/unblock", :layout => false}
     end
   end
 end

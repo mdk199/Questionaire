@@ -66,8 +66,10 @@ Rorproject::Application.routes.draw do
       get 'answers/:id', to: 'questions#answers'
       get "expertise", to: "questions#expertise_questions"
       get "interest", to: "questions#interest_questions"
-      get "blocked", to: "questions#blocked_questions"
+      get "blocked", to: "questions#blocked"
+      get "unblock", to: "questions#unblock"
       get "tagged/:id", to: 'questions#tagged' 
+      delete 'destroy_multiple'
       post :search
     end
 
@@ -77,6 +79,7 @@ Rorproject::Application.routes.draw do
       get "publish", to: "questions#publish"
       get "unpublish", to: "questions#unpublish"
       get "add_answer", to: "questions#add_answer"
+      get "unblock", to: "questions#single_unblock"
     end
   end
 

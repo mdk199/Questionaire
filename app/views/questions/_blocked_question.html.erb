@@ -1,0 +1,10 @@
+<tr>
+<td><%= check_box_tag "blocked_questions[]", blocked_question.id %></td>
+<td><%= raw blocked_question.question%></td>
+<td><%= blocked_question.answers_count%></td>
+<td><%= blocked_question.user.name%></td>
+<td>
+	<%= link_to 'Unblock',unblock_question_path(blocked_question),:class=>"btn btn-mini btn-success",:remote=>:true,:method=>:get%>
+	<%= link_to 'Remove',question_path(blocked_question),:method=>:delete,:class=>"btn btn-mini btn-danger",:remote=>:true%>
+</td>
+</tr>

@@ -81,5 +81,17 @@ class Question < ActiveRecord::Base
     def blocked_questions
       Question.find(:all, :conditions=>"flags_count=5");
     end
+
+    def unblock_questions(question)
+      question.each do |question|
+        question.flags_count = 0
+        question.save
+      end
+    end
+
+    def unblock_question(question)
+        question.flags_count = 0
+        question.save
+    end
   end
 end
