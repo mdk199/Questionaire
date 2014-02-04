@@ -34,11 +34,11 @@ class UsersController < ApplicationController
     	end
   	end
 
-  	def edit
+ 	def edit
     @user = User.find(params[:id])
-  	end
+ 	end
 
-  	def destroy
+ 	def destroy
     @user = User.find(params[:id])
     @user.destroy
     flash.now[:notice] = 'User was successfully removed.'

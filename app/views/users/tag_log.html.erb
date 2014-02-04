@@ -10,7 +10,7 @@
 <% @tags.each do |tag| %>
   <tr>
     <td><%= tag.name %></td>
-    <td></td>
+    <td><%= link_to 'Destroy', tag, method: :delete, data: { confirm: 'Are you sure?' }, :class=>"btn btn-mini btn-danger" %></td>
   </tr>
 <% end %>
 </tbody>

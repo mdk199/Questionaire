@@ -25,6 +25,8 @@ Rorproject::Application.routes.draw do
 
   resources :expertises
 
+  resources :tags
+
 
   resources :answers do
     collection do
