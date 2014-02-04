@@ -1,5 +1,8 @@
 if(window.location.pathname =="/questions/blocked")
-alert("Question is removed permanently");
+{
+	alert("Question is removed permanently");
+	window.location.reload();
+}
 else
 {	
 	$("#questionpanel_<%= @question.id%>").before("<%= escape_javascript(show_notice(notice)) %>");

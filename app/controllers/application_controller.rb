@@ -1,8 +1,25 @@
 class ApplicationController < ActionController::Base
-  layout 'devise'
   before_filter :authenticate_user!
 
   include PublicActivity::StoreController
+
+  layout :layout_by_resource
+
+  protected
+
+  def layout_by_resource
+    if devise_controller?
+      if resource_name == :agent && action_name == 'new'
+        nil
+      elsif resource_name == :admin && action_name == 'new'
+        nil
+      else
+        'devise'
+      end
+    else
+      'application'
+    end
+  end
 
   rescue_from 'CanCan::AccessDenied' do |exception|
     respond_to do |format|
