@@ -50,9 +50,10 @@ describe "the signin process" do
 	         		fill_in 'user_password', :with => @admin_user.password
 	       		 end
 		        click_button 'Sign in'
-		        puts page.body
 		        expect(page).to have_content success_msg 
 		        find_link('Blocked Questions').visible?.should == true
+		        click_link('Blocked Questions')
+		        expect(page).to have_content "Listing Blocked Questions"
 	    	end
 	    end
 	end
