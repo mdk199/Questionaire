@@ -113,8 +113,11 @@ class AnswersController < ApplicationController
     @answer.approve
     @answer.create_activity :approves, owner: current_user
     @answer.create_activity :got_approved, owner: @answer.user
-    @unapproved_answer.create_activity :unapproves, owner: current_user
-    @unapproved_answer.create_activity :got_unapproved, owner: @unapproved_answer.user
+    if @unapproved_answer.present?
+      @unapproved_answer.create_activity :unapproves, owner: current_user
+      @unapproved_answer.create_activity :got_unapproved, owner: @unapproved_answer.user
+    end
+   
     respond_to do |format|
       format.js { render "answers/approve", :layout => false }
       format.json { render json: @answers }
