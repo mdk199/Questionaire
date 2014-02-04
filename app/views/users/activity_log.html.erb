@@ -3,8 +3,10 @@
     <b>Activity Log</b>
   </div>
   <div class="panel-body ">
-    <table class="table table-striped">
-      <tr><th>Activity</th><th>Time</th></tr>
+    <table id="viewgrid"  class="table table-striped">
+      <thead>
+      <tr><th>Activity</th><th>Time</th></tr></thead>
+      <tbody>
       <% @activities.each do |activity| %>
           <tr><td><%= User.find(activity.owner_id).name %>
           <% if activity.key =="profile.create"%>
@@ -57,6 +59,8 @@
           <td><%= activity.created_at%></td>
         </tr>
       <%end%>
+    </tbody>
     </table>
   </div>
 </div>
+<%= render "shared/datatable_lib"%>
