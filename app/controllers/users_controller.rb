@@ -18,7 +18,6 @@ class UsersController < ApplicationController
 		end
 	end
 
-
 	def expertise
 		@user = User.find(params[:id])
 	end
@@ -55,6 +54,14 @@ class UsersController < ApplicationController
       format.html # activity_log.html.erb
       format.json { render json: @activities }
     end
-
   end
+
+  def tag_log
+    @tags = Tag.all
+    respond_to do |format|
+      format.html # tag_log.html.erb
+      format.json { render json: @tags}
+    end
+  end
+
 end
