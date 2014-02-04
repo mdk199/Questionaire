@@ -94,6 +94,11 @@ ActiveRecord::Schema.define(:version => 20140128095407) do
     t.datetime "updated_at"
   end
 
+  create_table "keys", :force => true do |t|
+    t.binary "ciphertext"
+    t.text   "key_pair"
+  end
+
   create_table "points_histories", :force => true do |t|
     t.integer  "user_id"
     t.integer  "points_map_id"
@@ -134,8 +139,8 @@ ActiveRecord::Schema.define(:version => 20140128095407) do
     t.datetime "updated_at",                       :null => false
     t.integer  "answers_count", :default => 0
     t.boolean  "published",     :default => false
-    t.integer  "flags_count",   :default => 0
     t.string   "title"
+    t.integer  "flags_count",   :default => 0
   end
 
   create_table "taggings", :force => true do |t|
