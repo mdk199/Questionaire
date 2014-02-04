@@ -1,9 +1,4 @@
-<%if current_user.present? && current_user.role=="Admin" %>
-  <a href="/tag_log" class="list-group-item">
-  <i class="icon-list"><b> Tag Log </b></i></a>
-<% else %>
 <h5>Tag List</h5>
-<% end %>
 <div style="height:180px; overflow:auto;">
   <ul class="list-group">
     <% Question.tagged_questions_count.each do |tag| %>

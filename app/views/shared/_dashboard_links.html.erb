@@ -10,30 +10,38 @@
     </ul>
   </a>
   <%if current_user.is_admin? %>
-  <a href="<%= blocked_questions_path%>" class="list-group-item">
+    <a href="<%= blocked_questions_path%>" class="list-group-item">
+      <ul class="media-list" style="margin-bottom:0px;">
+        <li class="media">
+          <div class="media-body">
+            <i class="icon-list"> Blocked Questions</i>
+          </div>
+        </li>
+      </ul>
+    </a>
     <ul class="media-list" style="margin-bottom:0px;">
       <li class="media">
         <div class="media-body">
-          <i class="icon-list"> Blocked Questions</i>
+          <a href="/activity_log" class="list-group-item">
+          <i class="icon-list"> Activity Log</i></a>
         </div>
       </li>
     </ul>
-  </a>
-  <ul class="media-list" style="margin-bottom:0px;">
-    <li class="media">
-      <div class="media-body">
-        <a href="/activity_log" class="list-group-item">
-        <i class="icon-list"> Activity Log</i></a>
-      </div>
-    </li>
-  </ul>
-  <ul class="media-list" style="margin-bottom:0px;">
-    <li class="media">
-      <div class="media-body">
-        <a href="/users" class="list-group-item">
-        <i class="icon-list"> Manage Users</i></a>
-      </div>
-    </li>
-  </ul>
+    <ul class="media-list" style="margin-bottom:0px;">
+      <li class="media">
+        <div class="media-body">
+          <a href="/users" class="list-group-item">
+          <i class="icon-list"> Manage Users</i></a>
+        </div>
+      </li>
+    </ul>
+    <ul class="media-list" style="margin-bottom:0px;">
+      <li class="media">
+        <div class="media-body">
+          <a href="/tag_log" class="list-group-item">
+          <i class="icon-list"> Tag Log</i></a>
+        </div>
+      </li>
+    </ul>
   <% end %>
 </div>
