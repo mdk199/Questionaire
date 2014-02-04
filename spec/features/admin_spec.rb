@@ -71,5 +71,22 @@ describe "the signin process" do
 		        expect(page).to have_content "Listing Users"
 	    	end
 	    end
+	    context "can manage all tags" do
+	    	before(:each) do
+	    		@admin_user.update_attribute(:confirmation_token, nil)
+	        	@admin_user.update_attribute(:confirmed_at, Time.now)
+	    	end
+	    	it "has access to tags" do
+	    		within("#new_user") do
+	    			fill_in 'user_username', :with => @admin_user.username
+	         		fill_in 'user_password', :with => @admin_user.password
+	    		end
+	    		click_button 'Sign in'
+		        expect(page).to have_content success_msg 
+		        find_link('Tag Log').visible?.should == true
+		        click_link('Tag Log')
+		        expect(page).to have_content "Listing All Tags"
+	    	end
+	    end
 	end
 end
