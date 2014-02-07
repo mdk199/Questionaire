@@ -1,7 +1,7 @@
 module AnswersHelper
   def answer_actions(user, answer)
     html = []
-    if answer.question.user == user || answer.user == user || user.is_admin?
+    if user.present? && (answer.question.user == user || answer.user == user || user.is_admin?)
       html << "<span class='action_links float-right'>"
 
      	if answer.question.user == user
