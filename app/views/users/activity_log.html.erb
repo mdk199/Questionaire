@@ -53,7 +53,13 @@
             <%= link_to 'Answer', question_path(Question.find(Answer.find(activity.trackable_id).question_id), :anchor => "answer_#{activity.trackable_id}")%>
             got unapproved
           <% elsif activity.key == "comment.create" %>
-            posted a <%= link_to 'Comment', question_path(Question.find(Answer.find(Comment.find(activity.trackable_id).answer_id).question_id), :anchor => "comment_#{activity.trackable_id}")%>  
+            posted a <%= link_to 'Comment', question_path(Question.find(Answer.find(Comment.find(activity.trackable_id).answer_id).question_id), :anchor => "comment_#{activity.trackable_id}")%>
+          <% elsif activity.key == "question.delete" %>
+            deleted a Question
+          <% elsif activity.key == "answer.delete" %>
+            deleted an Answer
+          <% elsif activity.key == "comment.delete" %>
+            deleted a Comment
           <%end%>
           </td>
           <td><%= activity.created_at%></td>
