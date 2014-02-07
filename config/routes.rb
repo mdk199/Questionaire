@@ -25,8 +25,6 @@ Rorproject::Application.routes.draw do
 
   resources :expertises
 
-  resources :tags
-
 
   resources :answers do
     collection do
@@ -48,8 +46,6 @@ Rorproject::Application.routes.draw do
     end
   end
 
-  match "activity_log" => "users#activity_log"
-  match "tag_log" => "users#tag_log"
   match "all_questions" => "questions#all_questions"
 
   # The priority is based upon order of creation:

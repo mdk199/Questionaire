@@ -9,7 +9,7 @@
       </li>
     </ul>
   </a>
-  <%if current_user.present? && current_user.is_admin?%>
+  <%if current_user.present? && current_user.is_admin? %>
   <a href="<%= blocked_questions_path%>" class="list-group-item">
     <ul class="media-list" style="margin-bottom:0px;">
       <li class="media">

@@ -18,6 +18,7 @@ class UsersController < ApplicationController
 		end
 	end
 
+
 	def expertise
 		@user = User.find(params[:id])
 	end
@@ -34,33 +35,17 @@ class UsersController < ApplicationController
     	end
   	end
 
- 	def edit
+  	def edit
     @user = User.find(params[:id])
- 	end
+  	end
 
- 	def destroy
+  	def destroy
     @user = User.find(params[:id])
     @user.destroy
     flash.now[:notice] = 'User was successfully removed.'
     respond_to do |format|
       format.html { redirect_to users_url }
       format.json { head :no_content }
-    end
-  end
-
-  def activity_log
-  	@activities = Activity.all
-  	respond_to do |format|
-      format.html # activity_log.html.erb
-      format.json { render json: @activities }
-    end
-  end
-
-  def tag_log
-    @tags = Tag.all
-    respond_to do |format|
-      format.html # tag_log.html.erb
-      format.json { render json: @tags}
     end
   end
 

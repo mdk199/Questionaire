@@ -88,7 +88,7 @@ class Question < ActiveRecord::Base
         question.save
       end
     end
-    
+
     def unblock_question(question)
         question.flags_count = 0
         question.save

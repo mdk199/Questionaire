@@ -5,7 +5,14 @@ class AnswersController < ApplicationController
   
   # GET /answers
   # GET /answers.json
+  def index
+    @answers = Answer.all
 
+    respond_to do |format|
+      format.html # index.html.erb
+      format.json { render json: @answers }
+    end
+  end
 
   # GET /answers/1
   # GET /answers/1.json
@@ -106,11 +113,8 @@ class AnswersController < ApplicationController
     @answer.approve
     @answer.create_activity :approves, owner: current_user
     @answer.create_activity :got_approved, owner: @answer.user
-    if @unapproved_answer.present?
-      @unapproved_answer.create_activity :unapproves, owner: current_user
-      @unapproved_answer.create_activity :got_unapproved, owner: @unapproved_answer.user
-    end
-   
+    @unapproved_answer.create_activity :unapproves, owner: current_user
+    @unapproved_answer.create_activity :got_unapproved, owner: @unapproved_answer.user
     respond_to do |format|
       format.js { render "answers/approve", :layout => false }
       format.json { render json: @answers }

@@ -11,7 +11,7 @@ describe "the signin process" do
   
     before(:each) { @user = FactoryGirl.create :user }
 
-    context "and confirmed" do
+    context "and confrimed" do
       before(:each) do
         @user.update_attribute(:confirmation_token, nil)
         @user.update_attribute(:confirmed_at, Time.now)
@@ -23,6 +23,7 @@ describe "the signin process" do
           fill_in 'user_password', :with => @user.password
         end
         click_button 'Sign in'
+        puts page.body
         expect(page).to have_content success_msg
       end
     end
