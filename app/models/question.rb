@@ -4,7 +4,7 @@ class Question < ActiveRecord::Base
   belongs_to :user
   has_many :documents, as: :documentable, :dependent => :destroy
   has_many :flags, as: :flagable, :dependent => :destroy
-  has_many :answers, :inverse_of=>:question
+  has_many :answers, :inverse_of=>:question,:dependent=> :destroy
   
   validates_presence_of :question, :user_id
   validate :valid_user

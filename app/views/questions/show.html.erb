@@ -29,11 +29,7 @@
 	  <div id="answers_<%= @question.id %>">
 	   	<%= render :partial => "answers/answer", :collection => @question.answers.order("created_at") %>
 	  </div>
-	  <%if current_user.present? %>
-	  <%= link_to '+ Add Answer', add_answer_question_path(@question),:remote=> true,:class=>'btn btn-primary btn-mini addbtn', :id=>"add_answer_#{@question.id}"%>
-	  <% else %>
-	  <%= link_to 'Sign In to Add Answer', new_user_session_path, :class=>'btn btn-primary btn-mini addbtn'%>
-	  <%end%>
+	  <%= question_answer_privileges(current_user,@question)%>
 	</div>
   </div>
   		<%= render "shared/modal"%>

@@ -1,7 +1,7 @@
 module AnswersHelper
   def answer_actions(user, answer)
     html = []
-    if answer.question.user == user || answer.user == user || user.is_admin?
+    if user.present? && (answer.question.user == user || answer.user == user || user.is_admin?)
       html << "<span class='action_links float-right'>"
 
      	if answer.question.user == user
@@ -24,5 +24,19 @@ module AnswersHelper
 
   def answer_panel_class(answer)
     answer.is_approved? ? "panel-success" : "panel-default"
+  end
+
+  def answer_comment_privileges(user,answer)
+    html = []
+    if user.present? 
+      path = add_comment_answer_path(answer) 
+      getremote = true
+    else
+      path = new_user_session_path
+      getremote = false
+    end
+
+    html << button_to('+ Add Comment', path ,:remote=> getremote,:class=>'btn btn-success btn-mini float-right',:method=>:get,:style =>"height:22px !important;")
+    raw html.join()
   end
 end

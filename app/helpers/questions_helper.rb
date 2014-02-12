@@ -55,4 +55,19 @@ module QuestionsHelper
     end  
     raw html.join()
   end
+
+  def question_answer_privileges(user,question)
+    html = []
+    if user.present? 
+      path = add_answer_question_path(question) 
+      getremote = true
+    else
+      path = new_user_session_path
+      getremote = false
+    end
+
+    html << button_to('+ Add Answer', path ,:remote=> getremote,:class=>'btn btn-primary btn-mini addbtn', :id=>"add_answer_#{question.id}",:method=>:get)
+    raw html.join()
+  end
+
 end
